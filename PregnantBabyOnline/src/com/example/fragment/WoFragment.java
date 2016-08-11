@@ -83,7 +83,7 @@ public class WoFragment  extends Fragment{
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			Toast.makeText(getActivity(), "点击", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getActivity(), "点击更换用户", Toast.LENGTH_SHORT).show();
 			
 		}
 	};
