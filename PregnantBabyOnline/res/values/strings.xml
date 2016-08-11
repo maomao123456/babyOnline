@@ -48,4 +48,9 @@
     <string name="mine">我</string>
     <string name="nihao">你好</string>
     
+    <string name="message_code">获取短信验证码</string>
+    <string name="input_code">请输入验证码</string>
+    <string name="next">下一步</string>
+    <string name="return_password">找回密码</string>
+    <string name="confirm">确定</string>
 </resources>
