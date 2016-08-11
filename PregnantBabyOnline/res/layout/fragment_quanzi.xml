@@ -4,79 +4,10 @@
     android:layout_height="match_parent"
     android:background="@color/qianhuise"
     android:orientation="vertical" >
-
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="152dp" >
-
-        <ViewFlipper
-            android:id="@+id/quanzi_viewFlipper"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:flipInterval="5000"
-            android:background="@color/baise" >
-            <ImageView 
-                android:id="@+id/quanzi_img1"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/guanggao1"/>
-            <ImageView 
-                android:id="@+id/quanzi_img2"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/guanggao2"/>
-            <ImageView
-                android:id="@+id/quanzi_img3" 
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/guanggao3"/>
-        </ViewFlipper>
-
-        <RadioGroup
-            android:id="@+id/quanzi_radioGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="20dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal" >
-
-            <RadioButton
-                android:id="@+id/quanzi_radioButton1"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:background="@drawable/quanzi_yuan_slector"
-                android:button="@null"
-                android:checked="true" />
-
-            <RadioButton
-                android:id="@+id/quanzi_radioButton2"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/quanzi_yuan_slector"
-                android:button="@null" />
-
-            <RadioButton
-                android:id="@+id/quanzi_radioButton3"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/quanzi_yuan_slector"
-                android:button="@null" />
-        </RadioGroup>
-
-    </RelativeLayout>
-
     <ListView
         android:id="@+id/quanzi_listView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
         android:background="@color/baise"
         android:divider="@color/qianhuise"
         android:dividerHeight="1dp" >
