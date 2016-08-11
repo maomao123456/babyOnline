@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="155dp"
+    android:background="@color/baise"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/quanzi_listview_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quanzi_nicheng"
+            android:textColor="@color/fenhongziti"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="131px"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="0px"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="7dp"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/quanzi_listview_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:maxEms="13"
+                    android:text="50岁，离过两次婚，带着三个娃..."
+                    android:textColor="@color/heisezi"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/quanzi_listview_neirong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:ellipsize="end"
+                    android:maxEms="16"
+                    android:maxLines="2"
+                    android:text="一个女人，50多岁。先后经历了两次失败的婚姻，带着三个孩子。这么看上去，堪称是..."
+                    android:textColor="@color/huisezi"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/qunazi_listView_touxiang"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:background="#ff0000"
+                android:scaleType="fitXY" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <com.example.lei.CircularImage
+                android:id="@+id/quanzi_listview_xioatouxiang"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                />
+
+            <TextView
+                android:id="@+id/quanzi_listview_nicheng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Bacio"
+                android:textColor="@color/quanzi_huifuzi"
+                android:textSize="9sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/quanzi_listview_huifu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="48回复"
+                android:textColor="@color/quanzi_huifuzi"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

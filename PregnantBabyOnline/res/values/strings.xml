@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">育婴在线</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="quanzi">圈子</string>
+    <string name="shouye">首页</string>
+    <string name="shiping">视频</string>
+    <string name="wo">我</string>
+    <string name="baobaoyitian">宝宝1天</string>
+    <string name="quanzi_nicheng">时尚辣妈</string>
+    
+    
+    <string name="register_now">立即注册</string>
+    <string name="login_account">用户名/手机号/邮箱</string>
+    <string name="login_password">请输入密码</string>
+    <string name="login">登录</string>
+    <string name="forget_password">忘记密码</string>
+    <string name="question">遇到问题</string>
+    <string name="third_login">第三方直接登录</string>
+    <string name="qq">QQ</string>
+    <string name="sina_weibo">新浪微博</string>
+    <string name="wechat">微信</string>
+    
+    <string name="select_identity">选择身份</string>
+    <string name="born">已出生</string>
+    <string name="pregnancying">怀孕中</string>
+    <string name="for_pregnancy">备孕中</string>
+    <string name="direct_login">直接登录></string>
+    
+    <string name="register">注册</string>
+    <string name="input_phone_number">请输入电话号码</string>
+    <string name="set_password">请设置密码</string>
+    <string name="confirm_password">确认密码</string>
+    <string name="cangjingge">藏经阁</string>
+    <string name="beiyun">备孕</string>
+    <string name="yunqi">孕期</string>
+    <string name="yinger">婴儿</string>
+    <string name="beiyunchangshi">备孕常识</string>
+    <string name="yinshitiaoli">饮食调理</string>
+    <string name="shouyunjiqiao">受孕技巧</string>
+    <string name="yunqianjiancha">孕前检查</string>
+    <string name="baby_neirong">今天早饭时，闺女皱着眉头说：
+	    “妈妈，我不想去打篮球了”，我讶异：“为什么啊？” “我们...”</string>
+	    
+    <string name="title">备孕营养</string>
+    <string name="mine">我</string>
+    
+</resources>

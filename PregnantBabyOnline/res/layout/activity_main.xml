@@ -1,0 +1,88 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+	<!-- <View 
+	    android:layout_width="fill_parent"
+	    android:layout_height="20dp"
+	    android:background="@color/fenhongse"/> -->
+    <TextView
+        android:id="@+id/main_title"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@color/fenhongse"
+        android:gravity="center"
+        android:text="@string/baobaoyitian"
+        android:textColor="@color/baise"
+        android:textSize="18sp" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/main_viewPager"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#efefef" />
+
+    <RadioGroup
+        android:id="@+id/main_radioGroup"
+        android:layout_width="fill_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/main_shouye"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_weight="1"
+            android:checked="true"
+            android:button="@null"
+            android:drawableTop="@drawable/shouye_selector"
+            android:gravity="center_horizontal"
+            android:text="@string/shouye"
+            android:textColor="@color/fenhongziti"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/main_shipin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/shipin_selector"
+            android:gravity="center_horizontal"
+            android:text="@string/shiping"
+            android:textColor="@color/fenhongziti"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/main_quanzi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/quanzi_selector"
+            android:gravity="center_horizontal"
+            android:text="@string/quanzi"
+            android:textColor="@color/fenhongziti"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/main_wo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/wo_selector"
+            android:gravity="center_horizontal"
+            android:text="@string/wo"
+            android:textColor="@color/fenhongziti"
+            android:textSize="12sp" />
+    </RadioGroup>
+
+</LinearLayout>

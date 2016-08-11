@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="baise">#ffffff</color>
+    <color name="fenhongse">#ED6A79</color>
+    <color name="fenhongziti">#f25f8e</color>
+    <color name="qianhuise">#efefef</color>
+     <color name="heisezi">#2b2b2b</color>
+      <color name="huisezi">#3c3c3c</color>
+      <color name="quanzi_huifuzi">#8a8a8a</color>
+      
+       <color name="background_color">#FFAEB9</color>
+    <color name="word_color">#FFEEEE</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="border_color">#FFFCF5</color>
+    <color name="register_word_color">#313131</color>
+    <color name="login_button_color">#FFC0CB</color>
+    
+    <color name="green">#26c1c5</color>
+    <color name="blackc">#4c4c4c</color>
+    <color name="blacka">#4a4a4a</color>
+    <color name="orange">#fa7d69</color>
+    <color name="pink">#ED6A79</color>
+    <color name="red">#D15650</color>
+    <color name="yellow">#FBF8F2</color>
+    <color name="gray">#F1EFED</color>
+    <color name="rose">#E49F9C</color>
+    <color name="white2">#E9B4B3</color>
+</resources>
