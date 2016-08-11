@@ -50,4 +50,6 @@
     <string name="message_code">获取短信验证码</string>
     <string name="input_code">请输入验证码</string>
     <string name="next">下一步</string>
+    <string name="new_password">新密码</string>
+    <string name="confirm">确定</string>
 </resources>
