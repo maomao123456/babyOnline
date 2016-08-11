@@ -46,7 +46,7 @@ public class PabulumActivity extends Activity{
 		
 		List<Map<String, Object>> list= new ArrayList<Map<String,Object>>();
 		Map<String, Object> map=new HashMap<String, Object>();
-		map.put("title", "�Ե��²��У���������ε�����ʳ��");
+		map.put("title", "哈哈哈哈");
 		map.put("text", "����");
 		map.put("image", R.drawable.tp1);
 		list.add(map);
