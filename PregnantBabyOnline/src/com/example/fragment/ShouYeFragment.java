@@ -2,6 +2,8 @@ package com.example.fragment;
 
 
 
+import java.util.Date;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -43,6 +46,11 @@ public class ShouYeFragment extends Fragment{
 	TextView shouce;
 	LinearLayout buju1;
 	LinearLayout buju2;
+	Date date;
+	Date next_day;
+	ListView listview;
+	LinearLayout  hearderViewLayout;
+	View headView;
 	
 	int[] id={R.id.listview_image_education_baby,R.id.listview_title_baby,
 			R.id.listview_bigtitle_baby,R.id.listview_neirong_baby};
@@ -50,13 +58,19 @@ public class ShouYeFragment extends Fragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		view=(View)inflater.inflate(R.layout.fragment_baby, null);
-		initView();
-		dianji();
-		seekBar.setOnSeekBarChangeListener(seekBarChangeListener);
+		view=(View)inflater.inflate(R.layout.fragment_shouye, null);
+		hearderViewLayout=(LinearLayout)inflater.inflate(R.layout.fragment_baby, null);
+		headView=(View)hearderViewLayout.findViewById(R.id.baby_headView);
+		listview=(ListView)view.findViewById(R.id.listview_shouye);
+		listview.addHeaderView(headView);
+		//initView();
+		//date();
+		//dianji();
+		//seekBar.setOnSeekBarChangeListener(seekBarChangeListener);
 		return view;
 	}
 	public void initView(){
+		
 		top_text=(TextView)view.findViewById(R.id.textview_baby_top);
 		image_head=(ImageView)view.findViewById(R.id.image_baby_head);
 		shengao=(TextView)view.findViewById(R.id.textview_shengao);
@@ -77,8 +91,6 @@ public class ShouYeFragment extends Fragment{
 		story=(TextView)view.findViewById(R.id.textview_story_baby);
 		cangjingge=(TextView)view.findViewById(R.id.textview_cangjingge_baby);
 		shouce=(TextView)view.findViewById(R.id.textview_zhishishouce_baby);
-		buju1=(LinearLayout)view.findViewById(R.id.buju_baby);
-		buju2=(LinearLayout)view.findViewById(R.id.buju_baby2);
 	}
 	public void dianji(){
 		image_head.setOnClickListener(onClickListener);
@@ -119,15 +131,16 @@ public class ShouYeFragment extends Fragment{
 				Toast.makeText(getActivity(), "跳转到藏经阁页面", Toast.LENGTH_SHORT).show();
 				startActivity(new Intent(getActivity(),CangJingGeActivity.class));
 				break;
-			case R.id.buju_baby:
-				Toast.makeText(getActivity(), "跳转到宝宝发育页面", Toast.LENGTH_SHORT).show();
-				break;
-			case R.id.buju_baby2:
-				Toast.makeText(getActivity(), "跳转到宝宝发育页面2", Toast.LENGTH_SHORT).show();
-				break;
 			}
 		}
 	};
+	public void date(){//设置默认日期
+		date=new Date();
+		now_date.setText(date.getMonth()+1+"月"+date.getDay()+"日");//今天的日期
+		next_day=new Date();
+		next_day.setDate(date.getDate()+1);
+		next_date.setText(next_day.getMonth()+1+"月"+next_day.getDay()+"日");//明天的日期
+	}
 	OnSeekBarChangeListener seekBarChangeListener=new OnSeekBarChangeListener() {
 		
 		@Override
@@ -147,9 +160,16 @@ public class ShouYeFragment extends Fragment{
 				boolean fromUser) {
 			// TODO Auto-generated method stub
 			if(progress>0){
+				Date dateC=new Date();
+				Date nextDayC=new Date();
 				baby_now.setText(progress+"天");
 				baby_next.setText(progress+1+"天");
+				dateC.setDate(date.getDate()+progress);
+				now_date.setText(dateC.getMonth()+1+"月"+dateC.getDay()+"日");
+				nextDayC.setDate(date.getDate()+progress+1);
+				next_date.setText(nextDayC.getMonth()+1+"月"+nextDayC.getDay()+"日");
 			}
+			
 		}
 	};
 }
