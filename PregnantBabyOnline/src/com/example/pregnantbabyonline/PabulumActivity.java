@@ -79,6 +79,9 @@ public class PabulumActivity extends Activity{
 		map.put("title", "�뻳��Ӧ���ٳ��⣿û���о�֤ʵ��㣡");
 		map.put("text","����");
 		map.put("image", R.drawable.tp5);
+		map.put("title", "想怀孕应该撒吃肉？没有研究证实这点！");
+		map.put("text","备孕");
+		map.put("image", R.drawable.tp6);
 		list.add(map);
 	
 		return list;
@@ -130,6 +133,7 @@ public class PabulumActivity extends Activity{
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			Toast.makeText(PabulumActivity.this, "����",Toast.LENGTH_SHORT).show();
+			Toast.makeText(PabulumActivity.this, "返回",Toast.LENGTH_SHORT).show();
 			
 			
 		}
