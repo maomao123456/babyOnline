@@ -11,7 +11,10 @@
     <LinearLayout 
         android:orientation="vertical"
         android:layout_width="fill_parent"
+<<<<<<< HEAD
         android:background="@drawable/bigsun"
+=======
+>>>>>>> 8f7102b5dc3ee7fa3f22b9a451f0168c5034ae3b
         android:layout_height="180dp">
         
          

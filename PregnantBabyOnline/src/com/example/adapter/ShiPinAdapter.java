@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.lei.ShiPinListview;
@@ -53,7 +54,7 @@ public class ShiPinAdapter extends BaseAdapter{
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		if(convertView==null){
 			convertView=inflater.inflate(item, null);
@@ -65,6 +66,24 @@ public class ShiPinAdapter extends BaseAdapter{
 		tupian.setImageResource(shipin.getTuPian());
 		title.setText(shipin.getTitle());
 		length.setText(shipin.getLength());
+		tupian.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				switch(position){
+				case 0:
+					Toast.makeText(context, "进入到宝宝健康知识视频", Toast.LENGTH_SHORT).show();
+					break;
+				case 1:
+					Toast.makeText(context, "进入到宝宝换尿布视频", Toast.LENGTH_SHORT).show();
+					break;
+				case 2:
+					Toast.makeText(context, "进入到交朋友视频", Toast.LENGTH_SHORT).show();
+					break;
+				}
+			}
+		});
 		return convertView;
 	}
 }

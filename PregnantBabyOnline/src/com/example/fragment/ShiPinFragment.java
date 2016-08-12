@@ -34,7 +34,6 @@ public class ShiPinFragment extends Fragment{
 		getList();
 		adapter=new ShiPinAdapter(getActivity(), list, R.layout.listview_item_shipin, id);
 		listview.setAdapter(adapter);
-		listview.setOnItemClickListener(listener);
 		return view;
 	}
 	public void getList(){
@@ -57,25 +56,4 @@ public class ShiPinFragment extends Fragment{
 		shipin.setLength("等待戈多/2'32");
 		list.add(shipin);
 	}
-	OnItemClickListener listener=new OnItemClickListener() {
-
-		@Override
-		public void onItemClick(AdapterView<?> parent, View view, int position,
-				long id) {
-			// TODO Auto-generated method stub
-			
-				switch(position){
-				case 0:
-					Toast.makeText(getActivity(), "进入到宝宝健康知识视频", Toast.LENGTH_SHORT).show();
-					break;
-				case 1:
-					Toast.makeText(getActivity(), "进入到宝宝换尿布视频", Toast.LENGTH_SHORT).show();
-					break;
-				case 2:
-					Toast.makeText(getActivity(), "进入到宝宝交朋友视频", Toast.LENGTH_SHORT).show();
-					break;
-				}
-			}
-		
-	};
 }
