@@ -53,6 +53,7 @@
         <activity android:name="com.example.pregnantbabyonline.BeiYunRiLiActivity" />
         <activity android:name="com.example.pregnantbabyonline.CangJingGeActivity" />
         <activity android:name="com.example.pregnantbabyonline.PabulumActivity" />
+        <activity android:name="com.example.pregnantbabyonline.WebActivity"/>
         
          <!-- 跳转到微博的页面 -->
         <activity
