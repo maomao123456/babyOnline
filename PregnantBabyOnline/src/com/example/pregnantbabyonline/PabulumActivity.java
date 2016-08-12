@@ -52,13 +52,10 @@ public class PabulumActivity extends Activity{
 		list.add(map);
 		
 		map=new HashMap<String, Object>();
-<<<<<<< HEAD
 		map.put("title", "��ͷ�ʢ���������������");
 		map.put("text", "����");
-=======
 		map.put("title", "早餐丰富有助怀孕是真的吗？");
 		map.put("text", "备孕");
->>>>>>> develop
 		map.put("image", R.drawable.tp2);
 		list.add(map);
 		

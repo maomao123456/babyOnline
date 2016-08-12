@@ -20,13 +20,7 @@ public class MainActivity extends Activity {
 	Button directLogin;
 	SharedPreferences preferences;
 	private Editor editor;	
-<<<<<<< HEAD
-	 
-	@Override
-=======
-			
 	@Override	
->>>>>>> develop
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
