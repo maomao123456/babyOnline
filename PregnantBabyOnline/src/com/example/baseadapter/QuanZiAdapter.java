@@ -67,10 +67,9 @@ public class QuanZiAdapter extends BaseAdapter {
 		TextView title = (TextView) convertView.findViewById(id[1]);
 		TextView neirong = (TextView) convertView.findViewById(id[2]);
 		ImageView touxiang = (ImageView) convertView.findViewById(id[3]);
+		//调用画圆类  进行画圆
 		CircularImage xiaotouxiang = (CircularImage) convertView
 				.findViewById(id[4]);
-		// xiaotouxiang.setImageResource(R.drawable.tp6);
-		// ImageView xiaotouxiang=(ImageView)convertView.findViewById(id[4]);
 		TextView nicheng = (TextView) convertView.findViewById(id[5]);
 		TextView huifu = (TextView) convertView.findViewById(id[6]);
 		QuanZiListview quanzi = list.get(position);
