@@ -1,12 +1,17 @@
 package com.example.fragment;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NotificationCompat.Action;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -25,6 +30,7 @@ import android.widget.ViewFlipper;
 import com.example.baseadapter.QuanZiAdapter;
 import com.example.lei.QuanZiListview;
 import com.example.pregnantbabyonline.R;
+import com.example.pregnantbabyonline.WebActivity;
 
 public class QuanZiFragment extends Fragment {
 	View view;
@@ -88,16 +94,32 @@ public class QuanZiFragment extends Fragment {
 	OnTouchListener l=new OnTouchListener() {
 		public boolean onTouch(View v, MotionEvent event) {
 			// TODO Auto-generated method stub
+			Uri uri2=Uri.parse("https://www.baidu.com");
+			Uri uri3=Uri.parse("http://www.51baomu.cn/baomu1-6101-4-0-0-0-0-0-0-1-1-0-0.html");
 				if(viewFlipper.getDisplayedChild()==0){
 					Toast.makeText(getActivity(), "进入当前应用1",
 							Toast.LENGTH_SHORT).show();
+					//Intent intent=new Intent("", "http://tv.sogou.com/v?query=%CD%F2%BC%D2%D3%FD%D3%A4%CA%A6&p=40230600&tn=0&st=255");
+					 Intent intent=new Intent();//创建Intent对象  
+		                intent.setAction(Intent.ACTION_VIEW);//为Intent设置动作  
+		                String data="http://tv.sogou.com/v?query=%CD%F2%BC%D2%D3%FD%D3%A4%CA%A6&p=40230600&tn=0&st=255";
+		                //获取编辑框里面的文本内容  
+		                intent.setData(Uri.parse(data));//为Intent设置数据  
+		                startActivity(intent);//将Intent传递给Activity  
+					startActivity(intent);
 					
 				}else if(viewFlipper.getDisplayedChild()==1){
 					Toast.makeText(getActivity(), "进入当前应用2",
 							Toast.LENGTH_SHORT).show();
+					Intent intent=new Intent(Intent.ACTION_VIEW, uri2);
+					startActivity(intent);
 				}else if(viewFlipper.getDisplayedChild()==2){
 					Toast.makeText(getActivity(), "进入当前应用3",
 							Toast.LENGTH_SHORT).show();
+					Intent intent=new Intent(Intent.ACTION_VIEW, uri3);
+					//调用webview跳转到webviewActivity 地址详见webViewActivity  
+					Intent intent2=new Intent(getActivity(), WebActivity.class);
+					startActivity(intent2);
 				}
 			
 			return false;
