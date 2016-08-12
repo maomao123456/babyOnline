@@ -11,7 +11,7 @@
     <LinearLayout 
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:background="@drawable/BigSun"
+        android:background="@drawable/bigsun"
         android:layout_height="180dp">
         
          
@@ -113,7 +113,8 @@
             android:text="粉丝"/>     
     </LinearLayout>
     
-     <LinearLayout 
+     <LinearLayout
+         android:id="@+id/linearLayout1" 
          android:orientation="horizontal"
          android:layout_width="fill_parent"
          android:layout_marginTop="10dp"
@@ -152,6 +153,7 @@
      </LinearLayout>
      
      <LinearLayout 
+          android:id="@+id/linearLayout2" 
          android:orientation="horizontal"
          android:layout_width="fill_parent"
          android:layout_marginTop="10dp"
@@ -198,6 +200,7 @@
          
      </LinearLayout>
      <LinearLayout 
+          android:id="@+id/linearLayout3" 
          android:orientation="horizontal"
          android:layout_width="fill_parent"
          android:layout_marginTop="10dp"
@@ -234,6 +237,7 @@
          
      </LinearLayout>
      <LinearLayout 
+          android:id="@+id/linearLayout4" 
          android:orientation="horizontal"
          android:layout_width="fill_parent"
          android:layout_marginTop="1dp"
@@ -270,6 +274,7 @@ android:layout_marginRight="17dp"
          
      </LinearLayout>
      <LinearLayout 
+          android:id="@+id/linearLayout5" 
          android:orientation="horizontal"
          android:layout_width="fill_parent"
          android:layout_marginTop="10dp"
@@ -307,6 +312,7 @@ android:layout_marginRight="17dp"
          
      </LinearLayout>
      <LinearLayout 
+          android:id="@+id/linearLayout6" 
          android:orientation="horizontal"
          android:layout_width="fill_parent"
          android:layout_marginTop="1dp"
