@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ public class QuanZiAdapter extends BaseAdapter {
 	List<QuanZiListview> list;
 	int item;
 	int[] id;
+	View windView;
 
 	public QuanZiAdapter() {
 		// super();
@@ -67,10 +69,9 @@ public class QuanZiAdapter extends BaseAdapter {
 		TextView title = (TextView) convertView.findViewById(id[1]);
 		TextView neirong = (TextView) convertView.findViewById(id[2]);
 		ImageView touxiang = (ImageView) convertView.findViewById(id[3]);
+		//调用画圆类  进行画圆
 		CircularImage xiaotouxiang = (CircularImage) convertView
 				.findViewById(id[4]);
-		// xiaotouxiang.setImageResource(R.drawable.tp6);
-		// ImageView xiaotouxiang=(ImageView)convertView.findViewById(id[4]);
 		TextView nicheng = (TextView) convertView.findViewById(id[5]);
 		TextView huifu = (TextView) convertView.findViewById(id[6]);
 		QuanZiListview quanzi = list.get(position);
@@ -84,8 +85,12 @@ public class QuanZiAdapter extends BaseAdapter {
 		
 		touxiang.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				windView=(View)inflater.inflate(R.layout.quanzi_popupwindow_datouxiang, null);
+				PopupWindow popupWindow=new PopupWindow(windView);
+				ImageView datouxiang=(ImageView)windView.findViewById(R.id.quanzi_popuwindow_datouxiang);
 				switch (position) {
 				case 0:
+					
 					Toast.makeText(context, "第一项的头像", Toast.LENGTH_SHORT).show();
 					break;
 				case 1:
