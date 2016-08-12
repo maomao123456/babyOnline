@@ -10,7 +10,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -20,7 +19,6 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -55,7 +53,6 @@ public class QuanZiFragment extends Fragment {
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		headView=(View)inflater.inflate(R.layout.quanzi_listview_head_item, null);
-		listChlid=(View)inflater.inflate(R.layout.quanzi_listview_item, null);
 		view = (View) inflater.inflate(R.layout.fragment_quanzi, null);
 		initView();
 		viewFlipper.startFlipping();
@@ -94,6 +91,7 @@ public class QuanZiFragment extends Fragment {
 				if(viewFlipper.getDisplayedChild()==0){
 					Toast.makeText(getActivity(), "进入当前应用1",
 							Toast.LENGTH_SHORT).show();
+					
 				}else if(viewFlipper.getDisplayedChild()==1){
 					Toast.makeText(getActivity(), "进入当前应用2",
 							Toast.LENGTH_SHORT).show();
