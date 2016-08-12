@@ -53,7 +53,7 @@ public class PabulumActivity extends Activity{
 		
 		map=new HashMap<String, Object>();
 		map.put("title", "早餐丰富有助怀孕是真的吗？");
-		map.put("text", "�备孕");
+		map.put("text", "备孕");
 		map.put("image", R.drawable.tp2);
 		list.add(map);
 		
