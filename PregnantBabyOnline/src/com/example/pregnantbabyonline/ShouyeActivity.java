@@ -53,6 +53,20 @@ public class ShouyeActivity extends FragmentActivity {
 		fragmentAdapter=new MainFragmentAdapter(
 				getSupportFragmentManager(), fragmentList);
 		viewPager.setAdapter(fragmentAdapter);
+		//getpage();
+	}
+	/**
+	 * 通过intent传递参数
+	 */
+	public void getpage(){
+		if(getIntent().getExtras()!=null){
+			if(getIntent().getExtras().getInt("numb")==2){
+				viewPager.setCurrentItem(2);
+				quanzi.setChecked(true);
+				title.setText(R.string.quanzi);
+			}
+		}
+		
 	}
 	/**
 	 * 通过id找到控件 并设置相应的点击事件

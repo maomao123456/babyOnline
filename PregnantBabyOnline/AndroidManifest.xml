@@ -36,6 +36,7 @@
         >
         <activity
             android:name=".ShouyeActivity"
+            android:launchMode="singleTask"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,11 +48,12 @@
         <activity android:name="com.example.pregnantbabyonline.LoginActivity"
             />
         <activity android:name="com.example.pregnantbabyonline.MainActivity" 
-            android:launchMode="singleTop"/>
+            android:launchMode="singleTask"/>
         <activity android:name="com.example.pregnantbabyonline.BeiYunRiLiActivity" />
         <activity android:name="com.example.pregnantbabyonline.CangJingGeActivity" />
         <activity android:name="com.example.pregnantbabyonline.PabulumActivity" />
         <activity android:name="com.example.pregnantbabyonline.WebActivity"/>
+        <activity android:name="com.example.pregnantbabyonline.QuanZiChildActivity"/>
         
          <!-- 跳转到微博的页面 -->
         <activity
