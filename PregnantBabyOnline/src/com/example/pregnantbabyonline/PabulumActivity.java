@@ -42,48 +42,43 @@ public class PabulumActivity extends Activity{
 		
 	}
 	
-	public List<? extends Map<String, ?>> getData(){
+public List<? extends Map<String, ?>> getData(){
 		
 		List<Map<String, Object>> list= new ArrayList<Map<String,Object>>();
 		Map<String, Object> map=new HashMap<String, Object>();
-		map.put("title", "哈哈哈哈");
-		map.put("text", "����");
+		map.put("title", "吃素食导致不孕？备孕期间如何调节饮食");
+		map.put("text", "备孕");
 		map.put("image", R.drawable.tp1);
 		list.add(map);
 		
 		map=new HashMap<String, Object>();
-		map.put("title", "��ͷ�ʢ���������������");
-		map.put("text", "����");
 		map.put("title", "早餐丰富有助怀孕是真的吗？");
 		map.put("text", "备孕");
 		map.put("image", R.drawable.tp2);
 		list.add(map);
 		
 		map=new HashMap<String, Object>();
-		map.put("title", "����Ӫ������������äĿ���ñ���Ʒ");
-		map.put("text", "����");
+		map.put("title", "备孕营养讲究，不可盲目服用保健品");
+		map.put("text", "备孕");
 		map.put("image", R.drawable.tp3);
 		list.add(map);
 		
 		map=new HashMap<String, Object>();
-		map.put("title", "��������Ҫ�Ը���ά�����");
-		map.put("text", "����");
+		map.put("title", "备孕期需要吃复合维生素嘛？");
+		map.put("text", "备孕");
 		map.put("image", R.drawable.tp4);
 		list.add(map);
 		
 		map=new HashMap<String, Object>();
-		map.put("title", "������ʱӦ����δ���Ӫ����");
-		map.put("text", "����");
+		map.put("title", "想生宝宝时应该如何储备营养？");
+		map.put("text", "备孕");
 		map.put("image", R.drawable.tp5);
 		list.add(map);
 		
 		map=new HashMap<String, Object>();
-		map.put("title", "�뻳��Ӧ���ٳ��⣿û���о�֤ʵ��㣡");
-		map.put("text","����");
-		map.put("image", R.drawable.tp5);
-		map.put("title", "想怀孕应该撒吃肉？没有研究证实这点！");
+		map.put("title", "想怀孕应该少吃肉？没有研究证实这点！");
 		map.put("text","备孕");
-		map.put("image", R.drawable.tp6);
+		map.put("image", R.drawable.tp5);
 		list.add(map);
 	
 		return list;
