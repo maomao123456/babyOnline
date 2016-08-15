@@ -32,16 +32,12 @@
     <!-- 11212 -->
     <application
         android:allowBackup="true"
-<<<<<<< HEAD
         android:icon="@drawable/ic_launcher"
-        android:theme="@android:style/Theme.Holo.NoActionBar"
-        android:label="@string/app_name">
-       <!--  android:theme="@android:style/Theme.Holo.NoActionBar.TranslucentDecor" -->
-        >
-=======
-        android:icon="@drawable/zhuti"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Holo.NoActionBar" >
+
+        <!-- android:theme="@android:style/Theme.Holo.NoActionBar.TranslucentDecor" -->
+
 
         <!-- android:theme="@android:style/Theme.Holo.NoActionBar.TranslucentDecor" -->
         <activity
@@ -49,46 +45,30 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
->>>>>>> feature/xuxueshuang
         <activity
             android:name=".ShouyeActivity"
-            android:launchMode="singleTask"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:launchMode="singleTask" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-         <activity android:name="com.example.pregnantbabyonline.RegisterActivity" 
-            />
-        <activity android:name="com.example.pregnantbabyonline.LoginActivity"
-            />
-        <activity android:name="com.example.pregnantbabyonline.MainActivity" 
-            android:launchMode="singleTop"/>
-        <!-- <activity android:name="com.example.pregnantbabyonline.ShouyeActivity" 
-            android:launchMode="singleTop"/> -->
-        <activity android:name="com.example.pregnantbabyonline.BeiYunRiLiActivity" />
-        <activity android:name="com.example.pregnantbabyonline.CangJingGeActivity" />
-        <activity android:name="com.example.pregnantbabyonline.PabulumActivity" />
-        <activity android:name="com.example.pregnantbabyonline.WebActivity"/>
-        <activity android:name="com.example.pregnantbabyonline.QuanZiChildActivity"/>
-        
-         <!-- 跳转到微博的页面 -->
-=======
         <activity android:name="com.example.pregnantbabyonline.RegisterActivity" />
         <activity android:name="com.example.pregnantbabyonline.LoginActivity" />
-        <activity
-            android:name="com.example.pregnantbabyonline.MainActivity"
+        <activity android:name="com.example.pregnantbabyonline.MainActivity"
             android:launchMode="singleTop" />
+        <!--
+             <activity android:name="com.example.pregnantbabyonline.ShouyeActivity" 
+            android:launchMode="singleTop"/>
+        -->
         <activity android:name="com.example.pregnantbabyonline.BeiYunRiLiActivity" />
         <activity android:name="com.example.pregnantbabyonline.CangJingGeActivity" />
         <activity android:name="com.example.pregnantbabyonline.PabulumActivity" />
         <activity android:name="com.example.pregnantbabyonline.WebActivity" />
+        <activity android:name="com.example.pregnantbabyonline.QuanZiChildActivity" />
 
         <!-- 跳转到微博的页面 -->
->>>>>>> feature/xuxueshuang
         <activity
             android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
             android:configChanges="keyboardHidden|orientation"
