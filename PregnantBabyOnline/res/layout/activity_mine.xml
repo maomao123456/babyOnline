@@ -149,11 +149,7 @@
             android:src="@drawable/jt1" />
     </LinearLayout>
 
-<<<<<<< HEAD
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-=======
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="fill_parent"
@@ -216,7 +212,6 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
->>>>>>> adbb32283a29dc311975ce47768f914431b7f378
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
@@ -263,11 +258,7 @@
     </LinearLayout>
 
     <LinearLayout
-<<<<<<< HEAD
-        android:id="@+id/linearLayout3"
-=======
         android:id="@+id/linearLayout4"
->>>>>>> adbb32283a29dc311975ce47768f914431b7f378
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
