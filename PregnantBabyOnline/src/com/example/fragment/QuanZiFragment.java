@@ -93,10 +93,7 @@ public class QuanZiFragment extends Fragment {
 		public boolean onTouch(View v, MotionEvent event) {
 			Uri uri2=Uri.parse("https://www.baidu.com");
 			Uri uri3=Uri.parse("http://www.51baomu.cn/baomu1-6101-4-0-0-0-0-0-0-1-1-0-0.html");
-			if(event.getAction()==MotionEvent.ACTION_POINTER_UP){
-				Toast.makeText(getActivity(), "12333", Toast.LENGTH_SHORT).show();
-				return false;
-			}
+			if(event.getAction()==MotionEvent.ACTION_UP){//单独使用时需要返回true才能监听到UP事件
 				if(viewFlipper.getDisplayedChild()==0){
 					Toast.makeText(getActivity(), "万家育婴师欢迎你！",
 							Toast.LENGTH_SHORT).show();
@@ -117,8 +114,8 @@ public class QuanZiFragment extends Fragment {
 					Intent intent2=new Intent(getActivity(), WebActivity.class);
 					startActivity(intent2);
 				}
-			
-			return false;
+			}
+			return true;
 		}
 	};
 	/**
@@ -129,23 +126,17 @@ public class QuanZiFragment extends Fragment {
 				long id) {
 			switch (position) {
 			case 1:
-				Toast.makeText(getActivity(), "你所在位置为"+position+"view的id为"+view.getId(),
-						Toast.LENGTH_SHORT).show();
 				Intent intent=new Intent(getActivity(), QuanZiChildActivity.class);
 				intent.putExtra("position", 1);
 				startActivity(intent);
 				break;
 			case 2:
-				Toast.makeText(getActivity(), "你所在位置为"+position+"view的id为"+view.getId(),
-						Toast.LENGTH_SHORT).show();
 				intent=new Intent(getActivity(), QuanZiChildActivity.class);
 				intent.putExtra("position", 2);
 				startActivity(intent);
 
 				break;
 			case 3:
-				Toast.makeText(getActivity(), "你所在位置为"+position+"view的id为"+view.getId(),
-						Toast.LENGTH_SHORT).show();
 				intent=new Intent(getActivity(), QuanZiChildActivity.class);
 				intent.putExtra("position", 3);
 				startActivity(intent);
@@ -161,7 +152,6 @@ public class QuanZiFragment extends Fragment {
 				break;
 			}
 		}
-
 	};
 	/**
 	 * 圆点的监听事件
@@ -211,7 +201,6 @@ public class QuanZiFragment extends Fragment {
 							i = 0;
 						}
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
