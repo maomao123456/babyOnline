@@ -4,10 +4,17 @@
     android:layout_height="match_parent"
     android:background="@color/qianhuise"
     android:orientation="vertical" >
-    <View
+    <!-- <View
         android:layout_width="fill_parent"
         android:layout_height="20dp"
-        android:background="@color/fenhongse"/>
+        android:background="@color/fenhongse"/> -->
+        <ScrollView 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout 
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="50dp"
@@ -353,5 +360,7 @@
             android:textColor="#444444"
             android:textSize="12sp" />
     </LinearLayout>
+       </LinearLayout>
+        </ScrollView>
 
 </LinearLayout>
