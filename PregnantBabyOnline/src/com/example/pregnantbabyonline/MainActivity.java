@@ -61,7 +61,7 @@ public class MainActivity extends Activity {
 		public void onClick(View v) {
 			switch (v.getId()) {
 			case R.id.direct_login:
-				directLogin();
+				directLogin();	
 				break;
 
 			default:

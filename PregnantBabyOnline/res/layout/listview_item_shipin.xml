@@ -7,16 +7,17 @@
     <ImageView 
         android:layout_width="match_parent"
         android:layout_height="145dp"
+        android:scaleType="fitXY"
         android:id="@+id/listview_imageview_shipin"/>
 	<TextView 
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:id="@+id/listview_title_shipin"
 	    android:layout_marginLeft="13dp"
-	    android:layout_marginTop="9dp"
+	    android:layout_marginTop="5dp"
 	    android:text="123"
-	    android:textColor="@color/black"
-	    android:textSize="16sp"/>
+	    android:textColor="@color/blacka"
+	    android:textSize="15sp"/>
 	<TextView 
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"

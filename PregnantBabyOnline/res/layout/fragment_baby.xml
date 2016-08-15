@@ -3,414 +3,293 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:id="@+id/baby_headView">
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="270dp"
+        android:background="@color/rose" >
+
+        <TextView
+            android:id="@+id/textview_baby_top"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="3dp"
+            android:alpha="0.8"
+            android:background="@drawable/baby_background_top"
+            android:padding="8dp"
+            android:text="宝宝从诞生的那一刻到满月，这个小生命已不再被叫做胎儿了，是叫做新生儿。"
+            android:textColor="@color/black"
+            android:textSize="10sp" />
+
+        <ImageView
+            android:id="@+id/image_baby_head"
+            android:layout_width="115dp"
+            android:layout_height="116dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/middle_head_portrait" />
+
+        <LinearLayout
+            android:id="@+id/red"
+            android:layout_width="100dp"
+            android:layout_height="43dp"
+            android:layout_below="@id/image_baby_head"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/baby_background_center"
+            android:orientation="vertical"
+            android:padding="8dp" >
+
+            <TextView
+                android:id="@+id/textview_tizhong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="体重: 2.26~4.56kg"
+                android:textColor="@color/white"
+                android:textSize="9sp" />
+
+            <TextView
+                android:id="@+id/textview_shengao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:text="身高: 44.7~55.8cm"
+                android:textColor="@color/white"
+                android:textSize="9sp" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:layout_height="wrap_content"
+            android:layout_below="@id/red"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:paddingLeft="13dp"
+            android:paddingRight="13dp" >
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="270dp"
-                android:background="@color/rose" >
+            <SeekBar
+                android:id="@+id/seekbar_baby"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="365"
+                android:maxHeight="1.0dip"
+                android:minHeight="1.0dip"
+                android:progress="1"
+                android:progressDrawable="@drawable/seekbar_item"
+                android:thumb="@drawable/baby_now_state" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/textview_baby_top"
-                    android:layout_width="match_parent"
-                    android:layout_height="42dp"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"
-                    android:alpha="0.8"
-                    android:layout_marginTop="3dp"
-                    android:background="@drawable/baby_background_top"
-                    android:padding="8dp"
-                    android:text="宝宝从诞生的那一刻到满月，这个小生命已不再被叫做胎儿了，是叫做新生儿。"
-                    android:textColor="@color/black"
-                    android:textSize="10sp" />
-
-                <ImageView
-                    android:id="@+id/image_baby_head"
-                    android:layout_width="115dp"
-                    android:layout_height="116dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="25dp"
-                    android:src="@drawable/middle_head_portrait" />
-
-                <LinearLayout
-                    android:id="@+id/red"
-                    android:layout_width="100dp"
-                    android:layout_height="43dp"
-                    android:layout_below="@id/image_baby_head"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/baby_background_center"
-                    android:orientation="vertical"
-                    android:padding="8dp" >
-
-                    <TextView
-                        android:id="@+id/textview_tizhong"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:gravity="center"
-                        android:text="体重: 2.26~4.56kg"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-                    <TextView
-                        android:id="@+id/textview_shengao"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="2dp"
-                        android:gravity="center"
-                        android:text="身高: 44.7~55.8cm"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/red"
-                    android:layout_marginTop="15dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="13dp"
-                    android:paddingRight="13dp" >
-
-                    <SeekBar
-                        android:id="@+id/seekbar_baby"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:maxHeight="1.0dip"  
-        				android:minHeight="1.0dip"  
-                        android:layout_weight="1"
-                        android:max="365"
-                        android:progress="1"
-                        android:progressDrawable="@drawable/seekbar_item"
-                        android:thumb="@drawable/baby_now_state" />
-
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/red"
-                    android:layout_marginTop="3dp"
-                    android:paddingLeft="13dp"
-                    android:paddingRight="13dp" >
-
-                    <TextView
-                        android:id="@+id/textview_chusheng1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="出生"
-                        android:textColor="@color/white"
-                        android:textSize="10sp" />
-
-                    <TextView
-                        android:id="@+id/textview_yisui"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:text="1 岁"
-                        android:textColor="@color/white"
-                        android:textSize="10sp" />
-                </RelativeLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/red"
-                    android:orientation="horizontal" >
-
-                    <TextView
-                        android:id="@+id/textview_chusheng2"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:layout_weight="1.5"
-                        android:gravity="center"
-                        android:text="出生"
-                        android:textColor="@color/white2"
-                        android:textSize="13sp" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="27dp"
-                        android:layout_weight="2"
-                        android:orientation="vertical" >
-
-                        <TextView
-                            android:id="@+id/textview_baby_now_state"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="1天"
-                            android:textColor="@color/white"
-                            android:textSize="15sp" />
-
-                        <TextView
-                            android:id="@+id/textview_baby_now_state_date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="4dp"
-                            android:text="06月23日"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="28dp"
-                        android:layout_weight="1.5"
-                        android:orientation="vertical" >
-
-                        <TextView
-                            android:id="@+id/textview_baby_next_state"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="2天"
-                            android:textColor="@color/white2"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/textview_baby_next_state_date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="3dp"
-                            android:text="06月23日"
-                            android:textColor="@color/white2"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </RelativeLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="38dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/white"
-                android:orientation="horizontal"
-                android:padding="12dp" >
-
-                <TextView
-                    android:id="@+id/textview_baibaoxiang_baby"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:drawableLeft="@drawable/baby_now_state"
-                    android:drawablePadding="10dp"
-                    android:text="百宝箱"
-                    android:textColor="@color/black"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textview_yimiao_baby"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:drawablePadding="5dp"
-                    android:drawableRight="@drawable/go_to_next"
-                    android:text="疫苗接种时间"
-                    android:textColor="@color/orange"
-                    android:textSize="11sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="85dp"
-                android:layout_marginTop="1dp"
-                android:background="@color/white"
-                android:orientation="horizontal" >
-
-                <TextView
-                    android:id="@+id/textview_eat_baby"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:drawablePadding="3dp"
-                    android:drawableTop="@drawable/can_you_eat"
-                    android:gravity="center"
-                    android:text="能不能吃"
-                    android:textColor="@color/blackc"
-                    android:textSize="11sp" />
-
-                <TextView
-                    android:id="@+id/textview_fuli_baby"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:drawablePadding="3dp"
-                    android:drawableTop="@drawable/free_welfare"
-                    android:gravity="center"
-                    android:text="免费福利"
-                    android:textColor="@color/blackc"
-                    android:textSize="11sp" />
-
-                <TextView
-                    android:id="@+id/textview_story_baby"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:drawablePadding="3dp"
-                    android:drawableTop="@drawable/bedtime_story"
-                    android:gravity="center"
-                    android:text="睡前故事"
-                    android:textColor="@color/blackc"
-                    android:textSize="11sp" />
-
-                <TextView
-                    android:id="@+id/textview_cangjingge_baby"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:drawablePadding="3dp"
-                    android:drawableTop="@drawable/menstruatl_depository"
-                    android:gravity="center"
-                    android:text="藏经阁"
-                    android:textColor="@color/blackc"
-                    android:textSize="11sp" />
-            </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/red"
+            android:layout_marginTop="3dp"
+            android:paddingLeft="13dp"
+            android:paddingRight="13dp" >
 
             <TextView
-                android:id="@+id/textview_zhishishouce_baby"
-                android:layout_width="match_parent"
-                android:layout_height="38dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/white"
-                android:drawableLeft="@drawable/konwledge_manual"
-                android:drawablePadding="10dp"
-                android:drawableRight="@drawable/go_to_next"
-                android:gravity="center_vertical"
-                android:padding="12dp"
-                android:text="6岁宝宝知识手册"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:id="@+id/textview_chusheng1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="出生"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/textview_yisui"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="1 岁"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/red"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/textview_chusheng2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_weight="1.5"
+                android:gravity="center"
+                android:text="出生"
+                android:textColor="@color/white2"
+                android:textSize="13sp" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:orientation="horizontal" 
-                android:id="@+id/buju_baby"
-                android:layout_marginTop="1dp"
-                android:paddingTop="3dp"
-                android:paddingBottom="3dp">
+                android:layout_marginTop="27dp"
+                android:layout_weight="2"
+                android:orientation="vertical" >
 
-                <ImageView
-                    android:id="@+id/listview_image_education_baby"
+                <TextView
+                    android:id="@+id/textview_baby_now_state"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="20dp"
-                    android:src="@drawable/education" />
+                    android:layout_gravity="center"
+                    android:text="1天"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/textview_baby_now_state_date"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingLeft="14dp"
-                    android:paddingRight="20dp" >
-
-                    <TextView
-                        android:id="@+id/listview_title_baby"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="宝宝发育"
-                        android:textColor="@color/blacka"
-                        android:textSize="10sp" />
-
-                    <TextView
-                        android:id="@+id/listview_bigtitle_baby"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="1.5dp"
-                        android:text="宝宝发育"
-                        android:textColor="@color/black"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:id="@+id/listview_neirong_baby"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="1.5dp"
-                        android:text="@string/baby_neirong"
-                        android:textColor="@color/blacka"
-                        android:textSize="13sp" />
-                </LinearLayout>
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:orientation="horizontal" 
-                android:id="@+id/buju_baby2"
-                android:layout_marginTop="1dp"
-                android:paddingTop="3dp"
-                android:paddingBottom="3dp">
+                android:layout_marginTop="28dp"
+                android:layout_weight="1.5"
+                android:orientation="vertical" >
 
-                <ImageView
-                    android:id="@+id/listview_image_education_baby2"
+                <TextView
+                    android:id="@+id/textview_baby_next_state"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="20dp"
-                    android:src="@drawable/education" />
+                    android:layout_gravity="center"
+                    android:text="2天"
+                    android:textColor="@color/white2"
+                    android:textSize="14sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/textview_baby_next_state_date"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingLeft="14dp"
-                    android:paddingRight="20dp" 
-                    >
-
-                    <TextView
-                        android:id="@+id/listview_title_baby2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="宝宝发育"
-                        android:textColor="@color/blacka"
-                        android:textSize="10sp" />
-
-                    <TextView
-                        android:id="@+id/listview_bigtitle_baby2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="1.5dp"
-                        android:text="宝宝发育"
-                        android:textColor="@color/black"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:id="@+id/listview_neirong_baby2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="1.5dp"
-                        android:text="@string/baby_neirong"
-                        android:textColor="@color/blacka"
-                        android:textSize="13sp" />
-                </LinearLayout>
+                    android:layout_gravity="center"
+                    android:layout_marginTop="3dp"
+                    android:text=""
+                    android:textColor="@color/white2"
+                    android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </RelativeLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="12dp" >
+
+        <TextView
+            android:id="@+id/textview_baibaoxiang_baby"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/baby_now_state"
+            android:drawablePadding="10dp"
+            android:text="百宝箱"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textview_yimiao_baby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:drawablePadding="5dp"
+            android:drawableRight="@drawable/go_to_next"
+            android:text="疫苗接种时间"
+            android:textColor="@color/orange"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textview_eat_baby"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/can_you_eat"
+            android:gravity="center"
+            android:text="能不能吃"
+            android:textColor="@color/blackc"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/textview_fuli_baby"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/free_welfare"
+            android:gravity="center"
+            android:text="免费福利"
+            android:textColor="@color/blackc"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/textview_story_baby"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/bedtime_story"
+            android:gravity="center"
+            android:text="睡前故事"
+            android:textColor="@color/blackc"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/textview_cangjingge_baby"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/menstruatl_depository"
+            android:gravity="center"
+            android:text="藏经阁"
+            android:textColor="@color/blackc"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textview_zhishishouce_baby"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:drawableLeft="@drawable/konwledge_manual"
+        android:drawablePadding="10dp"
+        android:drawableRight="@drawable/go_to_next"
+        android:gravity="center_vertical"
+        android:padding="12dp"
+        android:text="6岁宝宝知识手册"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
 </LinearLayout>

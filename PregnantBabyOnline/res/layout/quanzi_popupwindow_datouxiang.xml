@@ -1,16 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:alpha="0.5"
-    android:background="@color/baise"
-    android:gravity="center"
-    android:orientation="vertical" >
-    <ImageView 
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <TextView
+        android:id="@+id/quanzi_popupw_bg"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:alpha="0.3"
+        android:background="#000000" />
+    
+	<LinearLayout 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_centerInParent="true"
+	    android:gravity="center"
+	    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/quanzi_popuwindow_datouxiang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/datouxiang4"
-        android:keepScreenOn="true"
-        android:id="@+id/quanzi_popuwindow_datouxiang"/>
+        android:visibility="gone"
+        android:clickable="true"
+        android:layout_centerInParent="true"
+        android:src="@drawable/datouxiang4" />
+    <com.example.lei.CircularImage
+        android:id="@+id/quanzi_popuwindow_xiaotouxiang"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:clickable="true"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        />
+    <TextView 
+        android:id="@+id/quanzi_popuwindow_shuoming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:background="@color/fenhongse"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:clickable="true"
+        android:textSize="15sp"
+        android:textColor="@color/baise"/>
+    <TextView 
+        android:id="@+id/quanzi_popuwindow_goxiangqingye"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:background="@drawable/miaobian_tongyong"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:clickable="true"
+        android:paddingTop="3dp"
+        android:text="快速进入详情页"
+        android:paddingBottom="3dp"
+        android:textSize="15sp"
+        android:textColor="@color/fenhongse"/>
+    </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

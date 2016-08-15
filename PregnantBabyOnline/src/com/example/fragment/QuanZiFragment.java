@@ -1,7 +1,5 @@
 package com.example.fragment;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.NotificationCompat.Action;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,7 +16,6 @@ import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -29,6 +25,7 @@ import android.widget.ViewFlipper;
 
 import com.example.baseadapter.QuanZiAdapter;
 import com.example.lei.QuanZiListview;
+import com.example.pregnantbabyonline.QuanZiChildActivity;
 import com.example.pregnantbabyonline.R;
 import com.example.pregnantbabyonline.WebActivity;
 
@@ -45,10 +42,10 @@ public class QuanZiFragment extends Fragment {
 	RadioButton bt1;
 	RadioButton bt2;
 	RadioButton bt3;
-	ImageView img1;
+	
+	/*ImageView img1;
 	ImageView img2;
-	ImageView img3;
-	int listPosition;
+	ImageView img3;*/
 	int[] id = { R.id.quanzi_listview_name, R.id.quanzi_listview_title,
 			R.id.quanzi_listview_neirong, R.id.qunazi_listView_touxiang,
 			R.id.quanzi_listview_xioatouxiang, R.id.quanzi_listview_nicheng,
@@ -77,45 +74,44 @@ public class QuanZiFragment extends Fragment {
 	public void initView() {
 		listview = (ListView) view.findViewById(R.id.quanzi_listView);
 		viewFlipper = (ViewFlipper) headView.findViewById(R.id.quanzi_viewFlipper);
-		viewFlipper.setOnTouchListener(l);
+		viewFlipper.setOnTouchListener(touchListener);
 		rdgroup = (RadioGroup) headView.findViewById(R.id.quanzi_radioGroup);
 		bt1 = (RadioButton) headView.findViewById(R.id.quanzi_radioButton1);
 		bt2 = (RadioButton) headView.findViewById(R.id.quanzi_radioButton2);
 		bt3 = (RadioButton) headView.findViewById(R.id.quanzi_radioButton3);
-		img1=(ImageView)headView.findViewById(R.id.quanzi_img1);
+		
+		/*img1=(ImageView)headView.findViewById(R.id.quanzi_img1);
 		img2=(ImageView)headView.findViewById(R.id.quanzi_img2);
-		img3=(ImageView)headView.findViewById(R.id.quanzi_img3);
+		img3=(ImageView)headView.findViewById(R.id.quanzi_img3);*/
 		rdgroup.setOnCheckedChangeListener(checkedChangeListener);
 		listview.setOnItemClickListener(onItemClickListener);
 	}
 	/**
 	 * 全局点击事件
 	 */
-	OnTouchListener l=new OnTouchListener() {
+	OnTouchListener touchListener=new OnTouchListener() {
 		public boolean onTouch(View v, MotionEvent event) {
-			// TODO Auto-generated method stub
 			Uri uri2=Uri.parse("https://www.baidu.com");
 			Uri uri3=Uri.parse("http://www.51baomu.cn/baomu1-6101-4-0-0-0-0-0-0-1-1-0-0.html");
+			if(event.getAction()==MotionEvent.ACTION_POINTER_UP){
+				Toast.makeText(getActivity(), "12333", Toast.LENGTH_SHORT).show();
+				return false;
+			}
 				if(viewFlipper.getDisplayedChild()==0){
-					Toast.makeText(getActivity(), "进入当前应用1",
+					Toast.makeText(getActivity(), "万家育婴师欢迎你！",
 							Toast.LENGTH_SHORT).show();
-					//Intent intent=new Intent("", "http://tv.sogou.com/v?query=%CD%F2%BC%D2%D3%FD%D3%A4%CA%A6&p=40230600&tn=0&st=255");
 					 Intent intent=new Intent();//创建Intent对象  
 		                intent.setAction(Intent.ACTION_VIEW);//为Intent设置动作  
-		                String data="http://tv.sogou.com/v?query=%CD%F2%BC%D2%D3%FD%D3%A4%CA%A6&p=40230600&tn=0&st=255";
 		                //获取编辑框里面的文本内容  
+		                String data="http://tv.sogou.com/v?query=%CD%F2%BC%D2%D3%FD%D3%A4%CA%A6&p=40230600&tn=0&st=255";
 		                intent.setData(Uri.parse(data));//为Intent设置数据  
 		                startActivity(intent);//将Intent传递给Activity  
-					startActivity(intent);
-					
 				}else if(viewFlipper.getDisplayedChild()==1){
-					Toast.makeText(getActivity(), "进入当前应用2",
+					Toast.makeText(getActivity(), "你想了解更多",
 							Toast.LENGTH_SHORT).show();
 					Intent intent=new Intent(Intent.ACTION_VIEW, uri2);
 					startActivity(intent);
 				}else if(viewFlipper.getDisplayedChild()==2){
-					Toast.makeText(getActivity(), "进入当前应用3",
-							Toast.LENGTH_SHORT).show();
 					Intent intent=new Intent(Intent.ACTION_VIEW, uri3);
 					//调用webview跳转到webviewActivity 地址详见webViewActivity  
 					Intent intent2=new Intent(getActivity(), WebActivity.class);
@@ -133,20 +129,27 @@ public class QuanZiFragment extends Fragment {
 				long id) {
 			switch (position) {
 			case 1:
-				listPosition=1;
-				Toast.makeText(getActivity(), "你所在位置为"+position+"view的id为"+view.getId(),
-						Toast.LENGTH_SHORT).show();
-				System.out.println(listPosition+"位置12124545454");
+				Intent intent=new Intent(getActivity(), QuanZiChildActivity.class);
+				intent.putExtra("position", 1);
+				startActivity(intent);
 				break;
 			case 2:
-				listPosition=2;
-				Toast.makeText(getActivity(), "你所在位置为"+position+"view的id为"+view.getId(),
-						Toast.LENGTH_SHORT).show();
+				intent=new Intent(getActivity(), QuanZiChildActivity.class);
+				intent.putExtra("position", 2);
+				startActivity(intent);
+
 				break;
 			case 3:
-				listPosition=3;
-				Toast.makeText(getActivity(), "你所在位置为"+position+"view的id为"+view.getId(),
-						Toast.LENGTH_SHORT).show();
+				intent=new Intent(getActivity(), QuanZiChildActivity.class);
+				intent.putExtra("position", 3);
+				startActivity(intent);
+
+				break;
+			case 4:
+				intent=new Intent(getActivity(), QuanZiChildActivity.class);
+				intent.putExtra("position", 4);
+				startActivity(intent);
+
 				break;
 			default:
 				break;
@@ -227,6 +230,7 @@ public class QuanZiFragment extends Fragment {
 		quanzi.setNeirong("一个女人，50多岁。先后经历了两次失败的婚姻，带着三个孩子。这么看上去，堪称是...");
 		quanzi.setTouxiang(R.drawable.datouxiang1);
 		quanzi.setXiaotouxiang(R.drawable.xiaotouxiang2);
+		quanzi.setXiaotouxiang(R.drawable.xiaotouxiang1);
 		quanzi.setNicheng("Bacio");
 		quanzi.setHuifu("48回复");
 		list.add(quanzi);
@@ -237,6 +241,7 @@ public class QuanZiFragment extends Fragment {
 		quanzi.setNeirong("夏天到了，天气炎热，都不想下厨房炒菜了，都想吃点凉的，来点凉拌菜，东北的大拉皮...");
 		quanzi.setTouxiang(R.drawable.datouxiang2);
 		quanzi.setXiaotouxiang(R.drawable.xiaotouxiang3);
+		quanzi.setXiaotouxiang(R.drawable.xiaotouxiang2);
 		quanzi.setNicheng("糖果味");
 		quanzi.setHuifu("82回复");
 		list.add(quanzi);
@@ -247,6 +252,8 @@ public class QuanZiFragment extends Fragment {
 		quanzi.setNeirong("等咱老师有了钱，悬赏100万通缉那个说“没有教不会的学生，只有不会教的老师”的家伙，让他来教教70个参差不齐的学生，看他能不能把他们都培养成社会主义四有新人!");
 		quanzi.setTouxiang(R.drawable.datouxiang4);
 		quanzi.setXiaotouxiang(R.drawable.xiaotouxiang4);
+		quanzi.setTouxiang(R.drawable.datouxiang3);
+		quanzi.setXiaotouxiang(R.drawable.xiaotouxiang3);
 		quanzi.setNicheng("小新");
 		quanzi.setHuifu("110回复");
 		list.add(quanzi);
@@ -258,6 +265,9 @@ public class QuanZiFragment extends Fragment {
 		quanzi.setTouxiang(R.drawable.datouxiang3);
 		quanzi.setXiaotouxiang(R.drawable.xiaotouxiang1);
 		quanzi.setNicheng("糖果味");
+		quanzi.setTouxiang(R.drawable.datouxiang4);
+		quanzi.setXiaotouxiang(R.drawable.xiaotouxiang4);
+		quanzi.setNicheng("花之语");
 		quanzi.setHuifu("60回复");
 		list.add(quanzi);
 	}

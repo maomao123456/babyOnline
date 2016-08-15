@@ -14,7 +14,7 @@
         android:layout_height="50dp"
         android:background="@color/fenhongse"
         android:gravity="center"
-        android:text="@string/nihao"
+        android:text="@string/baobaoyitian"
         android:textColor="@color/baise"
         android:textSize="18sp" />
 
