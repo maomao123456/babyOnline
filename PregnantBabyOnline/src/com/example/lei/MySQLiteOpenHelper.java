@@ -22,9 +22,9 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		// TODO Auto-generated method stub
+		// 创建数据库表create_table
 		String create_table = "CREATE TABLE Users (userName VARCHAR(50) PRIMARY KEY, password VARCHAR(20))";
-		db.execSQL(create_table);//�������ݿ��
+		db.execSQL(create_table);
 	}
 
 	@Override
