@@ -3,8 +3,11 @@ package com.example.baseadapter;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.sax.StartElementListener;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -19,10 +22,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.lei.CircularImage;
 import com.example.lei.QuanZiListview;
+import com.example.pregnantbabyonline.QuanZiChildActivity;
 import com.example.pregnantbabyonline.R;
+import com.example.pregnantbabyonline.R.drawable;
 
 public class QuanZiAdapter extends BaseAdapter {
 
@@ -66,37 +72,50 @@ public class QuanZiAdapter extends BaseAdapter {
 	PopupWindow popupWindow;
 	public void createPopupWindow(){
 		//初始化一个popupwindow的对象并给予长宽
-		popupWindow=new PopupWindow(windView,LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-		//2展示出来 点buttonshow出来
-		popupWindow.showAtLocation(windView, Gravity.FILL_HORIZONTAL, 0, 0);
-		popupWindow .setFocusable(true);//设置聚焦
+		popupWindow=new PopupWindow(windView,LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT,true);
 		//设置popupwindow的背景 不舍背景无法监听（背景为全透明）
 		popupWindow.setBackgroundDrawable(new BitmapDrawable());
 		//是否可点击窗口外的布局
 		popupWindow.setOutsideTouchable(true);
 		popupWindow.setTouchable(true);
-		
-		windView.setFocusable(true);
-		windView.setFocusableInTouchMode(true);
-		windView.setOnKeyListener(new OnKeyListener() {
-			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				if(keyCode==KeyEvent.KEYCODE_BACK){
-						popupWindow.dismiss();
-				}
-				return true;
+		//设置是否可以点击
+		popupWindow.setTouchInterceptor(new OnTouchListener() {
+			public boolean onTouch(View v, MotionEvent event) {
+				return false;
 			}
 		});
-		//设置是否可以点击
-		popupWindow.setTouchInterceptor(onTouchListener);
+		//2展示出来 点buttonshow出来
+		popupWindow.showAtLocation(windView, Gravity.FILL, 0, 0);
+		TextView popWinBg=(TextView)windView.findViewById(R.id.quanzi_popupw_bg);
+		TextView tiaozhuan=(TextView)windView.findViewById(R.id.quanzi_popuwindow_goxiangqingye);
+		popWinBg.setOnClickListener(listener);
+		tiaozhuan.setOnClickListener(listener);
+		
+		/*popWinBg.setOnClickListener(new OnClickListener() {
+					public void onClick(View v) {
+						popupWindow.dismiss();
+					}
+				});*/
+		
 	}
-	//点击事件
-	OnTouchListener onTouchListener=new OnTouchListener() {
-		public boolean onTouch(View v, MotionEvent event) {
-			if(event.getAction()==MotionEvent.ACTION_UP){
+	/**
+	 * popupWindow内部简单控件的点击事件
+	 */
+	OnClickListener listener=new OnClickListener() {
+		public void onClick(View v) {
+			switch (v.getId()) {
+			case R.id.quanzi_popupw_bg:
 				popupWindow.dismiss();
-				//Toast.makeText(context, "123", Toast.LENGTH_SHORT).show();
+				break;
+			case R.id.quanzi_popuwindow_goxiangqingye:
+				popupWindow.dismiss();
+				Intent intent =new Intent(context, QuanZiChildActivity.class);
+				context.startActivity(intent);
+				break;
+
+			default:
+				break;
 			}
-			return false;
 		}
 	};
 	@Override
@@ -129,6 +148,8 @@ public class QuanZiAdapter extends BaseAdapter {
 				TextView shuoming=(TextView)windView.findViewById(R.id.quanzi_popuwindow_shuoming);
 				ImageView datouxiang=(ImageView)windView.findViewById(R.id.quanzi_popuwindow_datouxiang);
 				datouxiang.setVisibility(View.VISIBLE);
+				TextView tiaozhuan=(TextView)windView.findViewById(R.id.quanzi_popuwindow_goxiangqingye);
+				tiaozhuan.setOnClickListener(listener);
 				switch (position) {
 				case 0:
 					numb=1;
@@ -136,6 +157,14 @@ public class QuanZiAdapter extends BaseAdapter {
 					datouxiang.setImageResource(R.drawable.datouxiang1);
 					shuoming.setText(str2+"时尚辣妈：关注她们的生活");
 					createPopupWindow();
+					tiaozhuan.setOnClickListener(new OnClickListener() {
+						public void onClick(View v) {
+							popupWindow.dismiss();
+							Intent intent =new Intent(context, QuanZiChildActivity.class);
+							intent.putExtra("position", numb);
+							context.startActivity(intent);
+						}
+					});
 					break;
 				case 1:
 					numb=2;
@@ -143,6 +172,14 @@ public class QuanZiAdapter extends BaseAdapter {
 					datouxiang.setImageResource(R.drawable.datouxiang2);
 					shuoming.setText(str2+"美食厨房：美食大比拼");
 					createPopupWindow();
+					tiaozhuan.setOnClickListener(new OnClickListener() {
+						public void onClick(View v) {
+							popupWindow.dismiss();
+							Intent intent =new Intent(context, QuanZiChildActivity.class);
+							intent.putExtra("position", numb);
+							context.startActivity(intent);
+						}
+					});
 					break;
 				case 2:
 					numb=3;
@@ -150,6 +187,14 @@ public class QuanZiAdapter extends BaseAdapter {
 					datouxiang.setImageResource(R.drawable.datouxiang3);
 					shuoming.setText(str2+"娱乐休闲：期盼你的吐槽");
 					createPopupWindow();
+					tiaozhuan.setOnClickListener(new OnClickListener() {
+						public void onClick(View v) {
+							popupWindow.dismiss();
+							Intent intent =new Intent(context, QuanZiChildActivity.class);
+							intent.putExtra("position", numb);
+							context.startActivity(intent);
+						}
+					});
 					break;
 				case 3:
 					numb=4;
@@ -157,6 +202,14 @@ public class QuanZiAdapter extends BaseAdapter {
 					datouxiang.setImageResource(R.drawable.datouxiang4);
 					shuoming.setText(str2+"美妆小编推荐：夏日必备");
 					createPopupWindow();
+					tiaozhuan.setOnClickListener(new OnClickListener() {
+						public void onClick(View v) {
+							popupWindow.dismiss();
+							Intent intent =new Intent(context, QuanZiChildActivity.class);
+							intent.putExtra("position", numb);
+							context.startActivity(intent);
+						}
+					});
 					break;
 
 				default:
@@ -170,6 +223,8 @@ public class QuanZiAdapter extends BaseAdapter {
 				CircularImage xiaotouxiang=(CircularImage)windView.findViewById(R.id.quanzi_popuwindow_xiaotouxiang);
 				TextView shuoming=(TextView)windView.findViewById(R.id.quanzi_popuwindow_shuoming);
 				xiaotouxiang.setVisibility(View.VISIBLE);
+				TextView tiaozhuan=(TextView)windView.findViewById(R.id.quanzi_popuwindow_goxiangqingye);
+				tiaozhuan.setOnClickListener(listener);
 				switch (position) {
 				case 0:
 					numb=1;
@@ -177,6 +232,14 @@ public class QuanZiAdapter extends BaseAdapter {
 					xiaotouxiang.setImageResource(R.drawable.xiaotouxiang1);
 					shuoming.setText(str+"“Bacio” ");
 					createPopupWindow();
+					tiaozhuan.setOnClickListener(new OnClickListener() {
+						public void onClick(View v) {
+							popupWindow.dismiss();
+							Intent intent =new Intent(context, QuanZiChildActivity.class);
+							intent.putExtra("position", numb);
+							context.startActivity(intent);
+						}
+					});
 					break;
 				case 1:
 					numb=2;
@@ -184,6 +247,14 @@ public class QuanZiAdapter extends BaseAdapter {
 					xiaotouxiang.setImageResource(R.drawable.xiaotouxiang2);
 					shuoming.setText(str+"“糖果味” ");
 					createPopupWindow();
+					tiaozhuan.setOnClickListener(new OnClickListener() {
+						public void onClick(View v) {
+							popupWindow.dismiss();
+							Intent intent =new Intent(context, QuanZiChildActivity.class);
+							intent.putExtra("position", numb);
+							context.startActivity(intent);
+						}
+					});
 					break;
 				case 2:
 					numb=3;
@@ -191,6 +262,14 @@ public class QuanZiAdapter extends BaseAdapter {
 					xiaotouxiang.setImageResource(R.drawable.xiaotouxiang3);
 					shuoming.setText(str+"“小新” ");
 					createPopupWindow();
+					tiaozhuan.setOnClickListener(new OnClickListener() {
+						public void onClick(View v) {
+							popupWindow.dismiss();
+							Intent intent =new Intent(context, QuanZiChildActivity.class);
+							intent.putExtra("position", numb);
+							context.startActivity(intent);
+						}
+					});
 					break;
 				case 3:
 					numb=4;
@@ -198,6 +277,14 @@ public class QuanZiAdapter extends BaseAdapter {
 					xiaotouxiang.setImageResource(R.drawable.xiaotouxiang4);
 					shuoming.setText(str+"“花之语” ");
 					createPopupWindow();
+					tiaozhuan.setOnClickListener(new OnClickListener() {
+						public void onClick(View v) {
+							popupWindow.dismiss();
+							Intent intent =new Intent(context, QuanZiChildActivity.class);
+							intent.putExtra("position", numb);
+							context.startActivity(intent);
+						}
+					});
 					break;
 
 				default:
@@ -209,16 +296,16 @@ public class QuanZiAdapter extends BaseAdapter {
 			public void onClick(View v) {
 				switch (position) {
 				case 0:
-					//Toast.makeText(context, "第一项的回复", Toast.LENGTH_SHORT).show();
+					Toast.makeText(context, "第一项的回复", Toast.LENGTH_SHORT).show();
 					break;
 				case 1:
-					//Toast.makeText(context, "第2项的回复", Toast.LENGTH_SHORT).show();
+					Toast.makeText(context, "第2项的回复", Toast.LENGTH_SHORT).show();
 					break;
 				case 2:
-					//Toast.makeText(context, "第3项的回复", Toast.LENGTH_SHORT).show();
+					Toast.makeText(context, "第3项的回复", Toast.LENGTH_SHORT).show();
 					break;
 				case 3:
-					//Toast.makeText(context, "第4项的回复", Toast.LENGTH_SHORT).show();
+					Toast.makeText(context, "第4项的回复", Toast.LENGTH_SHORT).show();
 					break;
 
 				default:
