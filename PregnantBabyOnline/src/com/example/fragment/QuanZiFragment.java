@@ -106,10 +106,6 @@ public class QuanZiFragment extends Fragment {
 		                String data="http://tv.sogou.com/v?query=%CD%F2%BC%D2%D3%FD%D3%A4%CA%A6&p=40230600&tn=0&st=255";
 		                intent.setData(Uri.parse(data));//为Intent设置数据  
 		                startActivity(intent);//将Intent传递给Activity  
-<<<<<<< HEAD
-					
-=======
->>>>>>> d1a163c23a669447bab887299189e3c62a180d76
 				}else if(viewFlipper.getDisplayedChild()==1){
 					Toast.makeText(getActivity(), "你想了解更多",
 							Toast.LENGTH_SHORT).show();
@@ -133,16 +129,13 @@ public class QuanZiFragment extends Fragment {
 				long id) {
 			switch (position) {
 			case 1:
-				listPosition=1;
 				Toast.makeText(getActivity(), "你所在位置为"+position+"view的id为"+view.getId(),
 						Toast.LENGTH_SHORT).show();
-				System.out.println(listPosition+"位置12124545454");
 				Intent intent=new Intent(getActivity(), QuanZiChildActivity.class);
 				intent.putExtra("position", 1);
 				startActivity(intent);
 				break;
 			case 2:
-				listPosition=2;
 				Toast.makeText(getActivity(), "你所在位置为"+position+"view的id为"+view.getId(),
 						Toast.LENGTH_SHORT).show();
 				intent=new Intent(getActivity(), QuanZiChildActivity.class);
@@ -151,7 +144,6 @@ public class QuanZiFragment extends Fragment {
 
 				break;
 			case 3:
-				listPosition=3;
 				Toast.makeText(getActivity(), "你所在位置为"+position+"view的id为"+view.getId(),
 						Toast.LENGTH_SHORT).show();
 				intent=new Intent(getActivity(), QuanZiChildActivity.class);

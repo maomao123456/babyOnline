@@ -48,13 +48,9 @@
         <activity android:name="com.example.pregnantbabyonline.LoginActivity"
             />
         <activity android:name="com.example.pregnantbabyonline.MainActivity" 
-<<<<<<< HEAD
             android:launchMode="singleTop"/>
         <!-- <activity android:name="com.example.pregnantbabyonline.ShouyeActivity" 
             android:launchMode="singleTop"/> -->
-=======
-            android:launchMode="singleTask"/>
->>>>>>> feature/maomao1.0.0
         <activity android:name="com.example.pregnantbabyonline.BeiYunRiLiActivity" />
         <activity android:name="com.example.pregnantbabyonline.CangJingGeActivity" />
         <activity android:name="com.example.pregnantbabyonline.PabulumActivity" />
