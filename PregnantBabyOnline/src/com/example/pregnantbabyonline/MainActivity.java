@@ -15,11 +15,12 @@ import android.widget.TextView;
 
 
 public class MainActivity extends Activity {
-	
-	TextView bord, pregnancying, forPregnancy; 
+
+	TextView bord, pregnancying, forPregnancy;
 	Button directLogin;
 	SharedPreferences preferences;
 	private Editor editor;	
+			
 	@Override	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -60,7 +61,7 @@ public class MainActivity extends Activity {
 		public void onClick(View v) {
 			switch (v.getId()) {
 			case R.id.direct_login:
-				directLogin();
+				directLogin();	
 				break;
 
 			default:
