@@ -3,6 +3,7 @@ package com.example.fragment;
 
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -71,6 +74,7 @@ public class ShouYeFragment extends Fragment{
 		getList();
 		adapter=new ShouYeAdapter(getActivity(), list,R.layout.listview_item_baby,id);
 		listview.setAdapter(adapter);
+		listview.setOnItemClickListener(onItemClickListener);
 		initView();
 		date();
 		dianji();
@@ -109,6 +113,19 @@ public class ShouYeFragment extends Fragment{
 		shouye.setNeirong(getString(R.string.baby_neirong));
 		list.add(shouye);
 	}
+	OnItemClickListener onItemClickListener=new OnItemClickListener() {
+
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position,
+				long id) {
+			// TODO Auto-generated method stub
+			switch(position){
+			case 1:
+				Toast.makeText(getActivity(), "进入第一项", Toast.LENGTH_SHORT).show();
+				break;
+			}
+		}
+	};
 	public void dianji(){
 		image_head.setOnClickListener(onClickListener);
 		yimiao.setOnClickListener(onClickListener);
@@ -150,14 +167,18 @@ public class ShouYeFragment extends Fragment{
 		}
 	};
 	public void date(){//设置默认日期
-		date=new Date();
-		now_date.setText(date.getMonth()+1+"月"+date.getDay()+"日");//今天的日期
-		next_day=new Date();
-		next_day.setDate(date.getDate()+1);
-		next_date.setText(next_day.getMonth()+1+"月"+next_day.getDay()+"日");//明天的日期
-	}
+		Calendar calCurrent=Calendar.getInstance();
+		int today=calCurrent.get(Calendar.DATE);
+		int month=calCurrent.get(Calendar.MONTH)+1;
+		now_date.setText(month+"月"+today+"日");//今天的日期
+		Calendar calNext=Calendar.getInstance();
+		calNext.add(Calendar.DAY_OF_MONTH, 1);
+		int nextday=calNext.get(Calendar.DATE);
+		int nextmonth=calNext.get(Calendar.MONTH)+1;
+		next_date.setText(nextmonth+"月"+nextday+"日");
+		}
 	OnSeekBarChangeListener seekBarChangeListener=new OnSeekBarChangeListener() {
-		
+		//随seekBar改动的元素
 		@Override
 		public void onStopTrackingTouch(SeekBar seekBar) {
 			// TODO Auto-generated method stub
@@ -175,16 +196,21 @@ public class ShouYeFragment extends Fragment{
 				boolean fromUser) {
 			// TODO Auto-generated method stub
 			if(progress>0){
-				Date dateC=new Date();
-				Date nextDayC=new Date();
 				baby_now.setText(progress+"天");
 				baby_next.setText(progress+1+"天");
-				dateC.setDate(date.getDate()+progress);
-				now_date.setText(dateC.getMonth()+1+"月"+dateC.getDay()+"日");
-				nextDayC.setDate(date.getDate()+progress+1);
-				next_date.setText(nextDayC.getMonth()+1+"月"+nextDayC.getDay()+"日");
+				Calendar calCurrent=Calendar.getInstance();
+				calCurrent.add(Calendar.DAY_OF_MONTH, progress);
+				int today=calCurrent.get(Calendar.DATE);
+				int month=calCurrent.get(Calendar.MONTH)+1;
+				now_date.setText(month+"月"+today+"日");//今天的日期
+				Calendar calNext=Calendar.getInstance();
+				calNext.add(Calendar.DAY_OF_MONTH, progress+1);
+				int nextday=calNext.get(Calendar.DATE);
+				int nextmonth=calNext.get(Calendar.MONTH)+1;
+				next_date.setText(nextmonth+"月"+nextday+"日");//明天的日期
 			}
 			
 		}
 	};
+	
 }

@@ -106,7 +106,6 @@ public class QuanZiFragment extends Fragment {
 		                //获取编辑框里面的文本内容  
 		                intent.setData(Uri.parse(data));//为Intent设置数据  
 		                startActivity(intent);//将Intent传递给Activity  
-					startActivity(intent);
 					
 				}else if(viewFlipper.getDisplayedChild()==1){
 					Toast.makeText(getActivity(), "进入当前应用2",
