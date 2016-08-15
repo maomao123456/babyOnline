@@ -79,7 +79,7 @@ public class LoginActivity extends Activity {
 		LoginActivity.this.finish();
 	}
 
-	// ��ת��ע��ҳ��
+	// 跳转到注册页面的方法
 	public void registerNow() {
 		Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
 		startActivity(intent);
@@ -101,31 +101,29 @@ public class LoginActivity extends Activity {
 		return false;
 	}
 
-	public int checkData2() {// ��ע��ʱ��֤ע���˺��Ƿ����
+	public int checkData2() {// 判断登录的账号是否存在在数据库中
 		mysql = new MySQLiteOpenHelper(
 				LoginActivity.this, "Users", null, 1);
-		SQLiteDatabase sqliteDatabase = mysql.getWritableDatabase();// ������д�����ݿ�
+		SQLiteDatabase sqliteDatabase = mysql.getWritableDatabase();// 连接到本地的数据库
 		String userName = userAccount.getText().toString();
-		// String password = regPwd.getText().toString();
 		cursor = sqliteDatabase.query("Users", null, "userName='"
 				+ userName + "'", null, null, null, null);
 		return cursor.getCount();
 	}
-	// ��¼
-	public int checkedData() {// �û���¼
+	
+	public int checkedData() {// 确定用户登录时的信息是否正确
 		mysql = new MySQLiteOpenHelper(LoginActivity.this,
 				"Users", null, 1);
-		SQLiteDatabase sqliteDatabase = mysql.getWritableDatabase();// ������д�����ݿ�
+		SQLiteDatabase sqliteDatabase = mysql.getWritableDatabase();// 连接到本地的数据库
 		String userName = userAccount.getText().toString();
 		String password = userPassword.getText().toString();
 		cursor = sqliteDatabase.query("Users", null, "userName='"
 				+ userName + "'and password='" + password + "'", null, null,
-				null, null);
-		
-		if (cursor.getCount() == 0&&checkData2()!=0) {
+				null, null);		
+		if (cursor.getCount() == 0 && checkData2()!=0) {// 用户存在而获取的输入框中的内容不正确，提示用户名或密码错误
 			Toast.makeText(LoginActivity.this, "用户名或密码错误",
 					Toast.LENGTH_SHORT).show();
-		}else if(cursor.getCount() == 0 && checkData2()==0){
+		}else if(cursor.getCount() == 0 && checkData2()==0){//用户不存在在数据库中
 			Toast.makeText(LoginActivity.this, "用户不存在",
 					Toast.LENGTH_SHORT).show();
 		}else {
@@ -135,18 +133,14 @@ public class LoginActivity extends Activity {
 		return cursor.getCount();
 	}
 	
-	public void update() {// ��������
+	public void update() {// 修改密码
 		String str="用户修改后的密码";
 		String name="用户输入的名字";
 		String sql = "update user set password = '"+str+"'"
 				+ "where userName = '"+name+"'";
 		MySQLiteOpenHelper mysql = new MySQLiteOpenHelper(LoginActivity.this,
 				"Users", null, 1);
-		SQLiteDatabase sqliteDatabase = mysql.getWritableDatabase();// ������д�����ݿ�
+		SQLiteDatabase sqliteDatabase = mysql.getWritableDatabase();// 连接本地的数据库
 		sqliteDatabase.execSQL(sql);
 	}
-	// ʵ�ֵ�������¼
-	
-
-	
 }
