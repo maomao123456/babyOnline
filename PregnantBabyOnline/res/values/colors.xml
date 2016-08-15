@@ -26,4 +26,9 @@
     <color name="gray">#F1EFED</color>
     <color name="rose">#E49F9C</color>
     <color name="white2">#E9B4B3</color>
+    
+    <color name="rili_luse">#53bb00</color>
+     <color name="rili_hong">#ff6c54</color>
+     <color name="rili_fenhong">#f3afcb</color>
+     
 </resources>
