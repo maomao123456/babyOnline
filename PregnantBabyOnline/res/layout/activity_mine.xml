@@ -149,9 +149,74 @@
             android:src="@drawable/jt1" />
     </LinearLayout>
 
+<<<<<<< HEAD
 
     <LinearLayout
         android:id="@+id/linearLayout2"
+=======
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/ffffff"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/zttp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="13dp"
+            android:text="我的状态"
+            android:src="@drawable/sltp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="13dp"
+            android:text="我的消息"
+            android:textColor="#393939"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="14.5dp"
+            android:text="怀孕101天"
+            android:textColor="#969696"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="17dp"
+            android:src="@drawable/jt1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+>>>>>>> adbb32283a29dc311975ce47768f914431b7f378
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
@@ -198,7 +263,11 @@
     </LinearLayout>
 
     <LinearLayout
+<<<<<<< HEAD
         android:id="@+id/linearLayout3"
+=======
+        android:id="@+id/linearLayout4"
+>>>>>>> adbb32283a29dc311975ce47768f914431b7f378
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
@@ -236,7 +305,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout4"
+        android:id="@+id/linearLayout5"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:layout_marginTop="1dp"
@@ -274,7 +343,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout5"
+        android:id="@+id/linearLayout6"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
@@ -312,7 +381,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout6"
+        android:id="@+id/linearLayout7"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:layout_marginTop="1dp"

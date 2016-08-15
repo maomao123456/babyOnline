@@ -32,9 +32,16 @@
     <!-- 11212 -->
     <application
         android:allowBackup="true"
+<<<<<<< HEAD
         android:icon="@drawable/zhuti"
+=======
+        android:icon="@drawable/ic_launcher"
+>>>>>>> adbb32283a29dc311975ce47768f914431b7f378
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Holo.NoActionBar" >
+
+        <!-- android:theme="@android:style/Theme.Holo.NoActionBar.TranslucentDecor" -->
+
 
         <!-- android:theme="@android:style/Theme.Holo.NoActionBar.TranslucentDecor" -->
         <activity
@@ -44,14 +51,14 @@
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".ShouyeActivity"
-            android:launchMode="singleTask"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:launchMode="singleTask" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
          <activity android:name="com.example.pregnantbabyonline.RegisterActivity" 
             />
         <activity android:name="com.example.pregnantbabyonline.LoginActivity"
@@ -66,6 +73,21 @@
         <activity android:name="com.example.pregnantbabyonline.WebActivity"/>
         <activity android:name="com.example.pregnantbabyonline.QuanZiChildActivity"/>
         
+=======
+        <activity android:name="com.example.pregnantbabyonline.RegisterActivity" />
+        <activity android:name="com.example.pregnantbabyonline.LoginActivity" />
+        <activity android:name="com.example.pregnantbabyonline.MainActivity"
+            android:launchMode="singleTop" />
+        <!--
+             <activity android:name="com.example.pregnantbabyonline.ShouyeActivity" 
+            android:launchMode="singleTop"/>
+        -->
+        <activity android:name="com.example.pregnantbabyonline.BeiYunRiLiActivity" />
+        <activity android:name="com.example.pregnantbabyonline.CangJingGeActivity" />
+        <activity android:name="com.example.pregnantbabyonline.PabulumActivity" />
+        <activity android:name="com.example.pregnantbabyonline.WebActivity" />
+        <activity android:name="com.example.pregnantbabyonline.QuanZiChildActivity" />
+>>>>>>> adbb32283a29dc311975ce47768f914431b7f378
 
         <!-- 跳转到微博的页面 -->
         <activity
