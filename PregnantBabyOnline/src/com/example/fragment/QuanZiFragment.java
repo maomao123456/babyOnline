@@ -106,10 +106,6 @@ public class QuanZiFragment extends Fragment {
 		                String data="http://tv.sogou.com/v?query=%CD%F2%BC%D2%D3%FD%D3%A4%CA%A6&p=40230600&tn=0&st=255";
 		                intent.setData(Uri.parse(data));//为Intent设置数据  
 		                startActivity(intent);//将Intent传递给Activity  
-<<<<<<< HEAD
-					
-=======
->>>>>>> feature/zhangjian
 				}else if(viewFlipper.getDisplayedChild()==1){
 					Toast.makeText(getActivity(), "你想了解更多",
 							Toast.LENGTH_SHORT).show();
