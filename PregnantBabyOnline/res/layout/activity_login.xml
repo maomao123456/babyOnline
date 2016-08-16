@@ -11,8 +11,8 @@
 
         <ImageView
             android:id="@+id/login_head_porttrait_circle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="119dp"
+            android:layout_height="120dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:src="@drawable/big_head_portrait" />
@@ -107,23 +107,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <TextView
+        <Button
             android:id="@+id/forget_password"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="15dp"
             android:layout_marginLeft="51dp"
             android:layout_marginTop="13dp"
+            android:background="@null"
             android:text="@string/forget_password"
             android:textColor="@color/white"
             android:textSize="13sp" />
 
-        <TextView
+        <Button
             android:id="@+id/question"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="15dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="51dp"
             android:layout_marginTop="13dp"
+            android:background="@null"
             android:text="@string/question"
             android:textColor="@color/white"
             android:textSize="13sp" />
@@ -139,6 +141,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:layout_marginStart="12.5dp"
             android:layout_marginLeft="12.5dp"
             android:gravity="center_horizontal"
             android:text="@string/third_login"

@@ -67,11 +67,10 @@ public class MainActivity extends Activity {
 			default:
 				break;
 			}
-		}
-		
+		}	
 	};
 	
-	public void directLogin(){//ֱ�ӵ�¼��ֱ����ת����¼����
+	public void directLogin(){// 直接登录跳转到登录界面
 		Intent intent = new Intent(MainActivity.this, LoginActivity.class);
 		startActivity(intent);
 		MainActivity.this.finish();
