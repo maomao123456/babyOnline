@@ -26,7 +26,10 @@ import android.widget.Toast;
 
 import com.example.adapter.ShouYeAdapter;
 import com.example.lei.ShouYeListview;
+import com.example.pregnantbabyonline.BedStoryActivity;
 import com.example.pregnantbabyonline.CangJingGeActivity;
+import com.example.pregnantbabyonline.FreeWelfareActivity;
+import com.example.pregnantbabyonline.PabulumActivity;
 import com.example.pregnantbabyonline.R;
 
 public class ShouYeFragment extends Fragment{
@@ -112,6 +115,13 @@ public class ShouYeFragment extends Fragment{
 		shouye.setName("宝宝发育");
 		shouye.setNeirong(getString(R.string.baby_neirong));
 		list.add(shouye);
+		
+		shouye=new ShouYeListview();
+		shouye.setTupian(R.drawable.education);
+		shouye.setTitle("教育无处不在");
+		shouye.setName("宝宝发育");
+		shouye.setNeirong(getString(R.string.baby_neirong));
+		list.add(shouye);
 	}
 	OnItemClickListener onItemClickListener=new OnItemClickListener() {
 
@@ -122,6 +132,9 @@ public class ShouYeFragment extends Fragment{
 			switch(position){
 			case 1:
 				Toast.makeText(getActivity(), "进入第一项", Toast.LENGTH_SHORT).show();
+				break;
+			case 2:
+				Toast.makeText(getActivity(), "进入第二项", Toast.LENGTH_SHORT).show();
 				break;
 			}
 		}
@@ -148,19 +161,17 @@ public class ShouYeFragment extends Fragment{
 				Toast.makeText(getActivity(), "跳转到疫苗接种页面", Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.textview_eat_baby:
-				Toast.makeText(getActivity(), "跳转到能不能吃页面", Toast.LENGTH_SHORT).show();
+				startActivity(new Intent(getActivity(),PabulumActivity.class));
 				break;
 			case R.id.textview_fuli_baby:
-				Toast.makeText(getActivity(), "跳转到免费福利页面", Toast.LENGTH_SHORT).show();
+				startActivity(new Intent(getActivity(),FreeWelfareActivity.class));
 				break;
 			case R.id.textview_story_baby:
-				Toast.makeText(getActivity(), "跳转到睡前故事页面", Toast.LENGTH_SHORT).show();
-				break;
+				startActivity(new Intent(getActivity(),BedStoryActivity.class));				break;
 			case R.id.textview_zhishishouce_baby:
 				Toast.makeText(getActivity(), "跳转到知识手册页面", Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.textview_cangjingge_baby:
-				Toast.makeText(getActivity(), "跳转到藏经阁页面", Toast.LENGTH_SHORT).show();
 				startActivity(new Intent(getActivity(),CangJingGeActivity.class));
 				break;
 			}
@@ -208,6 +219,15 @@ public class ShouYeFragment extends Fragment{
 				int nextday=calNext.get(Calendar.DATE);
 				int nextmonth=calNext.get(Calendar.MONTH)+1;
 				next_date.setText(nextmonth+"月"+nextday+"日");//明天的日期
+				if(progress>30&&progress<35){
+					top_text.setText("此时宝宝已经一个月大了");
+				}else if(progress>=180&&progress<185){
+					top_text.setText("此时宝宝已经半岁了");
+				}else if(progress==365){
+					top_text.setText("此时宝宝已经满一周岁了,他已经在您的陪伴中来到这个世界一年了。");
+				}else{
+					top_text.setText("宝宝在这个阶段正在快速发育，正需要您的悉心呵护");
+				}
 			}
 			
 		}
