@@ -43,9 +43,6 @@ public class QuanZiFragment extends Fragment {
 	RadioButton bt2;
 	RadioButton bt3;
 	
-	/*ImageView img1;
-	ImageView img2;
-	ImageView img3;*/
 	int[] id = { R.id.quanzi_listview_name, R.id.quanzi_listview_title,
 			R.id.quanzi_listview_neirong, R.id.qunazi_listView_touxiang,
 			R.id.quanzi_listview_xioatouxiang, R.id.quanzi_listview_nicheng,
@@ -80,9 +77,6 @@ public class QuanZiFragment extends Fragment {
 		bt2 = (RadioButton) headView.findViewById(R.id.quanzi_radioButton2);
 		bt3 = (RadioButton) headView.findViewById(R.id.quanzi_radioButton3);
 		
-		/*img1=(ImageView)headView.findViewById(R.id.quanzi_img1);
-		img2=(ImageView)headView.findViewById(R.id.quanzi_img2);
-		img3=(ImageView)headView.findViewById(R.id.quanzi_img3);*/
 		rdgroup.setOnCheckedChangeListener(checkedChangeListener);
 		listview.setOnItemClickListener(onItemClickListener);
 	}
@@ -217,7 +211,7 @@ public class QuanZiFragment extends Fragment {
 	/**
 	 * 添加并获得list集合中的数据
 	 */
-	public void getlist() {
+	public void getlist() {//此处等待数据库数据 完成后填充
 		list = new ArrayList<QuanZiListview>();
 		quanzi = new QuanZiListview();
 		quanzi.setName("时尚辣妈");
