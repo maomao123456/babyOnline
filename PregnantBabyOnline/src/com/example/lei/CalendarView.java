@@ -454,15 +454,15 @@ public class CalendarView extends View implements View.OnTouchListener {
         public Path boxPath; // 边框路径  
         //public Path preMonthBtnPath; // 上一月按钮三角形  
         //public Path nextMonthBtnPath; // 下一月按钮三角形  
-        public String[] weekText = { "Sun","Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};  
-        public String[] monthText = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};  
+        public String[] weekText = { "日","一", "二", "三", "四", "五", "六"};  
+        public String[] monthText = {"1","2","3","4","5","6","7","8","9","10","11","12"};  
              
         public void init() {  
-            float temp = height / 7f;  
+            float temp = height /7f;  
             monthHeight = 0;//(float) ((temp + temp * 0.3f) * 0.6);  
             //monthChangeWidth = monthHeight * 1.5f;  
            // weekHeight = (float) ((temp + temp * 0.3f) * 0.7); //星期高度 
-            cellHeight = (height - monthHeight - weekHeight) / 5f;  
+            cellHeight = (height - monthHeight - weekHeight) / 6f;  
             cellWidth = width / 7f;  
             borderPaint = new Paint();  
             borderPaint.setColor(borderColor);  
