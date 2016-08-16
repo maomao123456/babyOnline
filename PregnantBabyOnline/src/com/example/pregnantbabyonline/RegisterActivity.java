@@ -83,7 +83,7 @@ public class RegisterActivity extends Activity {
 		} else if (checkData() != 0) {// 在数据库中注册的账号已存在
 			Toast.makeText(RegisterActivity.this, "用户已存在", Toast.LENGTH_SHORT)
 					.show();
-		} else if (TextUtils.isEmpty(rePassword)) {
+		} else if (TextUtils.isEmpty(userPassword)) {
 			regPwd.setError("密码不能为空");
 		} else if (TextUtils.isEmpty(rePassword)) {
 			checkPwd.setError("确认密码不能为空");

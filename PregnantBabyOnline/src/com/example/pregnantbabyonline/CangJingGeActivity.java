@@ -117,7 +117,6 @@ public class CangJingGeActivity extends Activity{
 				button4.setText(null);
 				break;
 			case R.id.imageview_back:
-				Toast.makeText(CangJingGeActivity.this, "跳转到上个页面", Toast.LENGTH_SHORT).show();
 				Intent intent=new Intent(CangJingGeActivity.this,ShouyeActivity.class);
 				startActivity(intent);
 				CangJingGeActivity.this.finish();

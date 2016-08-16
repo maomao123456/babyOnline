@@ -86,7 +86,5 @@
         </service>
 
         <!-- 短信验证注册 -->
-
     </application>
-
 </manifest>
