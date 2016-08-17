@@ -28,7 +28,7 @@ public class WoFragment  extends Fragment{
 		 cover_user_photo.setImageResource(R.drawable.tp6); 
 		 
 	        linearlayout1=(LinearLayout)view.findViewById(R.id.linearLayout1);
-	        linearlayout2=(LinearLayout)view.findViewById(R.id.linearLayout2);
+	        linearlayout2=(LinearLayout)view.findViewById(R.id.linearLayout7);
 	        linearlayout3=(LinearLayout)view.findViewById(R.id.linearLayout3);
 	        linearlayout4=(LinearLayout)view.findViewById(R.id.linearLayout4);
 	        linearlayout5=(LinearLayout)view.findViewById(R.id.linearLayout5);
@@ -53,7 +53,7 @@ public class WoFragment  extends Fragment{
 		case R.id.linearLayout1:
 			Toast.makeText(getActivity(), "1", Toast.LENGTH_SHORT).show();
 			break;
-		case R.id.linearLayout2:
+		case R.id.linearLayout7:
 			Toast.makeText(getActivity(), "2", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.linearLayout3:
