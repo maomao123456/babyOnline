@@ -64,6 +64,10 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="15dp"
                     android:text="修改经期"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
                     android:textColor="#f85942"
                     android:textSize="14sp" />
             </RelativeLayout>
@@ -156,13 +160,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:gravity="center"
                             android:text="31"
+                            android:button="@null"
                             android:tag="1"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -193,13 +198,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:gravity="center"
                             android:text="1"
+                            android:button="@null"
                              android:tag="2"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -230,7 +236,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -238,6 +244,7 @@
                             android:gravity="center"
                             android:text="2"
                              android:tag="3"
+                             android:button="@null"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
 
@@ -267,7 +274,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -275,6 +282,7 @@
                             android:gravity="center"
                             android:text="3"
                              android:tag="4"
+                             android:button="@null"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
 
@@ -304,13 +312,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                            android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="5"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -341,13 +350,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                            android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="6"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -378,13 +388,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                            android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="7"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -422,7 +433,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -430,6 +441,7 @@
                             android:gravity="center"
                             android:text="2"
                              android:tag="8"
+                             android:button="@null"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
 
@@ -447,6 +459,7 @@
                             android:layout_height="wrap_content"
                             android:layout_toRightOf="@id/rili8"
                             android:text=""
+                            android:visibility="gone"
                             android:id="@+id/rilix8"
                             android:layout_marginLeft="5dp"
                             android:drawableTop="@drawable/pailuanri"
@@ -459,7 +472,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili9"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -467,6 +480,7 @@
                             android:gravity="center"
                             android:text="2"
                              android:tag="9"
+                             android:button="@null"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
 
@@ -496,7 +510,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili10"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -504,6 +518,7 @@
                            android:gravity="center"
                             android:text="2"
                              android:tag="10"
+                             android:button="@null"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
 
@@ -533,13 +548,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili11"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                            android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="11"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -570,13 +586,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili12"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="12"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -607,13 +624,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili13"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                            android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="13"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -644,13 +662,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili14"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                            android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="14"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -690,7 +709,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili15"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -698,6 +717,7 @@
                             android:gravity="center"
                             android:text="14"
                              android:tag="15"
+                             android:button="@null"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
 
@@ -727,13 +747,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili16"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:gravity="center"
                             android:text="15"
+                            android:button="@null"
                             android:tag="16"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -764,13 +785,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili17"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                            android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="17"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -801,13 +823,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili18"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                            android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="18"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -838,13 +861,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili19"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                            android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="19"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -875,13 +899,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili20"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                           android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="20"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -912,13 +937,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili21"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                            android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="21"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -957,7 +983,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili22"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -965,6 +991,7 @@
                            android:gravity="center"
                             android:text="2"
                              android:tag="22"
+                             android:button="@null"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
 
@@ -994,13 +1021,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili23"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                            android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="23"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -1031,7 +1059,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili24"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1039,6 +1067,7 @@
                           android:gravity="center"
                             android:text="2"
                              android:tag="24"
+                             android:button="@null"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
 
@@ -1068,7 +1097,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili25"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1076,6 +1105,7 @@
                            android:gravity="center"
                             android:text="2"
                              android:tag="25"
+                             android:button="@null"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
 
@@ -1105,13 +1135,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili26"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                            android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="26"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -1142,13 +1173,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili27"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                            android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="27"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -1179,13 +1211,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili28"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                            android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="28"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -1224,13 +1257,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili29"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                            android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="29"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -1261,7 +1295,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili30"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1269,6 +1303,7 @@
                             android:gravity="center"
                             android:text="2"
                              android:tag="30"
+                             android:button="@null"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
 
@@ -1298,7 +1333,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili31"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1306,6 +1341,7 @@
                            android:gravity="center"
                             android:text="2"
                              android:tag="31"
+                             android:button="@null"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
 
@@ -1335,13 +1371,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili32"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                            android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="32"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -1372,7 +1409,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili33"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1380,6 +1417,7 @@
                            android:gravity="center"
                             android:text="2"
                              android:tag="33"
+                             android:button="@null"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
 
@@ -1409,13 +1447,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili34"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                            android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="34"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -1446,7 +1485,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili35"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1454,6 +1493,7 @@
                            android:gravity="center"
                             android:text="2"
                              android:tag="35"
+                             android:button="@null"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
 
@@ -1492,7 +1532,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili36"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1500,6 +1540,7 @@
                            android:gravity="center"
                             android:text="2"
                              android:tag="29"
+                             android:button="@null"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
 
@@ -1529,7 +1570,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili37"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1537,6 +1578,7 @@
                             android:gravity="center"
                             android:text="2"
                              android:tag="30"
+                             android:button="@null"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
 
@@ -1566,13 +1608,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili38"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                            android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="31"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -1603,7 +1646,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili39"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1611,6 +1654,7 @@
                            android:gravity="center"
                             android:text="2"
                              android:tag="32"
+                             android:button="@null"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
 
@@ -1640,7 +1684,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili40"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1648,6 +1692,7 @@
                            android:gravity="center"
                             android:text="2"
                              android:tag="33"
+                             android:button="@null"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
 
@@ -1677,7 +1722,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili41"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1685,6 +1730,7 @@
                            android:gravity="center"
                             android:text="2"
                              android:tag="34"
+                             android:button="@null"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
 
@@ -1714,13 +1760,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" >
 
-                        <TextView
+                        <CheckBox
                             android:id="@+id/rili42"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                            android:gravity="center"
                             android:text="2"
+                            android:button="@null"
                              android:tag="35"
                             android:textColor="@color/rili_luse"
                             android:textSize="14sp" />
@@ -1880,6 +1927,7 @@
                     android:layout_weight="1"
                     android:button="@null"
                     android:checked="true"
+                    android:clickable="false"
                     android:drawablePadding="8dp"
                     android:drawableTop="@drawable/rili_yesuan_selector"
                     android:gravity="center_horizontal"
@@ -1899,6 +1947,7 @@
                     android:layout_weight="1"
                     android:button="@null"
                     android:checked="true"
+                     android:clickable="false"
                     android:drawablePadding="8dp"
                     android:drawableTop="@drawable/rili_tongfang_selector"
                     android:gravity="center_horizontal"
@@ -1918,6 +1967,7 @@
                     android:layout_weight="1"
                     android:button="@null"
                     android:checked="true"
+                     android:clickable="false"
                     android:drawablePadding="8dp"
                     android:drawableTop="@drawable/rili_wendu_selector"
                     android:gravity="center_horizontal"
@@ -1937,6 +1987,7 @@
                     android:layout_weight="1"
                     android:button="@null"
                     android:checked="true"
+                     android:clickable="false"
                     android:drawablePadding="8dp"
                     android:drawableTop="@drawable/rili_pailuanshizhi_selector"
                     android:gravity="center_horizontal"
@@ -1955,6 +2006,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
+                     android:clickable="false"
                     android:drawablePadding="8dp"
                     android:drawableTop="@drawable/rili_baidai_selector"
                     android:gravity="center_horizontal"

@@ -22,7 +22,6 @@ import com.example.fragment.ShiPinFragment;
 import com.example.fragment.ShouYeFragment;
 import com.example.fragment.WoFragment;
 import com.example.fragmentadapter.MainFragmentAdapter;
-import com.example.lei.DateNumb;
 
 /**
  * 主页面  及中间的几个fragment

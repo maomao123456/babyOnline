@@ -4,6 +4,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -101,7 +104,12 @@ public class BeiYunRiLiActivity extends Activity {
 			}
 			
 			if(j==today+numbDay){
-				color=Color.parseColor("#FFFFFF");
+				if(comeYima==0){
+					color=Color.parseColor("#FFFFFF");
+				}else{
+					color=Color.parseColor("#f86eaf");
+				}
+				
 				bg=R.drawable.xingzhuang;
 				if(numb==0){
 					visible=View.VISIBLE;
@@ -112,7 +120,7 @@ public class BeiYunRiLiActivity extends Activity {
 				color=Color.parseColor("#53bb00");
 				visible=View.GONE;
 				bg=0;
-			}else if(j>29){
+			}else if(j>28){
 				color=Color.parseColor("#f3afcb");
 				visible=View.GONE;
 				bg=0;
@@ -120,6 +128,45 @@ public class BeiYunRiLiActivity extends Activity {
 				color=Color.parseColor("#ff6c54");
 				visible=View.GONE;
 				bg=0;
+				if(numb%5==0){
+					rilix15.setVisibility(View.VISIBLE);
+					rilix14.setVisibility(View.GONE);	
+					rilix16.setVisibility(View.GONE);
+					rilix19.setVisibility(View.GONE);
+					rilix11.setVisibility(View.GONE);
+				}else if(numb%5==1){
+					rilix16.setVisibility(View.VISIBLE);
+					rilix17.setVisibility(View.GONE);	
+					rilix15.setVisibility(View.GONE);
+				}else if(numb%5==2){
+					rilix17.setVisibility(View.VISIBLE);
+					rilix18.setVisibility(View.GONE);	
+					rilix16.setVisibility(View.GONE);
+				}else if(numb%5==3){
+					rilix18.setVisibility(View.VISIBLE);
+					rilix17.setVisibility(View.GONE);	
+					rilix19.setVisibility(View.GONE);
+				}else if(numb%5==4){
+					rilix19.setVisibility(View.VISIBLE);
+					rilix18.setVisibility(View.GONE);
+					rilix15.setVisibility(View.GONE);
+				}else if(numb%5==-1){
+					rilix14.setVisibility(View.VISIBLE);
+					rilix13.setVisibility(View.GONE);	
+					rilix15.setVisibility(View.GONE);
+				}else if(numb%5==-2){
+					rilix13.setVisibility(View.VISIBLE);
+					rilix12.setVisibility(View.GONE);	
+					rilix14.setVisibility(View.GONE);
+				}else if(numb%5==-3){
+					rilix12.setVisibility(View.VISIBLE);
+					rilix11.setVisibility(View.GONE);	
+					rilix13.setVisibility(View.GONE);
+				}else if(numb%5==-4){
+					rilix11.setVisibility(View.VISIBLE);
+					rilix12.setVisibility(View.GONE);
+					rilix15.setVisibility(View.GONE);
+				}
 			}
 				switch (j) {
 				case 1:
@@ -412,13 +459,24 @@ public class BeiYunRiLiActivity extends Activity {
 		rightData.setOnClickListener(listener);
 		xiugaijingqi.setOnClickListener(listener);
 		yimaXuanze.setOnClickListener(listener);
-		yesuan.setOnClickListener(listener);
+		/*yesuan.setOnClickListener(listener);
 		tongfang.setOnClickListener(listener);
 		wendu.setOnClickListener(listener);
 		pailuanshizhi.setOnClickListener(listener);
-		baidai.setOnClickListener(listener);
+		baidai.setOnClickListener(listener);*/
+		
 	}
-
+	/**
+	 * 判断用户的选择状态
+	 */
+	int comeYima;
+	/**
+	 * 文字的背景颜色的判断
+	 */
+	int colorNumb;
+	/**
+	 * 普通控件的点击事件
+	 */
 	OnClickListener listener = new OnClickListener() {
 		public void onClick(View v) {
 			switch (v.getId()) {
@@ -441,29 +499,141 @@ public class BeiYunRiLiActivity extends Activity {
 				numb++;
 				timeChange();
 				break;
+			case R.id.rili_yima_xuanze:
+				if(yimaXuanze.isChecked()){
+					comeYima=1;
+					tongfang.setChecked(false);
+					numb = 0;
+					timeChange();
+				}else{
+					comeYima=0;
+					tongfang.setChecked(true);
+					numb = 0;
+					timeChange();
+				}
+				
+				break;
+			case R.id.rili_xiugaijingqi:
+				if(xiugaijingqi.getText().equals("修改经期")){
+					Toast.makeText(BeiYunRiLiActivity.this, "请选择日期", Toast.LENGTH_LONG).show();
+					xiugaijingqi.setText("保存经期");
+					colorNumb=1;
+					xiugaijingqi.setTextColor(getResources().getColor(R.color.baocunjingqi));
+				}else if(xiugaijingqi.getText().equals("保存经期")){
+					if(alertDialog==null){//保证代码的完整性（不要也行）
+						creatDialog();
+					}
+					alertDialog.show();
+				}
+				
+				break;
 			case R.id.rili_wendu:
 				Toast.makeText(getApplicationContext(), "跳转到温度界面",
 						Toast.LENGTH_SHORT).show();
-				/*
-				 * intent=new Intent(BeiYunRiLiActivity.this, "");
-				 * startActivity(intent);
-				 */
+				/* intent=new Intent(BeiYunRiLiActivity.this, );
+				 startActivity(intent);*/
+				break;
+			case R.id.rili1:
+				gt(rili1);
+				break;
+			case R.id.rili2:
+				gt(rili2);
+				break;
+			case R.id.rili3:
+				gt(rili3);
+				break;
+			case R.id.rili4:
+				gt(rili4);
+				break;
+			case R.id.rili5:
+				gt(rili5);
+				break;
+			case R.id.rili6:
+				gt(rili6);
+				break;
+			case R.id.rili7:
+				gt(rili7);
+				break;
+			case R.id.rili8:
+				gt(rili8);
+				break;
+			case R.id.rili9:
+				gt(rili9);
+				break;
+			case R.id.rili10:
+				gt(rili10);
+				break;
+			case R.id.rili11:
+				gt(rili11);
+				break;
+			case R.id.rili12:
+				gt(rili12);
 				break;
 
 			default:
 				break;
 			}
+			if(numb<=0){
+				xiugaijingqi.setVisibility(View.VISIBLE);
+			}else{
+				xiugaijingqi.setVisibility(View.GONE);
+			}	
 		}
 	};
-
 	/**
-	 * 获得日历界面
+	 * 修改经期的方法
+	 * @param vi
 	 */
-	public void getCalendarUI() {
-
+	public void gt(CheckBox vi){
+		if (colorNumb == 1) {
+			if (vi.isChecked()) {
+				vi.setTextColor(getResources().getColor(R.color.rili_yuejingqi));
+			} else {
+				vi.setTextColor(getResources().getColor(R.color.rili_luse));
+			}
+		}
 	}
-
-	TextView rili1, rili2, rili3, rili4, rili5, rili6, rili7, rili8, rili9,
+	AlertDialog alertDialog;
+	Builder builder;
+	/**
+	 * 修改经期后确认保存数据的对话框
+	 */
+	public void creatDialog(){
+		builder=new AlertDialog.Builder(BeiYunRiLiActivity.this);
+		builder.setTitle("提示");
+		builder.setIcon(R.drawable.ic_launcher);
+		builder.setMessage("数据即将保存，是否再次确认？");
+		builder.setPositiveButton("立即保存", onClickListener);//设置监听 且默认下标为-1；
+		builder.setNegativeButton("再次确认", onClickListener);//默认下标为-2；
+		builder.setNeutralButton("放弃更改", onClickListener);//默认下标为-3；
+		alertDialog=builder.create();
+	}
+	/**
+	 * 对话框的点击事件
+	 */
+	DialogInterface.OnClickListener onClickListener=new DialogInterface.OnClickListener() {
+		public void onClick(DialogInterface dialog, int nb) {
+			if(nb==-1){
+				xiugaijingqi.setText("修改经期");
+				colorNumb=0;
+				xiugaijingqi.setTextColor(getResources().getColor(R.color.xiugaijingqi));
+				Toast.makeText(BeiYunRiLiActivity.this, "数据保存成功！", Toast.LENGTH_SHORT).show();
+			}else if(nb==-3){
+				xiugaijingqi.setText("修改经期");
+				colorNumb=0;
+				numb = 0;
+				timeChange();
+				xiugaijingqi.setTextColor(getResources().getColor(R.color.xiugaijingqi));
+				Toast.makeText(BeiYunRiLiActivity.this, "已为您取消任何更改", Toast.LENGTH_SHORT).show();
+			}else if(nb==-2){
+				Toast.makeText(BeiYunRiLiActivity.this, "请确认您选择的日期", Toast.LENGTH_SHORT).show();
+			}else{
+				Toast.makeText(BeiYunRiLiActivity.this, "你尚未提交任何数据，经期暂未保存！", Toast.LENGTH_LONG).show();
+			}
+		}
+	};
+	
+	CheckBox rili1, rili2, rili3, rili4, rili5, rili6, rili7, rili8, rili9,
 			rili10, rili11, rili12, rili13, rili14, rili15, rili16, rili17,
 			rili18, rili19, rili20, rili21, rili22, rili23, rili24, rili25,
 			rili26, rili27, rili28, rili29, rili30, rili31, rili32, rili33,
@@ -487,48 +657,90 @@ public class BeiYunRiLiActivity extends Activity {
 	 * 日历内容的id
 	 */
 	public void getRiliId() {
-		rili1 = (TextView) findViewById(R.id.rili1);
-		rili2 = (TextView) findViewById(R.id.rili2);
-		rili3 = (TextView) findViewById(R.id.rili3);
-		rili4 = (TextView) findViewById(R.id.rili4);
-		rili5 = (TextView) findViewById(R.id.rili5);
-		rili6 = (TextView) findViewById(R.id.rili6);
-		rili7 = (TextView) findViewById(R.id.rili7);
-		rili8 = (TextView) findViewById(R.id.rili8);
-		rili9 = (TextView) findViewById(R.id.rili9);
-		rili10 = (TextView) findViewById(R.id.rili10);
-		rili11 = (TextView) findViewById(R.id.rili11);
-		rili12 = (TextView) findViewById(R.id.rili12);
-		rili13 = (TextView) findViewById(R.id.rili13);
-		rili14 = (TextView) findViewById(R.id.rili14);
-		rili15 = (TextView) findViewById(R.id.rili15);
-		rili16 = (TextView) findViewById(R.id.rili16);
-		rili17 = (TextView) findViewById(R.id.rili17);
-		rili18 = (TextView) findViewById(R.id.rili18);
-		rili19 = (TextView) findViewById(R.id.rili19);
-		rili20 = (TextView) findViewById(R.id.rili20);
-		rili21 = (TextView) findViewById(R.id.rili21);
-		rili22 = (TextView) findViewById(R.id.rili22);
-		rili23 = (TextView) findViewById(R.id.rili23);
-		rili24 = (TextView) findViewById(R.id.rili24);
-		rili25 = (TextView) findViewById(R.id.rili25);
-		rili26 = (TextView) findViewById(R.id.rili26);
-		rili27 = (TextView) findViewById(R.id.rili27);
-		rili28 = (TextView) findViewById(R.id.rili28);
-		rili29 = (TextView) findViewById(R.id.rili29);
-		rili30 = (TextView) findViewById(R.id.rili30);
-		rili31 = (TextView) findViewById(R.id.rili31);
-		rili32 = (TextView) findViewById(R.id.rili32);
-		rili33 = (TextView) findViewById(R.id.rili33);
-		rili34 = (TextView) findViewById(R.id.rili34);
-		rili35 = (TextView) findViewById(R.id.rili35);
-		rili36 = (TextView) findViewById(R.id.rili36);
-		rili37 = (TextView) findViewById(R.id.rili37);
-		rili38 = (TextView) findViewById(R.id.rili38);
-		rili39 = (TextView) findViewById(R.id.rili39);
-		rili40 = (TextView) findViewById(R.id.rili40);
-		rili41 = (TextView) findViewById(R.id.rili41);
-		rili42 = (TextView) findViewById(R.id.rili42);
+		rili1 = (CheckBox) findViewById(R.id.rili1);
+		rili2 = (CheckBox) findViewById(R.id.rili2);
+		rili3 = (CheckBox) findViewById(R.id.rili3);
+		rili4 = (CheckBox) findViewById(R.id.rili4);
+		rili5 = (CheckBox) findViewById(R.id.rili5);
+		rili6 = (CheckBox) findViewById(R.id.rili6);
+		rili7 = (CheckBox) findViewById(R.id.rili7);
+		rili8 = (CheckBox) findViewById(R.id.rili8);
+		rili9 = (CheckBox) findViewById(R.id.rili9);
+		rili10 = (CheckBox) findViewById(R.id.rili10);
+		rili11 = (CheckBox) findViewById(R.id.rili11);
+		rili12 = (CheckBox) findViewById(R.id.rili12);
+		rili13 = (CheckBox) findViewById(R.id.rili13);
+		rili14 = (CheckBox) findViewById(R.id.rili14);
+		rili15 = (CheckBox) findViewById(R.id.rili15);
+		rili16 = (CheckBox) findViewById(R.id.rili16);
+		rili17 = (CheckBox) findViewById(R.id.rili17);
+		rili18 = (CheckBox) findViewById(R.id.rili18);
+		rili19 = (CheckBox) findViewById(R.id.rili19);
+		rili20 = (CheckBox) findViewById(R.id.rili20);
+		rili21 = (CheckBox) findViewById(R.id.rili21);
+		rili22 = (CheckBox) findViewById(R.id.rili22);
+		rili23 = (CheckBox) findViewById(R.id.rili23);
+		rili24 = (CheckBox) findViewById(R.id.rili24);
+		rili25 = (CheckBox) findViewById(R.id.rili25);
+		rili26 = (CheckBox) findViewById(R.id.rili26);
+		rili27 = (CheckBox) findViewById(R.id.rili27);
+		rili28 = (CheckBox) findViewById(R.id.rili28);
+		rili29 = (CheckBox) findViewById(R.id.rili29);
+		rili30 = (CheckBox) findViewById(R.id.rili30);
+		rili31 = (CheckBox) findViewById(R.id.rili31);
+		rili32 = (CheckBox) findViewById(R.id.rili32);
+		rili33 = (CheckBox) findViewById(R.id.rili33);
+		rili34 = (CheckBox) findViewById(R.id.rili34);
+		rili35 = (CheckBox) findViewById(R.id.rili35);
+		rili36 = (CheckBox) findViewById(R.id.rili36);
+		rili37 = (CheckBox) findViewById(R.id.rili37);
+		rili38 = (CheckBox) findViewById(R.id.rili38);
+		rili39 = (CheckBox) findViewById(R.id.rili39);
+		rili40 = (CheckBox) findViewById(R.id.rili40);
+		rili41 = (CheckBox) findViewById(R.id.rili41);
+		rili42 = (CheckBox) findViewById(R.id.rili42);
+		rili1.setOnClickListener(listener);
+		rili2.setOnClickListener(listener);
+		rili3.setOnClickListener(listener);
+		rili4.setOnClickListener(listener);
+		rili5.setOnClickListener(listener);
+		rili6.setOnClickListener(listener);
+		rili7.setOnClickListener(listener);
+		rili8.setOnClickListener(listener);
+		rili9.setOnClickListener(listener);
+		rili10.setOnClickListener(listener);
+		rili11.setOnClickListener(listener);
+		rili12.setOnClickListener(listener);
+		rili13.setOnClickListener(listener);
+		rili14.setOnClickListener(listener);
+		rili15.setOnClickListener(listener);
+		rili16.setOnClickListener(listener);
+		rili17.setOnClickListener(listener);
+		rili18.setOnClickListener(listener);
+		rili19.setOnClickListener(listener);
+		rili20.setOnClickListener(listener);
+		rili21.setOnClickListener(listener);
+		rili22.setOnClickListener(listener);
+		rili23.setOnClickListener(listener);
+		rili24.setOnClickListener(listener);
+		rili25.setOnClickListener(listener);
+		rili26.setOnClickListener(listener);
+		rili27.setOnClickListener(listener);
+		rili28.setOnClickListener(listener);
+		rili29.setOnClickListener(listener);
+		rili30.setOnClickListener(listener);
+		rili31.setOnClickListener(listener);
+		rili32.setOnClickListener(listener);
+		rili33.setOnClickListener(listener);
+		rili34.setOnClickListener(listener);
+		rili35.setOnClickListener(listener);
+		rili36.setOnClickListener(listener);
+		rili37.setOnClickListener(listener);
+		rili38.setOnClickListener(listener);
+		rili39.setOnClickListener(listener);
+		rili40.setOnClickListener(listener);
+		rili41.setOnClickListener(listener);
+		rili42.setOnClickListener(listener);
 		
 		rilij1 = (TextView) findViewById(R.id.rilij1);
 		rilij2 = (TextView) findViewById(R.id.rilij2);

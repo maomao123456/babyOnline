@@ -8,7 +8,6 @@ import java.util.Date;
 import java.util.List;
 
 import android.annotation.SuppressLint;
-import android.app.ActionBar.LayoutParams;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -33,14 +32,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.adapter.ShouYeAdapter;
-import com.example.lei.DateNumb;
 import com.example.lei.ShouYeListview;
 import com.example.pregnantbabyonline.BedStoryActivity;
 import com.example.pregnantbabyonline.CangJingGeActivity;
 import com.example.pregnantbabyonline.FreeWelfareActivity;
 import com.example.pregnantbabyonline.PabulumActivity;
 import com.example.pregnantbabyonline.R;
-import com.example.pregnantbabyonline.ShouyeActivity;
 
 public class ShouYeFragment extends Fragment {
 	TextView top_text;
