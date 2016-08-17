@@ -63,6 +63,8 @@
         <!-- <activity android:name="com.example.pregnantbabyonline.ShouyeActivity" 
             android:launchMode="singleTop"/> -->
         <activity android:name="com.example.pregnantbabyonline.CangJingGeActivity" />
+        <activity android:name="com.example.pregnantbabyonline.BedStoryActivity"/>
+        <activity android:name="com.example.pregnantbabyonline.FreeWelfareActivity"/>
         <activity android:name="com.example.pregnantbabyonline.PabulumActivity" />
         <activity android:name="com.example.pregnantbabyonline.WebActivity"/>
         <activity android:name="com.example.pregnantbabyonline.QuanZiChildActivity"/>

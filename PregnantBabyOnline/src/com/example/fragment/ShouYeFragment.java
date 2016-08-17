@@ -179,8 +179,6 @@ public class ShouYeFragment extends Fragment {
 			// TODO Auto-generated method stub
 			switch (view.getId()) {
 			case R.id.image_baby_head:
-				Toast.makeText(getActivity(), "跳转到更换头像页面", Toast.LENGTH_SHORT)
-						.show();
 				createPopWindow();
 				break;
 			case R.id.textview_yimiao_baby:
