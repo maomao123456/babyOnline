@@ -11,12 +11,11 @@
         android:background="@drawable/baby_background_top"
         android:id="@+id/babyhead_pop_title"
         android:text="11"
-        android:textColor="@color/blacka"
+        android:textColor="@color/pink"
         android:padding="5dp"
         android:gravity="center"
         android:textSize="20sp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"/>
 	<TextView 

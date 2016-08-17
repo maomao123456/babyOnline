@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -25,6 +26,7 @@ public class FreeWelfareActivity extends Activity{
 	List<ShouYeListview> list;
 	ImageView back;
 	TextView textview;
+	Uri uri;
 	int[] id={R.id.listview_image_education_baby,R.id.listview_title_baby,
 			R.id.listview_bigtitle_baby,R.id.listview_neirong_baby};
 	@Override
@@ -105,6 +107,12 @@ public class FreeWelfareActivity extends Activity{
 				Toast.makeText(FreeWelfareActivity.this, "进入第十项福利", Toast.LENGTH_SHORT).show();
 				break;
 			}
+			uri=Uri.parse("https://www.baidu.com");
+			enterWeb();
 		}
 	};
+	public void enterWeb(){//进入网页
+		Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+		startActivity(intent);
+	}
 }
