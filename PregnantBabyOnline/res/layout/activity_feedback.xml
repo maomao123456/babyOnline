@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/efefef" >
+    
+    <TextView 
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="#ED6A79"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:text="意见反馈"
+        android:gravity="center" />
+    
+   <EditText 
+       android:layout_width="fill_parent"
+       android:textColorHint="#ED6A79"
+       android:layout_height="250dp"
+       android:hint="请输入你需要反馈的信息:"
+       android:textSize="15sp"/>
+    
+   
+   <EditText 
+       android:layout_width="fill_parent"
+       android:textColorHint="#ED6A79"
+       android:layout_height="50dp"
+       android:hint="请留下你的联系方式:"
+       android:textSize="15sp"/>
+   
+   <Button 
+       android:id="@+id/button"
+       android:layout_marginTop="100dp"
+       android:layout_width="fill_parent"
+       android:layout_marginRight="30dp"
+          android:layout_marginLeft="30dp"
+       android:layout_height="50dp"
+       android:text="提交反馈"
+       android:background="#ED6A79"/>
+
+</LinearLayout>
