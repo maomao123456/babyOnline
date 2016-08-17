@@ -67,6 +67,9 @@
         <activity android:name="com.example.pregnantbabyonline.WebActivity"/>
         <activity android:name="com.example.pregnantbabyonline.QuanZiChildActivity"/>
         <activity android:name="com.example.pregnantbabyonline.BeiYunRiLiActivity"/>
+         <activity android:name="com.example.pregnantbabyonline.FeedbackActivity"/>
+         <activity android:name="com.example.pregnantbabyonline.WoFragment"/>
+        
         <!--
              <activity android:name="com.example.pregnantbabyonline.ShouyeActivity" 
             android:launchMode="singleTop"/>
