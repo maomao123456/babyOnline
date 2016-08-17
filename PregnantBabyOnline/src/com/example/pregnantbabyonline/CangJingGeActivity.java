@@ -3,6 +3,7 @@ package com.example.pregnantbabyonline;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,6 +30,7 @@ public class CangJingGeActivity extends Activity{
 	Button button2;
 	Button button3;
 	Button button4;
+	Uri uri;
 	int numb=1;//判断孕期  备孕   婴儿 哪个被点击了
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -126,39 +128,61 @@ public class CangJingGeActivity extends Activity{
 				switch(view.getId()){
 				case R.id.button1_cangjingge:
 					Toast.makeText(CangJingGeActivity.this, "跳转到备孕常识页面", Toast.LENGTH_SHORT).show();
+					uri=Uri.parse("https://www.baidu.com");
+					enterWeb();
 					break;
 				case R.id.button2_cangjingge:
 					Toast.makeText(CangJingGeActivity.this, "跳转到饮食调理页面", Toast.LENGTH_SHORT).show();
+					uri=Uri.parse("https://www.baidu.com");
+					enterWeb();
 					break;
 				case R.id.button3_cangjingge:
 					Toast.makeText(CangJingGeActivity.this, "跳转到受孕技巧页面", Toast.LENGTH_SHORT).show();
+					uri=Uri.parse("https://www.baidu.com");
+					enterWeb();
 					break;
 				case R.id.button4_cangjingge:
 					Toast.makeText(CangJingGeActivity.this, "跳转到孕前检查页面", Toast.LENGTH_SHORT).show();
+					uri=Uri.parse("https://www.baidu.com");
+					enterWeb();
 					break;
 				}
 			}else if(numb==2){
 				switch(view.getId()){
 				case R.id.button1_cangjingge:
 					Toast.makeText(CangJingGeActivity.this, "跳转到孕期注意页面", Toast.LENGTH_SHORT).show();
+					uri=Uri.parse("https://www.baidu.com");
+					enterWeb();
 					break;
 				case R.id.button2_cangjingge:
 					Toast.makeText(CangJingGeActivity.this, "跳转到孕期饮食页面", Toast.LENGTH_SHORT).show();
+					uri=Uri.parse("https://www.baidu.com");
+					enterWeb();
 					break;
 				case R.id.button3_cangjingge:
 					Toast.makeText(CangJingGeActivity.this, "跳转到孕期检查页面", Toast.LENGTH_SHORT).show();
+					uri=Uri.parse("https://www.baidu.com");
+					enterWeb();
 					break;
 				}
 			}else if(numb==3){
 				switch(view.getId()){
 				case R.id.button1_cangjingge:
 					Toast.makeText(CangJingGeActivity.this, "跳转到育婴宝典页面", Toast.LENGTH_SHORT).show();
+					uri=Uri.parse("https://www.baidu.com");
+					enterWeb();
 					break;
 				case R.id.button2_cangjingge:
 					Toast.makeText(CangJingGeActivity.this, "跳转到婴儿常识页面", Toast.LENGTH_SHORT).show();
+					uri=Uri.parse("https://www.baidu.com");
+					enterWeb();
 					break;
 				}
 			}
 		}
 	};
+	public void enterWeb(){//进入网页
+		Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+		startActivity(intent);
+	}
 }

@@ -1,33 +1,28 @@
 package com.example.pregnantbabyonline;
 
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.TextView;
 
 import com.example.fragment.QuanZiFragment;
 import com.example.fragment.ShiPinFragment;
 import com.example.fragment.ShouYeFragment;
 import com.example.fragment.WoFragment;
 import com.example.fragmentadapter.MainFragmentAdapter;
-
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Environment;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.view.Window;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.RadioGroup.OnCheckedChangeListener;
-import android.widget.TextView;
+import com.example.lei.DateNumb;
 
 /**
  * 主页面  及中间的几个fragment
@@ -44,16 +39,33 @@ public class ShouyeActivity extends FragmentActivity {
 	ViewPager viewPager;
 	List<Fragment> fragmentList;
 	MainFragmentAdapter fragmentAdapter;
+	int numb;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
 		initView();
+		try {
+			getNumb("2016-08-12");
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(numb<=0){
+			title.setText("你家娃还没出生了");
+		}else if(numb>0&&numb<=365){
+			title.setText("宝宝"+numb+"天");
+		}else if(numb>365){
+			title.setText("宝宝已超过一周岁了");
+		}
+		System.out.println(numb+"hahaha");
 		getData();
 		fragmentAdapter=new MainFragmentAdapter(
 				getSupportFragmentManager(), fragmentList);
 		viewPager.setAdapter(fragmentAdapter);
 		//getpage();
+		
 	}
 	/**
 	 * 通过intent传递参数
@@ -106,7 +118,7 @@ public class ShouyeActivity extends FragmentActivity {
 	public void getItem(){
 		if(viewPager.getCurrentItem()==0){
 			shouye.setChecked(true);
-			title.setText(R.string.baobaoyitian);
+			title.setText("宝宝"+numb+"天");
 		}
 		if(viewPager.getCurrentItem()==1){
 			shipin.setChecked(true);
@@ -130,7 +142,7 @@ public class ShouyeActivity extends FragmentActivity {
 			switch (checkedId) {
 			case R.id.main_shouye:
 					viewPager.setCurrentItem(0);
-					title.setText(R.string.baobaoyitian);
+					title.setText("宝宝"+numb+"天");
 				break;
 			case R.id.main_shipin:
 					viewPager.setCurrentItem(1);
@@ -165,7 +177,14 @@ public class ShouyeActivity extends FragmentActivity {
 		fragmentList.add(quanZiFragment);
 		WoFragment twoActivity=new WoFragment();
 		fragmentList.add(twoActivity);
-		
-		
+	}
+	/**
+	 * 获得婴儿出生的天数
+	 */
+	public void getNumb(String birthday) throws ParseException{
+		SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
+		Date date=simpleDateFormat.parse(birthday);
+		long time=new Date().getTime()-date.getTime();
+		numb=(int)(time/(1000*60*60*24));
 	}
 }

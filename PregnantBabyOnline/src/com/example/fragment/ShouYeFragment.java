@@ -1,5 +1,7 @@
 package com.example.fragment;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -9,6 +11,7 @@ import android.annotation.SuppressLint;
 import android.app.ActionBar.LayoutParams;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
@@ -30,12 +33,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.adapter.ShouYeAdapter;
+import com.example.lei.DateNumb;
 import com.example.lei.ShouYeListview;
 import com.example.pregnantbabyonline.BedStoryActivity;
 import com.example.pregnantbabyonline.CangJingGeActivity;
 import com.example.pregnantbabyonline.FreeWelfareActivity;
 import com.example.pregnantbabyonline.PabulumActivity;
 import com.example.pregnantbabyonline.R;
+import com.example.pregnantbabyonline.ShouyeActivity;
 
 public class ShouYeFragment extends Fragment {
 	TextView top_text;
@@ -68,12 +73,16 @@ public class ShouYeFragment extends Fragment {
 	ShouYeAdapter adapter;
 	ShouYeListview shouye;
 	List<ShouYeListview> list;
+	Uri uri;
 
 	int[] id = { R.id.listview_image_education_baby, R.id.listview_title_baby,
 			R.id.listview_bigtitle_baby, R.id.listview_neirong_baby };
 
 	PopupWindow popWindow;
 	View touxiang;
+	View yimiaoPop;
+	int whichNumb;//判断创建哪个popupWindow
+	int numb;//progress的初始值
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -81,6 +90,7 @@ public class ShouYeFragment extends Fragment {
 		// TODO Auto-generated method stub
 		view=(View)inflater.inflate(R.layout.fragment_shouye, null);
 		touxiang=(View)inflater.inflate(R.layout.baby_popupwindow_touxiang,null);
+		yimiaoPop=(View)inflater.inflate(R.layout.baby_popupwindow_yimiao, null);
 		headView=(View)inflater.inflate(R.layout.fragment_baby, null);
 		listview=(ListView)view.findViewById(R.id.listview_shouye);
 		listview.addHeaderView(headView);
@@ -160,6 +170,8 @@ public class ShouYeFragment extends Fragment {
 						.show();
 				break;
 			}
+			uri=Uri.parse("https://www.baidu.com");
+			enterWeb();
 		}
 	};
 
@@ -179,11 +191,12 @@ public class ShouYeFragment extends Fragment {
 			// TODO Auto-generated method stub
 			switch (view.getId()) {
 			case R.id.image_baby_head:
+				whichNumb=1;
 				createPopWindow();
 				break;
 			case R.id.textview_yimiao_baby:
-				Toast.makeText(getActivity(), "跳转到疫苗接种页面", Toast.LENGTH_SHORT)
-						.show();
+				whichNumb=2;
+				createPopWindow();
 				break;
 			case R.id.textview_eat_baby:
 				startActivity(new Intent(getActivity(), PabulumActivity.class));
@@ -196,8 +209,9 @@ public class ShouYeFragment extends Fragment {
 				startActivity(new Intent(getActivity(),BedStoryActivity.class));
 				break;
 			case R.id.textview_zhishishouce_baby:
-				Toast.makeText(getActivity(), "跳转到知识手册页面", Toast.LENGTH_SHORT)
-						.show();
+				Toast.makeText(getActivity(), "跳转到知识手册页面", Toast.LENGTH_SHORT).show();
+				uri=Uri.parse("https://www.baidu.com");
+				enterWeb();
 				break;
 			case R.id.textview_cangjingge_baby:
 				startActivity(new Intent(getActivity(),
@@ -211,12 +225,40 @@ public class ShouYeFragment extends Fragment {
 				break;
 			case R.id.babyhead_pop_second:
 				Toast.makeText(getActivity(), "跳转到网页", Toast.LENGTH_SHORT).show();
+				uri=Uri.parse("https://www.baidu.com");
+				enterWeb();
+				break;
+			case R.id.baby_yimiao2:
+				uri=Uri.parse("https://www.baidu.com");
+				enterWeb();
+				break;
+			case R.id.baby_yimiao3:
+				uri=Uri.parse("https://www.baidu.com");
+				enterWeb();
+				break;
+			case R.id.baby_yimiao4:
+				uri=Uri.parse("https://www.baidu.com");
+				enterWeb();
+				break;
+			case R.id.baby_yimiao5:
+				uri=Uri.parse("https://www.baidu.com");
+				enterWeb();
 				break;
 			}
 		}
 	};
 
-	public void date() {// 设置默认日期
+	public void date() {// 设置默认的progress和天数//设置默认日期
+		try {
+			getNumb("2016-08-12");
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(numb);
+		seekBar.setProgress(numb);
+		baby_now.setText(numb + "天");
+		baby_next.setText(numb + 1 + "天");
 		Calendar calCurrent = Calendar.getInstance();
 		int today = calCurrent.get(Calendar.DATE);
 		int month = calCurrent.get(Calendar.MONTH) + 1;
@@ -227,7 +269,6 @@ public class ShouYeFragment extends Fragment {
 		int nextmonth = calNext.get(Calendar.MONTH) + 1;
 		next_date.setText(nextmonth + "月" + nextday + "日");
 	}
-
 	OnSeekBarChangeListener seekBarChangeListener = new OnSeekBarChangeListener() {
 		// 随seekBar改动的元素
 		@Override
@@ -249,17 +290,20 @@ public class ShouYeFragment extends Fragment {
 			if (progress > 0) {
 				baby_now.setText(progress + "天");
 				baby_next.setText(progress + 1 + "天");
+				tizhong.setText("体重:"+(2.26+progress*0.01)+"~"+(4.56+progress*0.01)+"kg");
+				shengao.setText("身高:"+(44.7+progress*0.01)+"~"+(55.8+progress*0.01)+"cm");
 				Calendar calCurrent = Calendar.getInstance();
-				calCurrent.add(Calendar.DAY_OF_MONTH, progress);
+				calCurrent.add(Calendar.DAY_OF_MONTH, progress-5);
 				int today = calCurrent.get(Calendar.DATE);
 				int month = calCurrent.get(Calendar.MONTH) + 1;
 				now_date.setText(month + "月" + today + "日");// 今天的日期
 				Calendar calNext = Calendar.getInstance();
-				calNext.add(Calendar.DAY_OF_MONTH, progress + 1);
+				calNext.add(Calendar.DAY_OF_MONTH, progress-5 + 1);
 				int nextday = calNext.get(Calendar.DATE);
 				int nextmonth = calNext.get(Calendar.MONTH) + 1;
 				next_date.setText(nextmonth + "月" + nextday + "日");// 明天的日期
 				if (progress > 30 && progress < 35) {
+					
 					top_text.setText("此时宝宝已经一个月大了");
 				} else if (progress >= 180 && progress < 185) {
 					top_text.setText("此时宝宝已经半岁了");
@@ -269,30 +313,65 @@ public class ShouYeFragment extends Fragment {
 					top_text.setText("宝宝在这个阶段正在快速发育，正需要您的悉心呵护");
 				}
 			}
-
 		}
 	};
 
 	@SuppressLint("NewApi")
 	public void createPopWindow(){
-		popWindow=new PopupWindow(touxiang, 400,
-				400);
-		popWindow.setBackgroundDrawable(new BitmapDrawable());
-		popWindow.setTouchable(true);
-		popWindow.setOutsideTouchable(true);
-		popWindow.setTouchInterceptor(new OnTouchListener() {
-			public boolean onTouch(View v, MotionEvent event) {
-				return false;
-			}
-		});
-		popWindow.showAtLocation(touxiang,Gravity.CENTER,0,0);
-		TextView title=(TextView)touxiang.findViewById(R.id.babyhead_pop_title);
-		TextView first=(TextView)touxiang.findViewById(R.id.babyhead_pop_first);
-		TextView second=(TextView)touxiang.findViewById(R.id.babyhead_pop_second);
-		title.setText("选择你的头像");
-		first.setText("从相册中选择");
-		second.setText("从网上选择");
-		first.setOnClickListener(onClickListener);
-		second.setOnClickListener(onClickListener);
+		if(whichNumb==1){
+			popWindow=new PopupWindow(touxiang, 500,300);
+			popWindow.setBackgroundDrawable(new BitmapDrawable());
+			popWindow.setTouchable(true);
+			popWindow.setOutsideTouchable(true);
+			popWindow.setTouchInterceptor(new OnTouchListener() {
+				public boolean onTouch(View v, MotionEvent event) {
+					return false;
+				}
+			});
+			popWindow.showAtLocation(touxiang,Gravity.CENTER,0,-200);
+			TextView title=(TextView)touxiang.findViewById(R.id.babyhead_pop_title);
+			TextView first=(TextView)touxiang.findViewById(R.id.babyhead_pop_first);
+			TextView second=(TextView)touxiang.findViewById(R.id.babyhead_pop_second);
+			title.setText("选择你的头像");
+			first.setText("从相册中选择");
+			second.setText("从网上选择");
+			first.setOnClickListener(onClickListener);
+			second.setOnClickListener(onClickListener);
+		}else if(whichNumb==2){
+			popWindow=new PopupWindow(yimiaoPop, 250,350);
+			popWindow.setBackgroundDrawable(new BitmapDrawable());
+			popWindow.setTouchable(true);
+			popWindow.setOutsideTouchable(true);
+			popWindow.setTouchInterceptor(new OnTouchListener() {
+				public boolean onTouch(View v, MotionEvent event) {
+					return false;
+				}
+			});
+			popWindow.showAtLocation(yimiaoPop,Gravity.RIGHT,0,200);
+			TextView one=(TextView)yimiaoPop.findViewById(R.id.baby_yimiao1);
+			TextView two=(TextView)yimiaoPop.findViewById(R.id.baby_yimiao2);
+			TextView three=(TextView)yimiaoPop.findViewById(R.id.baby_yimiao3);
+			TextView four=(TextView)yimiaoPop.findViewById(R.id.baby_yimiao4);
+			TextView five=(TextView)yimiaoPop.findViewById(R.id.baby_yimiao5);
+			one.setText("不同年龄层宝宝\n的疫苗接种");
+			two.setText("未满一周岁的新生儿");
+			three.setText("1~3周岁的宝宝");
+			four.setText("4~6周岁的孩子");
+			five.setText("6周岁以上的孩子");
+			two.setOnClickListener(onClickListener);
+			three.setOnClickListener(onClickListener);
+			four.setOnClickListener(onClickListener);
+			five.setOnClickListener(onClickListener);
+		}
+	}
+	public void enterWeb(){//进入网页
+		Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+		startActivity(intent);
+	}
+	public void getNumb(String birthday) throws ParseException{
+		SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
+		Date date=simpleDateFormat.parse(birthday);
+		long time=new Date().getTime()-date.getTime();
+		numb=(int)(time/(1000*60*60*24));
 	}
 }
