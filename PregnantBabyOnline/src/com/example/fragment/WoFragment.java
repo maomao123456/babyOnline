@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.lei.CircularImage;
 import com.example.pregnantbabyonline.BeiYunRiLiActivity;
+import com.example.pregnantbabyonline.FeedbackActivity;
 import com.example.pregnantbabyonline.R;
 
 
@@ -55,6 +56,9 @@ public class WoFragment  extends Fragment{
 			break;
 		case R.id.linearLayout7:
 			Toast.makeText(getActivity(), "2", Toast.LENGTH_SHORT).show();
+			Intent intent1=new Intent(getActivity(), FeedbackActivity.class);
+			startActivity(intent1);
+			getActivity().finish();
 			break;
 		case R.id.linearLayout3:
 			Intent intent=new Intent(getActivity(), BeiYunRiLiActivity.class);
