@@ -7,10 +7,10 @@
     <RelativeLayout 
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/red">
+        android:background="@color/pink">
         <ImageView 
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/imageview_back_bedstory"
             android:src="@drawable/back_before"
             android:layout_centerVertical="true"

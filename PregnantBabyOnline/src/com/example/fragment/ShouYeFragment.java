@@ -5,18 +5,25 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import android.annotation.SuppressLint;
+import android.app.ActionBar.LayoutParams;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -24,7 +31,9 @@ import android.widget.Toast;
 
 import com.example.adapter.ShouYeAdapter;
 import com.example.lei.ShouYeListview;
+import com.example.pregnantbabyonline.BedStoryActivity;
 import com.example.pregnantbabyonline.CangJingGeActivity;
+import com.example.pregnantbabyonline.FreeWelfareActivity;
 import com.example.pregnantbabyonline.PabulumActivity;
 import com.example.pregnantbabyonline.R;
 
@@ -63,13 +72,17 @@ public class ShouYeFragment extends Fragment {
 	int[] id = { R.id.listview_image_education_baby, R.id.listview_title_baby,
 			R.id.listview_bigtitle_baby, R.id.listview_neirong_baby };
 
+	PopupWindow popWindow;
+	View touxiang;
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		view = (View) inflater.inflate(R.layout.fragment_shouye, null);
-		headView = (View) inflater.inflate(R.layout.fragment_baby, null);
-		listview = (ListView) view.findViewById(R.id.listview_shouye);
+		view=(View)inflater.inflate(R.layout.fragment_shouye, null);
+		touxiang=(View)inflater.inflate(R.layout.baby_popupwindow_touxiang,null);
+		headView=(View)inflater.inflate(R.layout.fragment_baby, null);
+		listview=(ListView)view.findViewById(R.id.listview_shouye);
 		listview.addHeaderView(headView);
 		getList();
 		adapter = new ShouYeAdapter(getActivity(), list,
@@ -160,8 +173,7 @@ public class ShouYeFragment extends Fragment {
 		shouce.setOnClickListener(onClickListener);
 	}
 
-	OnClickListener onClickListener = new OnClickListener() {
-
+	OnClickListener onClickListener=new OnClickListener() {//点击事件设置
 		@Override
 		public void onClick(View view) {
 			// TODO Auto-generated method stub
@@ -169,6 +181,7 @@ public class ShouYeFragment extends Fragment {
 			case R.id.image_baby_head:
 				Toast.makeText(getActivity(), "跳转到更换头像页面", Toast.LENGTH_SHORT)
 						.show();
+				createPopWindow();
 				break;
 			case R.id.textview_yimiao_baby:
 				Toast.makeText(getActivity(), "跳转到疫苗接种页面", Toast.LENGTH_SHORT)
@@ -178,11 +191,11 @@ public class ShouYeFragment extends Fragment {
 				startActivity(new Intent(getActivity(), PabulumActivity.class));
 				break;
 			case R.id.textview_fuli_baby:
-				/*startActivity(new Intent(getActivity(),
-						FreeWelfareActivity.class));*/
+				startActivity(new Intent(getActivity(),
+						FreeWelfareActivity.class));
 				break;
 			case R.id.textview_story_baby:
-				/*startActivity(new Intent(getActivity(), BedStoryActivity.class));*/
+				startActivity(new Intent(getActivity(),BedStoryActivity.class));
 				break;
 			case R.id.textview_zhishishouce_baby:
 				Toast.makeText(getActivity(), "跳转到知识手册页面", Toast.LENGTH_SHORT)
@@ -191,6 +204,15 @@ public class ShouYeFragment extends Fragment {
 			case R.id.textview_cangjingge_baby:
 				startActivity(new Intent(getActivity(),
 						CangJingGeActivity.class));
+				break;
+			case R.id.babyhead_pop_first:
+				Intent intent=new Intent();
+				intent.setAction(Intent.ACTION_GET_CONTENT);
+				intent.setType("image/*");
+				startActivity(intent);
+				break;
+			case R.id.babyhead_pop_second:
+				Toast.makeText(getActivity(), "跳转到网页", Toast.LENGTH_SHORT).show();
 				break;
 			}
 		}
@@ -253,4 +275,26 @@ public class ShouYeFragment extends Fragment {
 		}
 	};
 
+	@SuppressLint("NewApi")
+	public void createPopWindow(){
+		popWindow=new PopupWindow(touxiang, 400,
+				400);
+		popWindow.setBackgroundDrawable(new BitmapDrawable());
+		popWindow.setTouchable(true);
+		popWindow.setOutsideTouchable(true);
+		popWindow.setTouchInterceptor(new OnTouchListener() {
+			public boolean onTouch(View v, MotionEvent event) {
+				return false;
+			}
+		});
+		popWindow.showAtLocation(touxiang,Gravity.CENTER,0,0);
+		TextView title=(TextView)touxiang.findViewById(R.id.babyhead_pop_title);
+		TextView first=(TextView)touxiang.findViewById(R.id.babyhead_pop_first);
+		TextView second=(TextView)touxiang.findViewById(R.id.babyhead_pop_second);
+		title.setText("选择你的头像");
+		first.setText("从相册中选择");
+		second.setText("从网上选择");
+		first.setOnClickListener(onClickListener);
+		second.setOnClickListener(onClickListener);
+	}
 }

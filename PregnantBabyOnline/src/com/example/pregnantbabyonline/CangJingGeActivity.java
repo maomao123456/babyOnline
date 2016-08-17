@@ -128,8 +128,6 @@ public class CangJingGeActivity extends Activity{
 					Toast.makeText(CangJingGeActivity.this, "跳转到备孕常识页面", Toast.LENGTH_SHORT).show();
 					break;
 				case R.id.button2_cangjingge:
-					Intent intent =new Intent(CangJingGeActivity.this,PabulumActivity.class);
-					startActivity(intent);
 					Toast.makeText(CangJingGeActivity.this, "跳转到饮食调理页面", Toast.LENGTH_SHORT).show();
 					break;
 				case R.id.button3_cangjingge:
