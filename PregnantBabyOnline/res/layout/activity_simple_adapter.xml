@@ -16,8 +16,9 @@
             android:paddingLeft="10dp"
      		android:textColor="#2b2b2b"
      		android:textSize="15sp"
+     		android:maxLines="1"
      		android:singleLine="true"
-     		android:layout_marginTop="20dp"/>
+     		     		android:layout_marginTop="20dp"/>
         
          <TextView 
             android:id="@+id/textview2"
