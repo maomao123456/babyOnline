@@ -92,27 +92,27 @@ public List<? extends Map<String, ?>> getData(){
 			// TODO Auto-generated method stub
 				switch (position) {
 				case 0:
-					Toast.makeText(PabulumActivity.this, "ͼƬ1", Toast.LENGTH_SHORT).show();
+					Toast.makeText(PabulumActivity.this, "1", Toast.LENGTH_SHORT).show();
 					break;
 						
 				case 1:
-					Toast.makeText(PabulumActivity.this, "ͼƬ2", Toast.LENGTH_SHORT).show();
+					Toast.makeText(PabulumActivity.this, "2", Toast.LENGTH_SHORT).show();
 					break;
 					
 				case 2:
-					Toast.makeText(PabulumActivity.this, "ͼƬ3", Toast.LENGTH_SHORT).show();
+					Toast.makeText(PabulumActivity.this, "3", Toast.LENGTH_SHORT).show();
 					break;
 					
 				case 3:
-					Toast.makeText(PabulumActivity.this, "ͼƬ4", Toast.LENGTH_SHORT).show();
+					Toast.makeText(PabulumActivity.this, "4", Toast.LENGTH_SHORT).show();
 					break;
 					
 				case 4:
-					Toast.makeText(PabulumActivity.this, "ͼƬ5", Toast.LENGTH_SHORT).show();
+					Toast.makeText(PabulumActivity.this, "5", Toast.LENGTH_SHORT).show();
 					break;
 					
 				case 5:
-					Toast.makeText(PabulumActivity.this, "ͼƬ6", Toast.LENGTH_SHORT).show();
+					Toast.makeText(PabulumActivity.this, "6", Toast.LENGTH_SHORT).show();
 					break;
 
 				default:
@@ -129,10 +129,10 @@ public List<? extends Map<String, ?>> getData(){
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			Toast.makeText(PabulumActivity.this, "����",Toast.LENGTH_SHORT).show();
 			Toast.makeText(PabulumActivity.this, "返回",Toast.LENGTH_SHORT).show();
-			
-			
+			Intent intent=new Intent(PabulumActivity.this, ShouyeActivity.class);
+			startActivity(intent);
+			PabulumActivity.this.finish();
 		}
 	};
 	
