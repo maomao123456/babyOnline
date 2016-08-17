@@ -134,6 +134,11 @@ public class BeiYunRiLiActivity extends Activity {
 					rilix16.setVisibility(View.GONE);
 					rilix19.setVisibility(View.GONE);
 					rilix11.setVisibility(View.GONE);
+					rilix17.setVisibility(View.GONE);	
+					rilix18.setVisibility(View.GONE);
+					rilix13.setVisibility(View.GONE);	
+					rilix12.setVisibility(View.GONE);
+					
 				}else if(numb%5==1){
 					rilix16.setVisibility(View.VISIBLE);
 					rilix17.setVisibility(View.GONE);	
