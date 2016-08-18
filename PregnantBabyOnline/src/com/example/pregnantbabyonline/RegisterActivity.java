@@ -194,6 +194,7 @@ public class RegisterActivity extends Activity {
 	private void backLogin() {// 返回登录界面方法
 		Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
 		startActivity(intent);
+		finish();
 	}
 
 }
