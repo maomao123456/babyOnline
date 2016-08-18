@@ -19,8 +19,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_guide_page);
-		
-		
+		initView();		
 	}
 	
 	public void initView(){
@@ -37,7 +36,6 @@ public class MainActivity extends Activity {
 			case R.id.direct_login:
 				directLogin();
 				break;
-
 			default:
 				break;
 			}
@@ -45,9 +43,9 @@ public class MainActivity extends Activity {
 	};
 	
 	public void directLogin(){// 直接登录跳转到登录界面
-		Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+		Intent intent = new Intent();
+		intent.setClass(MainActivity.this, LoginActivity.class);
 		startActivity(intent);
-		MainActivity.this.finish();
 	}
 
 }
