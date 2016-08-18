@@ -573,6 +573,15 @@ public class BeiYunRiLiActivity extends Activity {
 				break;
 			case R.id.rili12:
 				gt(rili12);
+
+				
+				Intent intent2=new Intent(BeiYunRiLiActivity.this,EmperatureActivity.class);
+				startActivity(intent2);
+				/*
+				 * intent=new Intent(BeiYunRiLiActivity.this, "");
+				 * startActivity(intent);
+				 */
+
 				break;
 
 			default:
