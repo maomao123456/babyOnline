@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar.LayoutParams;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -145,9 +146,10 @@ public class ShouYeFragment extends Fragment {
 
 		shouye = new ShouYeListview();
 		shouye.setTupian(R.drawable.education);
-		shouye.setTitle("教育无处不在");
-		shouye.setName("宝宝发育");
-		shouye.setNeirong(getString(R.string.baby_neirong));
+		shouye.setTitle("学前必读");
+		shouye.setName("宝宝读书");
+		shouye.setNeirong("唐诗是中国文化的精粹，其节奏鲜明、朗朗上口，非常适合儿童启蒙诵读，"
+				+ "被称为“最成功的启蒙教材”。");
 		list.add(shouye);
 	}
 
@@ -159,15 +161,12 @@ public class ShouYeFragment extends Fragment {
 			// TODO Auto-generated method stub
 			switch (position) {
 			case 1:
-				Toast.makeText(getActivity(), "进入第一项", Toast.LENGTH_SHORT)
-						.show();
+				uri=Uri.parse("http://baby.163.com/15/1102/07/B7D9DECI00364O2I.html");
 				break;
 			case 2:
-				Toast.makeText(getActivity(), "进入第二项", Toast.LENGTH_SHORT)
-						.show();
+				uri=Uri.parse("http://www.youban.com/mp3-t4422.html");
 				break;
 			}
-			uri=Uri.parse("https://www.baidu.com");
 			enterWeb();
 		}
 	};
@@ -207,7 +206,7 @@ public class ShouYeFragment extends Fragment {
 				break;
 			case R.id.textview_zhishishouce_baby:
 				Toast.makeText(getActivity(), "跳转到知识手册页面", Toast.LENGTH_SHORT).show();
-				uri=Uri.parse("https://www.baidu.com");
+				uri=Uri.parse("http://www.doc88.com/p-993198458844.html");
 				enterWeb();
 				break;
 			case R.id.textview_cangjingge_baby:
@@ -358,8 +357,9 @@ public class ShouYeFragment extends Fragment {
 					shengao.setText("身高:45.1~56.2cm");
 					top_text.setText("宝宝满月后体格发育迅速，宝宝能抬头，学会咿呀发音，"
 							+ "这时期的宝宝吃奶量明显增加，所以称之为吃奶宝宝。");
+				}else{
+					top_text.setText("宝宝从诞生的那一刻到满月，这个小生命已不再被叫做胎儿了，是叫做新生儿。");
 				}
-			
 				
 				Calendar calCurrent = Calendar.getInstance();
 				calCurrent.add(Calendar.DAY_OF_MONTH, progress-5);
@@ -378,35 +378,38 @@ public class ShouYeFragment extends Fragment {
 	@SuppressLint("NewApi")
 	public void createPopWindow(){
 		if(whichNumb==1){
-			popWindow=new PopupWindow(touxiang, 500,300);
+			popWindow=new PopupWindow(touxiang, LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT,true);
 			popWindow.setBackgroundDrawable(new BitmapDrawable());
 			popWindow.setTouchable(true);
 			popWindow.setOutsideTouchable(true);
+			popWindow.update();
+			popWindow.setFocusable(true);
 			popWindow.setTouchInterceptor(new OnTouchListener() {
 				public boolean onTouch(View v, MotionEvent event) {
 					return false;
 				}
 			});
-			popWindow.showAtLocation(touxiang,Gravity.CENTER,0,-200);
+			popWindow.showAtLocation(touxiang,Gravity.CENTER,0,-230);
 			TextView title=(TextView)touxiang.findViewById(R.id.babyhead_pop_title);
 			TextView first=(TextView)touxiang.findViewById(R.id.babyhead_pop_first);
 			TextView second=(TextView)touxiang.findViewById(R.id.babyhead_pop_second);
-			title.setText("选择你的头像");
+			title.setText("选择宝宝的头像");
 			first.setText("从相册中选择");
 			second.setText("从网上选择");
 			first.setOnClickListener(onClickListener);
 			second.setOnClickListener(onClickListener);
 		}else if(whichNumb==2){
-			popWindow=new PopupWindow(yimiaoPop, 250,350);
+			popWindow=new PopupWindow(yimiaoPop, LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT,true);
 			popWindow.setBackgroundDrawable(new BitmapDrawable());
 			popWindow.setTouchable(true);
 			popWindow.setOutsideTouchable(true);
+			popWindow.update();
+			popWindow.setFocusable(true);
 			popWindow.setTouchInterceptor(new OnTouchListener() {
 				public boolean onTouch(View v, MotionEvent event) {
 					return false;
 				}
 			});
-			popWindow.showAtLocation(yimiaoPop,Gravity.RIGHT,0,200);
 			TextView one=(TextView)yimiaoPop.findViewById(R.id.baby_yimiao1);
 			TextView two=(TextView)yimiaoPop.findViewById(R.id.baby_yimiao2);
 			TextView three=(TextView)yimiaoPop.findViewById(R.id.baby_yimiao3);
@@ -421,6 +424,7 @@ public class ShouYeFragment extends Fragment {
 			three.setOnClickListener(onClickListener);
 			four.setOnClickListener(onClickListener);
 			five.setOnClickListener(onClickListener);
+			popWindow.showAtLocation(yimiaoPop,Gravity.RIGHT,0,200);
 		}
 	}
 	public void enterWeb(){//进入网页
