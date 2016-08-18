@@ -287,8 +287,80 @@ public class ShouYeFragment extends Fragment {
 			if (progress > 0) {
 				baby_now.setText(progress + "天");
 				baby_next.setText(progress + 1 + "天");
-				tizhong.setText("体重:"+(2.26+progress*0.01)+"~"+(4.56+progress*0.01)+"kg");
-				shengao.setText("身高:"+(44.7+progress*0.01)+"~"+(55.8+progress*0.01)+"cm");
+				if(progress>360){
+					tizhong.setText("体重:6.25~8.46kg");
+					shengao.setText("身高:48.7~59.8cm");
+					top_text.setText("此时你的宝宝已经一周岁了，他(她)已经在你的陪伴下悄然地成长了一年，也给你带来了从未体验过的"
+							+ "难以忘记的快乐，你的心也会在那一声“麻麻”中渐渐融化。");
+				}
+				else if(progress>330){
+					tizhong.setText("体重:5.85~8.06kg");
+					shengao.setText("身高:48.3~59.4cm");
+					top_text.setText("11个月宝宝的辅食开始变成主食，你应该要保证宝宝摄入足够的动物蛋白，辅食要少放盐、糖。此外，"
+							+ "要开始锻炼宝宝克服怕生现象，要训练宝宝的独立性，让宝宝逐渐适应接触。");
+				}
+				else if(progress>300){
+					tizhong.setText("体重:5.45~7.66kg");
+					shengao.setText("身高:47.9~59.0cm");
+					top_text.setText("孩子的身长会继续增加，给人的印象是瘦了, 陆续又长出2-4颗门牙,会说一两个字，"
+							+ "能发出不同的声音表示不同的意思。");
+				}
+				else if(progress>270){
+					tizhong.setText("体重:5.05~7.26kg");
+					shengao.setText("身高:47.5~58.6cm");
+					top_text.setText("这时已开始从婴儿的圆滚的体型转换到幼儿的体型,大多数婴儿在"
+							+ "10月前乳牙已长出2-4颗。");
+				}
+				else if(progress>240){
+					tizhong.setText("体重:4.65~6.86kg");
+					shengao.setText("身高:47.1~58.2cm");
+					top_text.setText("爬行越来越进步，从匍匐前行到四肢能撑起躯干灵活爬行；"
+							+ "会朝自己看中的目标爬去并摇晃它。从此，婴儿的活动范围扩大至整个房间。");
+				}
+				else if(progress>210){
+					tizhong.setText("体重:4.25~6.46kg");
+					shengao.setText("身高:46.7~57.8cm");
+					top_text.setText("7个月的宝宝开始模仿大人的咀嚼动作，左右移动上下颚。由于他还没有完全"
+							+ "长出牙齿来咀嚼食物，所以最好还是喂他马铃薯泥、胡萝卜泥、麦片粥等糊状的食物");
+				}
+			    else if(progress>180){
+					tizhong.setText("体重:3.85~6.16kg");
+					shengao.setText("身高:46.3~57.4cm");
+					top_text.setText("6个月的时候,妈咪在宝贝背后叫他的名字，宝贝会转头寻找妈咪，"
+							+ "当宝贝不开心时会发出叫喊声，但不是哭声,能发出妈(mun)——妈的唇音");
+			    }
+				else if(progress>150){
+					tizhong.setText("体重:4.25~6.56kg");
+					shengao.setText("身高:46.7~57.8cm");
+					top_text.setText("这段时期的婴儿，眉眼等五官也“长开了”，脸色红润而光滑，变得更可爱了。"
+							+ "此时的宝宝已逐渐成熟起来，显露出活泼、可爱的体态，身长、体重增长速度开始较前减慢。");
+				}
+				else if(progress>120){
+					tizhong.setText("体重:3.85~6.16kg");
+					shengao.setText("身高:46.3~57.4cm");
+					top_text.setText("此时的宝宝头部稳定居中，转动灵活，俯卧时能用手撑起头和胸。"
+							+ "会翻身，能灵活变动姿势；喜欢用手触摸看到的东西，进行探索。");
+				}
+				else if(progress>90){
+					tizhong.setText("体重:3.45~5.76kg");
+					shengao.setText("身高:45.9~57.0cm");
+					top_text.setText("3个月大的宝宝的目光会紧紧跟随着玩具，认识熟悉的面孔，喜欢玩自己的手，"
+							+ "你会越来越多地听到他(她)咿咿呀呀地发音");
+				}
+				else if(progress>60){
+					tizhong.setText("体重:3.05~5.36kg");
+					shengao.setText("身高:45.5~56.6cm");
+					top_text.setText("2个月的宝宝对铃声有反应，并会转动着头去寻找铃声。视线开始追踪人的脸；"
+							+ "喜欢注视色彩鲜艳的物品；喜欢看明亮的地方。");
+				}
+				else if(progress>30){
+					tizhong.setText("体重:2.66~4.96kg");
+					shengao.setText("身高:45.1~56.2cm");
+					top_text.setText("宝宝满月后体格发育迅速，宝宝能抬头，学会咿呀发音，"
+							+ "这时期的宝宝吃奶量明显增加，所以称之为吃奶宝宝。");
+				}
+			
+				
 				Calendar calCurrent = Calendar.getInstance();
 				calCurrent.add(Calendar.DAY_OF_MONTH, progress-5);
 				int today = calCurrent.get(Calendar.DATE);
@@ -299,16 +371,6 @@ public class ShouYeFragment extends Fragment {
 				int nextday = calNext.get(Calendar.DATE);
 				int nextmonth = calNext.get(Calendar.MONTH) + 1;
 				next_date.setText(nextmonth + "月" + nextday + "日");// 明天的日期
-				if (progress > 30 && progress < 35) {
-					
-					top_text.setText("此时宝宝已经一个月大了");
-				} else if (progress >= 180 && progress < 185) {
-					top_text.setText("此时宝宝已经半岁了");
-				} else if (progress == 365) {
-					top_text.setText("此时宝宝已经满一周岁了,他已经在您的陪伴中来到这个世界一年了。");
-				} else {
-					top_text.setText("宝宝在这个阶段正在快速发育，正需要您的悉心呵护");
-				}
 			}
 		}
 	};
