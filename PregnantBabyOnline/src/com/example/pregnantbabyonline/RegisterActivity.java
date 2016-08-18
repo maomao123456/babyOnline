@@ -121,16 +121,29 @@ public class RegisterActivity extends Activity {
 
 	//判断输入框的内容是否为空
 	private boolean checkEdit() {
-		if (regAccount.getText().toString().trim().equals("")) {
+		String userAccount = regAccount.getText().toString().trim();
+		String password = regPwd.getText().toString().trim();
+		String checkPassword = checkPwd.getText().toString().trim();
+		boolean phoneType = Utils.isRightPhone(userAccount);
+		if (userAccount.equals("")) {
 			Toast.makeText(RegisterActivity.this, "用户名不能为空", Toast.LENGTH_SHORT)
 					.show();
-		} else if (regPwd.getText().toString().trim().equals("")) {
+		} else if(!phoneType){
+			Toast.makeText(RegisterActivity.this, "请输入正确的手机号码",
+					Toast.LENGTH_SHORT).show();
+		} else if (password.equals("")) {
 			Toast.makeText(RegisterActivity.this, "密码不能为空", Toast.LENGTH_SHORT)
 					.show();
-		} else if (checkPwd.getText().toString().trim().equals("")) {
+		} else if(password.length() < 6){
+			Toast.makeText(RegisterActivity.this, "密码不能少于6个字符",
+					Toast.LENGTH_SHORT).show();
+		} else if (checkPassword.equals("")) {
 			Toast.makeText(RegisterActivity.this, "确认密码不能为空",
 					Toast.LENGTH_SHORT).show();
-		} else {
+		} else if(!password.equals(checkPassword)){
+			Toast.makeText(RegisterActivity.this,
+					"两次密码输入不一致,请重新输入", Toast.LENGTH_SHORT).show();
+		}else {
 			return true;
 		}
 		return false;
