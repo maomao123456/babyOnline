@@ -21,7 +21,7 @@ public class EmperatureActivity  extends Activity{
 		setContentView(R.layout.activity_emperature);
 		ImageView imageView=(ImageView)findViewById(R.id.imageview);
 		imageView.setOnClickListener(onClickListener);
-    mTime=(TextView)findViewById(R.id.textview1);
+		mTime=(TextView)findViewById(R.id.textview1);
 		new TimeThread().start();
 		
 		

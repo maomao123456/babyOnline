@@ -57,7 +57,7 @@ public class BedStoryActivity extends Activity{
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			if(v.getId()==R.id.imageview_back_bedstory){
-				Intent intent=new Intent(BedStoryActivity.this,ShouyeActivity.class);
+				Intent intent=new Intent(BedStoryActivity.this,ShouYeActivity.class);
 				startActivity(intent);
 				BedStoryActivity.this.finish();
 			}

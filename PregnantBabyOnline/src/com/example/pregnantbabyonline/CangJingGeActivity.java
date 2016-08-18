@@ -119,7 +119,7 @@ public class CangJingGeActivity extends Activity{
 				button4.setText(null);
 				break;
 			case R.id.imageview_back:
-				Intent intent=new Intent(CangJingGeActivity.this,ShouyeActivity.class);
+				Intent intent=new Intent(CangJingGeActivity.this,ShouYeActivity.class);
 				startActivity(intent);
 				CangJingGeActivity.this.finish();
 				break;

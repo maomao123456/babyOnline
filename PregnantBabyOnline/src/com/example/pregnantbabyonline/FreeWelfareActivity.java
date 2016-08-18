@@ -62,7 +62,7 @@ public class FreeWelfareActivity extends Activity{
 			// TODO Auto-generated method stub
 			switch(v.getId()){
 			case R.id.imageview_back_bedstory:
-				Intent intent=new Intent(FreeWelfareActivity.this,ShouyeActivity.class);
+				Intent intent=new Intent(FreeWelfareActivity.this,ShouYeActivity.class);
 				startActivity(intent);
 				FreeWelfareActivity.this.finish();
 				break;
