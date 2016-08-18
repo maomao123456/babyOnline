@@ -17,7 +17,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,7 +33,6 @@ import android.widget.Toast;
 
 import com.example.lei.Utils;
 
-@SuppressLint("ShowToast")
 public class RegisterActivity extends Activity {
 
 	EditText regAccount, regPwd, checkPwd;
@@ -179,7 +177,7 @@ public class RegisterActivity extends Activity {
 						e.printStackTrace();
 					}
 					Looper.prepare();
-					Toast.makeText(RegisterActivity.this, strResult+"注册成功",
+					Toast.makeText(RegisterActivity.this, strResult + "注册成功",
 							Toast.LENGTH_SHORT).show();
 					Looper.loop();
 				} else {
