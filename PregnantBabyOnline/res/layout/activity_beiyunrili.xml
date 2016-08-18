@@ -1968,7 +1968,6 @@
                     android:layout_weight="1"
                     android:button="@null"
                     android:checked="true"
-                     android:clickable="false"
                     android:drawablePadding="8dp"
                     android:drawableTop="@drawable/rili_wendu_selector"
                     android:gravity="center_horizontal"

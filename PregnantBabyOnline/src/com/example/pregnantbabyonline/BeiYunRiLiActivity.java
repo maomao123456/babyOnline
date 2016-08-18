@@ -72,7 +72,6 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 		getRiliId();
 		timeChange();
 		getYimachecked();
-		
 	}
 	/**
 	 * 记忆上次用户的选择状态（yimachecked）
@@ -103,18 +102,6 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 				-calendar.get(Calendar.DAY_OF_MONTH) + 1);
 		Date date = calendar.getTime();// 这个月的第一天
 		int firstDayWeek = date.getDay();// 第一天星期几(0为星期日1.2.3以此类推)
-		/*
-		 * for(int i=1;i<=monthDays;i++){ if(firstDayWeek==0){
-		 * view.findViewWithTag(i); view.setText(i+""); }else
-		 * if(firstDayWeek==1){ view.findViewWithTag((i+1)); view.setText(i+"");
-		 * }else if(firstDayWeek==2){ view.findViewWithTag((i+2));
-		 * view.setText(i+""); }else if(firstDayWeek==3){
-		 * view.findViewWithTag((i+3)); view.setText(i+""); }else
-		 * if(firstDayWeek==4){ view.findViewWithTag((i+4)); view.setText(i+"");
-		 * }else if(firstDayWeek==5){ view.findViewWithTag((i+5));
-		 * view.setText(i+""); }else if(firstDayWeek==6){
-		 * view.findViewWithTag((i+6)); view.setText(i+""); } }
-		 */
 		for (int j = 1; j <= 42; j++) {
 			String str;
 			int color;
@@ -459,21 +446,10 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 					rili42.setBackgroundResource(bg);
 					rilij42.setVisibility(visible);
 					break;
-
 				default:
 					break;
 				}
 		}
-
-		/*
-		 * calendar.add(Calendar.MONTH, numb-1);//回到上一月 //上一月的最大天数 int
-		 * lastMonthDays=calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-		 * Toast.makeText(RiLiActivity.this,
-		 * "当月一共多少天 ："+monthDays+"当月第一天星期几："+firstDayWeek+
-		 * "上月一共多少天："+lastMonthDays , Toast.LENGTH_LONG).show();
-		 * System.out.println("当月一共多少天 ："+monthDays+"当月第一天星期几："+firstDayWeek+
-		 * "上月一共多少天："+lastMonthDays);
-		 */
 	}
 
 	/**
@@ -499,12 +475,7 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 		rightData.setOnClickListener(listener);
 		xiugaijingqi.setOnClickListener(listener);
 		yimaXuanze.setOnClickListener(listener);
-		/*yesuan.setOnClickListener(listener);
-		tongfang.setOnClickListener(listener);
 		wendu.setOnClickListener(listener);
-		pailuanshizhi.setOnClickListener(listener);
-		baidai.setOnClickListener(listener);*/
-		
 	}
 	/**
 	 * 判断用户的选择状态
@@ -538,6 +509,15 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 			case R.id.rili_data_right:
 				numb++;
 				timeChange();
+				break;
+			case R.id.rili_wendu:
+				if(wendu.isChecked()){
+					wendu.setChecked(false);
+				}else{
+					wendu.setChecked(true);
+				}
+				Intent intent2=new Intent(BeiYunRiLiActivity.this,EmperatureActivity.class);
+				startActivity(intent2);
 				break;
 			case R.id.rili_yima_xuanze:
 				Editor editor = sharedPreferences.edit();// 获得一个editor的对象
@@ -583,8 +563,6 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 							});
 					builder.show();
 				}
-				
-				
 				break;
 			case R.id.rili_xiugaijingqi:
 				if(xiugaijingqi.getText().equals("修改经期")){
@@ -598,13 +576,6 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 					}
 					alertDialog.show();
 				}
-				
-				break;
-			case R.id.rili_wendu:
-				Toast.makeText(getApplicationContext(), "跳转到温度界面",
-						Toast.LENGTH_SHORT).show();
-				/* intent=new Intent(BeiYunRiLiActivity.this, );
-				 startActivity(intent);*/
 				break;
 			case R.id.rili1:
 				gt(rili1);
@@ -641,17 +612,7 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 				break;
 			case R.id.rili12:
 				gt(rili12);
-
-				
-				Intent intent2=new Intent(BeiYunRiLiActivity.this,EmperatureActivity.class);
-				startActivity(intent2);
-				/*
-				 * intent=new Intent(BeiYunRiLiActivity.this, "");
-				 * startActivity(intent);
-				 */
-
 				break;
-
 			default:
 				break;
 			}
@@ -945,8 +906,8 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 						/*Toast.makeText(BeiYunRiLiActivity.this, "向下滑",
 								Toast.LENGTH_SHORT).show();*/
 					} else if (x1 - x2 > 50) {
-						Toast.makeText(BeiYunRiLiActivity.this, "向左滑，跳转到下一个月",
-								Toast.LENGTH_SHORT).show();
+						/*Toast.makeText(BeiYunRiLiActivity.this, "向左滑，跳转到下一个月",
+								Toast.LENGTH_SHORT).show();*/
 						numb++;
 						timeChange();
 						if(numb<=0){
@@ -955,8 +916,8 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 							xiugaijingqi.setVisibility(View.GONE);
 						}	
 					} else if (x2 - x1 > 50) {
-						Toast.makeText(BeiYunRiLiActivity.this, "向右滑，跳转到上一个月",
-								Toast.LENGTH_SHORT).show();
+						/*Toast.makeText(BeiYunRiLiActivity.this, "向右滑，跳转到上一个月",
+								Toast.LENGTH_SHORT).show();*/
 						numb--;
 						timeChange();
 						if(numb<=0){
@@ -968,28 +929,6 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 				}
 				return true;
 	}
-	/**
-	 * 获取当前时间的第二种方法 不废CPU
-	 */
-	/*
-	 * public void getTime2(){ Time time =new Time("GTM+8"); time.setToNow();
-	 * int year=time.year; int month=time.month+1; int day=time.monthDay;
-	 * riqi.setText(year+"年"+month+"月"); } // 重写onActivityResult()方法处理返回的日期
-	 * 
-	 * @Override public void onActivityResult(int requestCode, int resultCode,
-	 * Intent data) { if(resultCode==RESULT_OK) { int year =
-	 * data.getIntExtra("year", 0); // 得到年 int month = data.getIntExtra("month",
-	 * 0); // 得到月 int day = data.getIntExtra("day", 0); // 得到天
-	 * riqi.setText(year+"年"+month+"月");
-	 * 
-	 * // 格式化日期显示 final Calendar dat = Calendar.getInstance();
-	 * dat.set(Calendar.YEAR, year); dat.set(Calendar.MONTH, month);
-	 * dat.set(Calendar.DAY_OF_MONTH, day);
-	 * 
-	 * // 显示日期结果 SimpleDateFormat format = new SimpleDateFormat("yyyy MMM dd");
-	 * Toast.makeText(RiLiActivity.this, format.format(dat.getTime()),
-	 * Toast.LENGTH_LONG).show(); } }
-	 */
 
 }
 /**
