@@ -119,6 +119,7 @@ public class RegisterActivity extends Activity {
 		}
 	};
 
+	//判断输入框的内容是否为空
 	private boolean checkEdit() {
 		if (regAccount.getText().toString().trim().equals("")) {
 			Toast.makeText(RegisterActivity.this, "用户名不能为空", Toast.LENGTH_SHORT)
@@ -138,16 +139,16 @@ public class RegisterActivity extends Activity {
 	public void complete() {
 		new Thread(new Runnable() {
 			public void run() {
-				String httpUrl = "http://192.168.1.145/index.php/Home/Api/add";
-				HttpPost httpRequest = new HttpPost(httpUrl);
-				List<NameValuePair> params = new ArrayList<NameValuePair>();
+				String httpUrl = "http://192.168.1.145/index.php/Home/Api/add";//PHP接口地址
+				HttpPost httpRequest = new HttpPost(httpUrl);//http用post方法请求数据
+				List<NameValuePair> params = new ArrayList<NameValuePair>();//建立一个列表用于添加数据
 				params.add(new BasicNameValuePair("useraccount", regAccount
-						.getText().toString().trim()));
+						.getText().toString().trim()));//添加用户的用户名
 				params.add(new BasicNameValuePair("userpassword", regPwd
-						.getText().toString().trim()));
+						.getText().toString().trim()));//添加用户的密码
 				HttpEntity httpentity = null;
 				try {
-					httpentity = new UrlEncodedFormEntity(params, "utf8");
+					httpentity = new UrlEncodedFormEntity(params, "utf8");//设置用户字符集的格式
 				} catch (UnsupportedEncodingException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
