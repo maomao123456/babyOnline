@@ -444,6 +444,9 @@ public class BeiYunRiLiActivity extends Activity {
 			case R.id.rili_wendu:
 				Toast.makeText(getApplicationContext(), "跳转到温度界面",
 						Toast.LENGTH_SHORT).show();
+				
+				Intent intent2=new Intent(BeiYunRiLiActivity.this,EmperatureActivity.class);
+				startActivity(intent2);
 				/*
 				 * intent=new Intent(BeiYunRiLiActivity.this, "");
 				 * startActivity(intent);
