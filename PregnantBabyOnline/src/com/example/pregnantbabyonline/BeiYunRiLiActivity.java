@@ -6,8 +6,11 @@ import java.util.Date;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +33,8 @@ public class BeiYunRiLiActivity extends Activity {
 	CheckBox wendu;
 	CheckBox pailuanshizhi;
 	CheckBox baidai;
+	SharedPreferences sharedPreferences; // 缓存数据
+
 	/**
 	 * 当月的天数
 	 */
@@ -52,11 +57,25 @@ public class BeiYunRiLiActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_beiyunrili);
+		sharedPreferences = getSharedPreferences("quanziChild", Context.MODE_PRIVATE);
+		comeYima=sharedPreferences.getInt("comeYima", 0);
 		initView();
 		getRiliId();
 		timeChange();
+		getYimachecked();
 	}
-
+	/**
+	 * 记忆上次用户的选择状态（yimachecked）
+	 */
+	public void getYimachecked(){
+		if(comeYima==1){
+			yimaXuanze.setChecked(true);
+			tongfang.setChecked(false);
+		}else{
+			yimaXuanze.setChecked(false);
+			tongfang.setChecked(true);
+		}
+	}
 	/**
 	 * 获取当前时间 或者上月月份+1 或者下月月份-1；
 	 */
@@ -116,6 +135,10 @@ public class BeiYunRiLiActivity extends Activity {
 				}else{
 					visible=View.GONE;
 				}
+			}else if(comeYima==1&&j>today+numbDay&&j<today+numbDay+5){
+				color=Color.parseColor("#f86eaf");
+				visible=View.GONE;
+				bg=0;	
 			}else if(j>3&&j<10||j>19&&j<29){
 				color=Color.parseColor("#53bb00");
 				visible=View.GONE;
@@ -505,17 +528,50 @@ public class BeiYunRiLiActivity extends Activity {
 				timeChange();
 				break;
 			case R.id.rili_yima_xuanze:
-				if(yimaXuanze.isChecked()){
-					comeYima=1;
-					tongfang.setChecked(false);
-					numb = 0;
-					timeChange();
+				Editor editor = sharedPreferences.edit();// 获得一个editor的对象
+				if(numb==0){
+					if(yimaXuanze.isChecked()){
+						comeYima=1;
+						tongfang.setChecked(false);
+						numb = 0;
+						timeChange();
+						editor.putInt("comeYima", 1);
+					}else{
+						comeYima=0;
+						tongfang.setChecked(true);
+						numb = 0;
+						timeChange();
+						editor.putInt("comeYima", 0);
+					}
+					editor.commit();
 				}else{
-					comeYima=0;
-					tongfang.setChecked(true);
-					numb = 0;
-					timeChange();
+					if(yimaXuanze.isChecked()){
+						yimaXuanze.setChecked(false);
+					}else{
+						yimaXuanze.setChecked(true);
+					}
+					builder = new AlertDialog.Builder(BeiYunRiLiActivity.this);
+					builder.setTitle("亲！此选项只能在本月操作，是否返回到本月？");
+					builder.setPositiveButton("确定",
+							new DialogInterface.OnClickListener() {
+								@Override
+								public void onClick(DialogInterface dialog, int which) {
+									numb = 0;
+									timeChange();
+									xiugaijingqi.setVisibility(View.VISIBLE);
+									Toast.makeText(BeiYunRiLiActivity.this, "已为您返回到本月，现在你可以操作此选项。",
+											Toast.LENGTH_SHORT).show();
+								}
+							});
+					builder.setNegativeButton("取消",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog, int which) {
+									
+								}
+							});
+					builder.show();
 				}
+				
 				
 				break;
 			case R.id.rili_xiugaijingqi:
@@ -602,8 +658,10 @@ public class BeiYunRiLiActivity extends Activity {
 		if (colorNumb == 1) {
 			if (vi.isChecked()) {
 				vi.setTextColor(getResources().getColor(R.color.rili_yuejingqi));
+				vi.setBackgroundColor(getResources().getColor(R.color.qianhuise));
 			} else {
 				vi.setTextColor(getResources().getColor(R.color.rili_luse));
+				vi.setBackgroundColor(getResources().getColor(R.color.baise));
 			}
 		}
 	}
@@ -620,6 +678,18 @@ public class BeiYunRiLiActivity extends Activity {
 		builder.setPositiveButton("立即保存", onClickListener);//设置监听 且默认下标为-1；
 		builder.setNegativeButton("再次确认", onClickListener);//默认下标为-2；
 		builder.setNeutralButton("放弃更改", onClickListener);//默认下标为-3；
+		alertDialog=builder.create();
+	}
+	/**
+	 * yimalailiao选择对话框
+	 */
+	public void yimachoseDg(){
+		builder=new AlertDialog.Builder(BeiYunRiLiActivity.this);
+		builder.setTitle("提示");
+		builder.setIcon(R.drawable.ic_launcher);
+		builder.setMessage("只允许在本月执行此操作，是否回到当前时间？");
+		builder.setPositiveButton("确定", onClickListener);//设置监听 且默认下标为-1；
+		builder.setNegativeButton("取消", onClickListener);//默认下标为-2；
 		alertDialog=builder.create();
 	}
 	/**
