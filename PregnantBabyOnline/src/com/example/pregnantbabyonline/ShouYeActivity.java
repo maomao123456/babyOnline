@@ -28,7 +28,7 @@ import com.example.fragmentadapter.MainFragmentAdapter;
  * @author Administrator
  *
  */
-public class ShouyeActivity extends FragmentActivity {
+public class ShouYeActivity extends FragmentActivity {
 	TextView title;
 	RadioGroup radioGroup;
 	RadioButton shouye;

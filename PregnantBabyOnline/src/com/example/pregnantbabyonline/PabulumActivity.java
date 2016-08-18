@@ -142,7 +142,7 @@ public List<? extends Map<String, ?>> getData(){
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			Toast.makeText(PabulumActivity.this, "返回",Toast.LENGTH_SHORT).show();
-			Intent intent=new Intent(PabulumActivity.this, ShouyeActivity.class);
+			Intent intent=new Intent(PabulumActivity.this, ShouYeActivity.class);
 			startActivity(intent);
 			PabulumActivity.this.finish();
 		}

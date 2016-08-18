@@ -34,7 +34,7 @@ public class FeedbackActivity extends Activity{
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			Intent intent=new Intent(FeedbackActivity.this, ShouyeActivity.class);
+			Intent intent=new Intent(FeedbackActivity.this, ShouYeActivity.class);
 			startActivity(intent);
 			FeedbackActivity.this.finish();
 		}

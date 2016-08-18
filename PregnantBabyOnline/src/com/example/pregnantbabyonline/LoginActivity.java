@@ -237,7 +237,7 @@ public class LoginActivity extends Activity {
 							Toast.LENGTH_SHORT).show();// 当输入的用户名不存在时，提示用户不存在
 				} else {
 					Intent intent = new Intent();
-					intent.setClass(LoginActivity.this, ShouyeActivity.class);// 登录成功，跳转到首页
+					intent.setClass(LoginActivity.this, ShouYeActivity.class);// 登录成功，跳转到首页
 					startActivity(intent);
 				}
 

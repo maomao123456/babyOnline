@@ -522,7 +522,7 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 			switch (v.getId()) {
 			case R.id.rili_back:
 				Intent intent = new Intent(BeiYunRiLiActivity.this,
-						ShouyeActivity.class);
+						ShouYeActivity.class);
 				startActivity(intent);
 				break;
 			case R.id.rili_data_left:
