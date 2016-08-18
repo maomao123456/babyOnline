@@ -128,7 +128,7 @@ public class QuanZiChildActivity extends Activity {
 			switch (v.getId()) {
 			case R.id.quanzi_child_back:
 				Intent intent = new Intent(QuanZiChildActivity.this,
-						ShouyeActivity.class);
+						ShouYeActivity.class);
 				intent.putExtra("numb", 2);
 				startActivity(intent);
 				break;
