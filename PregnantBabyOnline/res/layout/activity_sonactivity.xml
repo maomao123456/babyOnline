@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    
+    
+   <ScrollView 
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent"
+       >
+       
+       <LinearLayout 
+           android:orientation="vertical"
+           android:layout_width="fill_parent"
+           android:layout_height="fill_parent">
+           
+           
+ 	<RelativeLayout
+ 	    android:layout_width="fill_parent"
+ 	    android:background="#ffffff"
+ 	    android:layout_height="35dp" >
+ 	    
+ 	    <ImageView 
+ 	        android:id="@+id/imageview"
+ 	        android:layout_width="10dp"
+ 	        android:layout_height="fill_parent"
+ 	        android:layout_marginLeft="12dp"
+ 	       	android:scaleType="fitCenter"
+ 	        android:src="@drawable/jt"/>
+ 	    
+ 	    <TextView 
+ 	        android:id="@+id/textview"
+ 	        android:layout_width="wrap_content"
+ 	        android:layout_height="fill_parent"
+ 	        android:text="备孕"
+ 	        android:gravity="center"
+ 	        android:textSize="20sp"
+ 	        android:textColor="#393939"
+ 	        android:layout_centerInParent="true"/>
+ 	    
+ 	</RelativeLayout>
+	
+	<TextView
+	    android:layout_width="fill_parent"
+	    android:textSize="18sp"
+	    android:background="#ffffff"
+	    android:textColor="#969696"
+	    android:layout_height="wrap_content"
+	    android:text="　　娟正积极备孕，可闺蜜们都劝她，想生宝宝一定要把吃素食的习惯改掉，否则就别想怀孕。提到吃素食，乔娟着实吃了好几年了，最初是为了减肥，以后不知不觉便成了习惯。一直以来她并不觉得吃素食有什么不好，一来能控制体重，二来也并未觉得身体有何不适。如今想要宝宝了，竟真的不能再吃素食了吗？
+　　备孕期女性朋友吃素食真会不孕吗？在广州医学院第三附属医院生殖医学中心主任龙晓林看来，长期坚持单纯素食可能会减少受孕的可能，但并不能就此认定素食就是不孕不育的直接原因。因为生活中，许多素食主义者仍如愿生了宝宝。对于备孕期的女性朋友来说，如果长期吃素以致出现明显的营养不良，从而导致排卵障碍，这种原因造成的不孕不育是与饮食习惯有关的，但也只能作为不孕的影响因素，而不是决定因素。说到底，素食者一样可以怀孕，只不过可能在生育过程中因吃素原因会受到一定影响，但具体影响也因人而异。
+　　备孕期女性朋友如何平衡膳食？    
+　　对于积极备孕的女性朋友来说，备孕期应该注意饮食全面、均衡，这样才能为孕育宝宝补充各种营养元素。因为无论哪种食物，都不可能具备人体所需的全部营养元素。
+　　必备营养素之优质蛋白质
+　　优质蛋白质的供给，可保证受精卵正常发育，不止妻子，丈夫也要在饮食中多多摄入优质蛋白质。
+　　必备营养素之脂肪
+　　脂肪是机体热能的主要来源，其所含有的人体所必需脂肪酸是构成机体细胞组织不可缺少的物质，增加优质脂肪的摄入对女性朋友怀孕有益，对于习惯吃素的女性朋友来说，不妨少量摄入些优质肉类，以满足营养所需。
+　　必备营养素之微量元素和维生素
+　　各种微量元素和维生素，有助维持人体体内代谢的平衡，有助精子、卵子及受精卵的发育与成长，特别是叶酸对预防胎宝宝畸形十分有益，女性朋友备孕期这些营养素也不可缺少。
+　　本人是一位普通的营养健康美容护肤导师长期从事美容养生护肤宝宝健康工作，对现代孩子的健康和行为研究比较感兴趣，希望能引导各位家长去重视孩子的健康和家庭教育。小编每天都会分享几篇文章，来解剖各位宝妈在生孩子遇到的问题，提出解决办法，希望对各位宝妈有用。也希望每个宝妈能早点恢复昔日的迷人脸蛋和身材。我的QQ是 9213214 ，欢迎辣妈们与我交流哦！"
+	    android:layout_gravity="center" /> 
+
+	</LinearLayout>
+	</ScrollView>
+</LinearLayout>

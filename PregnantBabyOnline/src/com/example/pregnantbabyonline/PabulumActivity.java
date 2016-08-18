@@ -78,7 +78,7 @@ public List<? extends Map<String, ?>> getData(){
 		map=new HashMap<String, Object>();
 		map.put("title", "想怀孕应该少吃肉？没有研究证实这点！");
 		map.put("text","备孕");
-		map.put("image", R.drawable.tp5);
+		map.put("image", R.drawable.tp6);
 		list.add(map);
 	
 		return list;
@@ -92,26 +92,38 @@ public List<? extends Map<String, ?>> getData(){
 			// TODO Auto-generated method stub
 				switch (position) {
 				case 0:
+					Intent intent=new Intent(PabulumActivity.this, SonActivity.class);
+					startActivity(intent);
 					Toast.makeText(PabulumActivity.this, "1", Toast.LENGTH_SHORT).show();
 					break;
 						
 				case 1:
+					Intent intent1=new Intent(PabulumActivity.this, SonActivity.class);
+					startActivity(intent1);
 					Toast.makeText(PabulumActivity.this, "2", Toast.LENGTH_SHORT).show();
 					break;
 					
 				case 2:
+					Intent intent2=new Intent(PabulumActivity.this, SonActivity.class);
+					startActivity(intent2);
 					Toast.makeText(PabulumActivity.this, "3", Toast.LENGTH_SHORT).show();
 					break;
 					
 				case 3:
+					Intent intent3=new Intent(PabulumActivity.this, SonActivity.class);
+					startActivity(intent3);
 					Toast.makeText(PabulumActivity.this, "4", Toast.LENGTH_SHORT).show();
 					break;
 					
 				case 4:
+					Intent intent4=new Intent(PabulumActivity.this, SonActivity.class);
+					startActivity(intent4);
 					Toast.makeText(PabulumActivity.this, "5", Toast.LENGTH_SHORT).show();
 					break;
 					
 				case 5:
+					Intent intent5=new Intent(PabulumActivity.this, SonActivity.class);
+					startActivity(intent5);
 					Toast.makeText(PabulumActivity.this, "6", Toast.LENGTH_SHORT).show();
 					break;
 
