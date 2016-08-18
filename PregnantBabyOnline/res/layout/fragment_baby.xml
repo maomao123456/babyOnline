@@ -14,10 +14,11 @@
         <TextView
             android:id="@+id/textview_baby_top"
             android:layout_width="match_parent"
-            android:layout_height="42dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
             android:alpha="0.8"
             android:background="@drawable/baby_background_top"
             android:padding="8dp"
