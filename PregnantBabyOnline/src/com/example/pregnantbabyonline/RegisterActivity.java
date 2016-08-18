@@ -17,7 +17,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,7 +33,6 @@ import android.widget.Toast;
 
 import com.example.lei.Utils;
 
-@SuppressLint("ShowToast")
 public class RegisterActivity extends Activity {
 
 	EditText regAccount, regPwd, checkPwd;
@@ -50,7 +48,8 @@ public class RegisterActivity extends Activity {
 	}
 
 	public void initView() {
-		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+				.permitAll().build();
 		StrictMode.setThreadPolicy(policy);
 		regAccount = (EditText) findViewById(R.id.register_account);
 		regPwd = (EditText) findViewById(R.id.register_pwd);
@@ -135,18 +134,20 @@ public class RegisterActivity extends Activity {
 		}
 		return false;
 	}
-	
-	public void complete(){
-		new Thread(new Runnable(){
-			public void run(){
+
+	public void complete() {
+		new Thread(new Runnable() {
+			public void run() {
 				String httpUrl = "http://192.168.1.145/index.php/Home/Api/add";
 				HttpPost httpRequest = new HttpPost(httpUrl);
 				List<NameValuePair> params = new ArrayList<NameValuePair>();
-				params.add(new BasicNameValuePair("useraccount", regAccount.getText().toString().trim()));
-				params.add(new BasicNameValuePair("userpassword", regPwd.getText().toString().trim()));
+				params.add(new BasicNameValuePair("useraccount", regAccount
+						.getText().toString().trim()));
+				params.add(new BasicNameValuePair("userpassword", regPwd
+						.getText().toString().trim()));
 				HttpEntity httpentity = null;
 				try {
-					httpentity = new UrlEncodedFormEntity(params,"utf8");
+					httpentity = new UrlEncodedFormEntity(params, "utf8");
 				} catch (UnsupportedEncodingException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -160,13 +161,14 @@ public class RegisterActivity extends Activity {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
-				if(httpResponse.getStatusLine().getStatusCode() == 200){
+				if (httpResponse.getStatusLine().getStatusCode() == 200) {
 					String strResult = null;
 					try {
-						strResult = EntityUtils.toString(httpResponse.getEntity());
+						strResult = EntityUtils.toString(httpResponse
+								.getEntity());
 					} catch (ParseException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -175,11 +177,13 @@ public class RegisterActivity extends Activity {
 						e.printStackTrace();
 					}
 					Looper.prepare();
-					Toast.makeText(RegisterActivity.this, strResult, Toast.LENGTH_SHORT).show();
+					Toast.makeText(RegisterActivity.this, strResult + "注册成功",
+							Toast.LENGTH_SHORT).show();
 					Looper.loop();
-				}else{
+				} else {
 					Looper.prepare();
-					Toast.makeText(RegisterActivity.this, "用户已存在", Toast.LENGTH_SHORT).show();
+					Toast.makeText(RegisterActivity.this, "用户已存在",
+							Toast.LENGTH_SHORT).show();
 					Looper.loop();
 				}
 			}

@@ -1,0 +1,74 @@
+diff a/PregnantBabyOnline/src/com/example/pregnantbabyonline/RegisterActivity.java b/PregnantBabyOnline/src/com/example/pregnantbabyonline/RegisterActivity.java	(rejected hunks)
+@@ -50,27 +50,66 @@
+ 	}
+ 
+ 	public void initView() {
++		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
++		StrictMode.setThreadPolicy(policy);
+ 		regAccount = (EditText) findViewById(R.id.register_account);
+ 		regPwd = (EditText) findViewById(R.id.register_pwd);
+ 		checkPwd = (EditText) findViewById(R.id.check_pwd);
+ 		register = (Button) findViewById(R.id.register_button);
+ 		backLogin = (ImageButton) findViewById(R.id.regidter_back);
++		regAccount.setOnFocusChangeListener(changeListener);
++		regPwd.setOnFocusChangeListener(changeListener);
++		checkPwd.setOnFocusChangeListener(changeListener);
+ 		register.setOnClickListener(clickListener);
+ 		backLogin.setOnClickListener(clickListener);
+ 
+ 	}
+ 
++	OnFocusChangeListener changeListener = new OnFocusChangeListener() {
++		public void onFocusChange(View v, boolean hasFocus) {
++			String phoneNum = regAccount.getText().toString();
++			boolean phoneType = Utils.isRightPhone(phoneNum);
++			String phonePwd = regPwd.getText().toString();
++			String conPwd = checkPwd.getText().toString();
++			switch (v.getId()) {
++			case R.id.register_account:
++				if (!hasFocus) {
++					if (phoneType == false) {
++						Toast.makeText(RegisterActivity.this, "请输入正确的手机号码",
++								Toast.LENGTH_SHORT).show();
++					}
++				}
++				break;
++			case R.id.register_pwd:
++				if (!hasFocus) {
++					if (phonePwd.length() < 6) {
++						Toast.makeText(RegisterActivity.this, "密码不能少于6个字符",
++								Toast.LENGTH_SHORT).show();
++					}
++				}
++				break;
++			case R.id.check_pwd:
++				if (!hasFocus) {
++					if (conPwd.equals(phonePwd)) {
++						Toast.makeText(RegisterActivity.this,
++								"两次密码输入不一致,请重新输入", Toast.LENGTH_SHORT).show();
++					}
++				}
++				break;
++			default:
++				break;
++			}
++		}
++	};
++
+ 	OnClickListener clickListener = new OnClickListener() {
+ 		public void onClick(View v) {
+ 			switch (v.getId()) {
+ 			case R.id.register_button:
+-				if(checkedEdit()==false){//	判断输入框内容，FALSE重新调用checkedEdit()方法
+-					checkedEdit();
+-				}else{
+-					Toast.makeText(RegisterActivity.this, "注册成功", 3000).show();
+-					saveData();// 在注册成功之后把用户的信息保存在本地的数据库
+-					backLogin();// 自动跳转回登录界面
++				if (!checkEdit()) {
++					return;
+ 				}
++				complete();
+ 				break;
+ 			case R.id.regidter_back:
+ 				backLogin();// 再点击<按钮后，返回登录界面
