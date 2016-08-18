@@ -292,7 +292,7 @@ public class QuanZiAdapter extends BaseAdapter {
 				}
 			}
 		});
-		huifu.setOnClickListener(new OnClickListener() {
+		/*huifu.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				switch (position) {
 				case 0:
@@ -312,7 +312,7 @@ public class QuanZiAdapter extends BaseAdapter {
 					break;
 				}
 			}
-		});
+		});*/
 
 		return convertView;
 	}

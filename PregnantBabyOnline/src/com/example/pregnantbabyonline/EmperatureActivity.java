@@ -68,6 +68,7 @@ public class EmperatureActivity  extends Activity{
 			// TODO Auto-generated method stub
 			Intent intent=new Intent(EmperatureActivity.this, BeiYunRiLiActivity.class);
 			startActivity(intent);
+			EmperatureActivity.this.finish();
 			
 			
 		}
