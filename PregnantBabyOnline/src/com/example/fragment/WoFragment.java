@@ -58,12 +58,10 @@ public class WoFragment  extends Fragment{
 			Toast.makeText(getActivity(), "2", Toast.LENGTH_SHORT).show();
 			Intent intent1=new Intent(getActivity(), FeedbackActivity.class);
 			startActivity(intent1);
-			getActivity().finish();
 			break;
 		case R.id.linearLayout3:
 			Intent intent=new Intent(getActivity(), BeiYunRiLiActivity.class);
 			startActivity(intent);
-			Toast.makeText(getActivity(), "跳转到日历界面", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.linearLayout4:
 			Toast.makeText(getActivity(), "4", Toast.LENGTH_SHORT).show();
