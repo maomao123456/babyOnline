@@ -32,9 +32,7 @@ public class FeedbackActivity extends Activity{
 			Toast.makeText(FeedbackActivity.this, "谢谢您的提交", Toast.LENGTH_SHORT).show();
 		}
 	};
-	
 	OnClickListener onClickListener2=new OnClickListener() {
-		
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
