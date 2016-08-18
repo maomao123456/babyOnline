@@ -79,6 +79,7 @@
             android:drawableLeft="@drawable/login_password"
             android:drawablePadding="9dp"
             android:hint="@string/login_password"
+            android:inputType="textPassword"
             android:textColorHint="@color/word_color"
             android:textSize="13sp" />
 
@@ -141,8 +142,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginStart="12.5dp"
             android:layout_marginLeft="12.5dp"
+            android:layout_marginStart="12.5dp"
             android:gravity="center_horizontal"
             android:text="@string/third_login"
             android:textColor="@color/word_color"
@@ -160,7 +161,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <TextView 
+        <TextView
             android:id="@+id/qq"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -171,7 +172,7 @@
             android:textColor="@color/white"
             android:textSize="12sp" />
 
-        <TextView 
+        <TextView
             android:id="@+id/sina_weibo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -182,7 +183,7 @@
             android:textColor="@color/white"
             android:textSize="12sp" />
 
-        <TextView 
+        <TextView
             android:id="@+id/wechat"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
