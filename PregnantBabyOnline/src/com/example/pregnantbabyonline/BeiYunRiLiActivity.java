@@ -13,20 +13,29 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class BeiYunRiLiActivity extends Activity {
+public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
+	//手指按下的点为(x1, y1)手指离开屏幕的点为(x2, y2)
+	 float x1 = 0;
+	 float x2 = 0;
+	 float y1 = 0;
+	 float y2 = 0;
+	 
 	ImageView back;
 	ImageView rightData;
 	TextView riqi;
 	ImageView leftData;
 	TextView xiugaijingqi;
+	LinearLayout riliBuju;
 	CheckBox yimaXuanze;
 	CheckBox yesuan;
 	CheckBox tongfang;
@@ -63,6 +72,7 @@ public class BeiYunRiLiActivity extends Activity {
 		getRiliId();
 		timeChange();
 		getYimachecked();
+		
 	}
 	/**
 	 * 记忆上次用户的选择状态（yimachecked）
@@ -476,6 +486,8 @@ public class BeiYunRiLiActivity extends Activity {
 		leftData = (ImageView) findViewById(R.id.rili_data_left);
 		xiugaijingqi = (TextView) findViewById(R.id.rili_xiugaijingqi);
 		yimaXuanze = (CheckBox) findViewById(R.id.rili_yima_xuanze);
+		riliBuju=(LinearLayout)findViewById(R.id.rili_buju);
+		riliBuju.setOnTouchListener(this);
 		yesuan = (CheckBox) findViewById(R.id.rili_yesuan);
 		tongfang = (CheckBox) findViewById(R.id.rili_tongfang);
 		wendu = (CheckBox) findViewById(R.id.rili_wendu);
@@ -913,7 +925,49 @@ public class BeiYunRiLiActivity extends Activity {
 		rilix42 = (TextView) findViewById(R.id.rilix42);
 		sixHang=(LinearLayout)findViewById(R.id.rili_sixhang);
 	}
-
+	/**
+	 * 此页面的滑动监听方法 如下；
+	 */
+	public boolean onTouch(View v, MotionEvent event) {
+		if(event.getAction() == MotionEvent.ACTION_DOWN) {
+			  //当手指按下的时候
+			  x1 = event.getX();
+			  y1 = event.getY();
+			 }
+				if (event.getAction() == MotionEvent.ACTION_UP) {
+					// 当手指离开的时候
+					x2 = event.getX();
+					y2 = event.getY();
+					if (y1 - y2 > 50) {
+						/*Toast.makeText(BeiYunRiLiActivity.this, "向上滑",
+								Toast.LENGTH_SHORT).show();*/
+					} else if (y2 - y1 > 50) {
+						/*Toast.makeText(BeiYunRiLiActivity.this, "向下滑",
+								Toast.LENGTH_SHORT).show();*/
+					} else if (x1 - x2 > 50) {
+						Toast.makeText(BeiYunRiLiActivity.this, "向左滑，跳转到下一个月",
+								Toast.LENGTH_SHORT).show();
+						numb++;
+						timeChange();
+						if(numb<=0){
+							xiugaijingqi.setVisibility(View.VISIBLE);
+						}else{
+							xiugaijingqi.setVisibility(View.GONE);
+						}	
+					} else if (x2 - x1 > 50) {
+						Toast.makeText(BeiYunRiLiActivity.this, "向右滑，跳转到上一个月",
+								Toast.LENGTH_SHORT).show();
+						numb--;
+						timeChange();
+						if(numb<=0){
+							xiugaijingqi.setVisibility(View.VISIBLE);
+						}else{
+							xiugaijingqi.setVisibility(View.GONE);
+						}	
+					}
+				}
+				return true;
+	}
 	/**
 	 * 获取当前时间的第二种方法 不废CPU
 	 */
@@ -938,8 +992,18 @@ public class BeiYunRiLiActivity extends Activity {
 	 */
 
 }
-
+/**
+ * 获得某月的天数  自定义类
+ * @author Administrator
+ *
+ */
 class DateUtil {
+	/**
+	 * 获取天数的方法
+	 * @param year
+	 * @param month
+	 * @return
+	 */
 	public static int getMonthDays(int year, int month) {
 		if (month > 12) {
 			month = 1;

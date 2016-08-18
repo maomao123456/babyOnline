@@ -1,7 +1,5 @@
 package com.example.pregnantbabyonline;
 
-import com.example.fragment.WoFragment;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -36,7 +34,7 @@ public class FeedbackActivity extends Activity{
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			Intent intent=new Intent(FeedbackActivity.this, WoFragment.class);
+			Intent intent=new Intent(FeedbackActivity.this, ShouyeActivity.class);
 			startActivity(intent);
 			FeedbackActivity.this.finish();
 		}
