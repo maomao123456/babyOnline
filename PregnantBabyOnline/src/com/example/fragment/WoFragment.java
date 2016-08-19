@@ -14,15 +14,16 @@ import android.widget.Toast;
 
 import com.example.lei.CircularImage;
 import com.example.pregnantbabyonline.BeiYunRiLiActivity;
+import com.example.pregnantbabyonline.EmperatureActivity;
 import com.example.pregnantbabyonline.FeedbackActivity;
 import com.example.pregnantbabyonline.R;
 import com.example.pregnantbabyonline.ShareActivity;
 
 
 public class WoFragment  extends Fragment{
-	
 	int guanzhu=0;
 	int shoucang=0;
+	
 	LinearLayout linearlayout1,linearlayout2,linearlayout3,linearlayout4,linearlayout5,linearlayout6;
 	LayoutInflater inflater;
 	View view;
@@ -81,6 +82,8 @@ public class WoFragment  extends Fragment{
 			break;
 		case R.id.linearLayout4:
 			Toast.makeText(getActivity(), "4", Toast.LENGTH_SHORT).show();
+			Intent intent3=new Intent(getActivity(), EmperatureActivity.class);
+			startActivity(intent3);
 	
 			break;
 		case R.id.linearLayout5:
@@ -120,6 +123,8 @@ public class WoFragment  extends Fragment{
 	};
 	
 	public void getSave(){
+		int guanzhu=0;
+		int shoucang=0;
 		
 		SharedPreferences sharedPreferences = getActivity().getSharedPreferences("quanziChild", getActivity().MODE_PRIVATE);
 		for(int numb=1;numb<5;numb++){
@@ -136,10 +141,17 @@ public class WoFragment  extends Fragment{
 				shoucang++;
 			}
 		}
-		Toast.makeText(getActivity(), guanzhu+"关注的数量"+shoucang+"收藏数量", Toast.LENGTH_LONG).show();
+		
 	}
 
-
+	
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
+	guanzhu=0;
+	shoucang=0;
+		super.onResume();
+	}
 
 	
 	

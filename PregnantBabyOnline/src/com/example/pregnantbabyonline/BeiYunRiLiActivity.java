@@ -944,6 +944,7 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 		return super.onKeyDown(keyCode, event);
 	}*/
 
+	
 }
 /**
  * 获得某月的天数  自定义类
