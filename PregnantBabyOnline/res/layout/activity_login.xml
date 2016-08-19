@@ -52,6 +52,7 @@
             android:drawableLeft="@drawable/login_user"
             android:drawablePadding="9dp"
             android:hint="@string/login_account"
+            android:textColor="@color/white"
             android:textColorHint="@color/word_color"
             android:textSize="13sp" />
 
@@ -80,6 +81,7 @@
             android:drawablePadding="9dp"
             android:hint="@string/login_password"
             android:inputType="textPassword"
+            android:textColor="@color/white"
             android:textColorHint="@color/word_color"
             android:textSize="13sp" />
 

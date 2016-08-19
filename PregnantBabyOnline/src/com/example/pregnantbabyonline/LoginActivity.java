@@ -212,7 +212,6 @@ public class LoginActivity extends Activity {
 					inputStream.close();
 					str = builder.toString();
 					myHandler.sendEmptyMessage(0);
-
 				} catch (MalformedURLException e) {
 					e.printStackTrace();
 				} catch (IOException e) {
