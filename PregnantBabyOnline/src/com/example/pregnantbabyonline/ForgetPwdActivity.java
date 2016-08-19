@@ -176,13 +176,13 @@ public class ForgetPwdActivity extends Activity {
 
 				StringBuilder builder = new StringBuilder();
 				try {
-					String httpHost = "http://192.168.1.145/index.php/Home/api/read";
+					String httpHost = "http://192.168.1.138/index.php/Home/api/read";
 					String name = "useraccount=" + phoneNum;
 					String urlName = httpHost + "?" + name;
 					URL url = new URL(urlName);
 					HttpURLConnection connection = (HttpURLConnection) url
 							.openConnection();
-					connection.setConnectTimeout(5000);
+					connection.setConnectTimeout(3000);
 					connection.setRequestProperty("accept", "*/*");// 设置客户端接受那些类型的信息，通配符代表接收所有类型的数据
 					connection.setRequestProperty("connection", "Keep-Alive");// 保持长链接
 					connection

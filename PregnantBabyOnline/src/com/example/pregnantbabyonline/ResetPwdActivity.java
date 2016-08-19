@@ -32,7 +32,7 @@ public class ResetPwdActivity extends Activity {
 		new Thread(new Runnable(){
 			public void run(){
 				StringBuilder builder = new StringBuilder();
-				String httpPost = "http://192.168.1.145/index.php/Home/Api/update";
+				String httpPost = "http://192.168.1.138/index.php/Home/Api/update";
 				String name = "useraccount=" + useraccount;
 				String urlName = httpPost + name;
 				try {
