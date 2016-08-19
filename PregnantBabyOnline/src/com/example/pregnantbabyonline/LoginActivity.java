@@ -18,7 +18,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -30,8 +29,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.lei.MySQLiteOpenHelper;
-
 @SuppressLint("WorldReadableFiles")
 public class LoginActivity extends Activity {
 
@@ -39,8 +36,6 @@ public class LoginActivity extends Activity {
 	EditText phoneNum, password;
 	Button registerNow, login, forgetPassword, haveQuestion;
 	TextView QQ, sina, wechat;
-	MySQLiteOpenHelper mysql;
-	Cursor cursor;
 
 	@SuppressWarnings("deprecation")
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +43,7 @@ public class LoginActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_login);
 
+		//引导页面的跳转
 		// 读取SharedPreferences中需要的数据
 		preferences = getSharedPreferences("count", MODE_WORLD_READABLE);
 		int count = preferences.getInt("count", 0);// 登录程序的次数，初始值为0
@@ -98,6 +94,7 @@ public class LoginActivity extends Activity {
 				Intent register = new Intent(LoginActivity.this,
 						RegisterActivity.class);
 				startActivity(register);
+				finish();
 				break;
 			case R.id.login_button:
 				if (!checkEdit()) {
@@ -133,24 +130,28 @@ public class LoginActivity extends Activity {
 	// 登录验证账号密码方法
 	public void login() {
 		loginType(phoneNum.getText().toString(), password.getText().toString());
+		finish();
 	}
 	
 	//QQ登录
 	public void loginQQ(){
 		Toast.makeText(LoginActivity.this, "QQ没有实现", Toast.LENGTH_SHORT)
 		.show();
+		finish();
 	}
 	
 	//微博登录
 	public void loginWeibo(){
 		Toast.makeText(LoginActivity.this, "微博没有实现", Toast.LENGTH_SHORT)
 		.show();
+		finish();
 	}
 	
 	//微信登录
 	public void loginWechat(){
 		Toast.makeText(LoginActivity.this, "微信没有实现", Toast.LENGTH_SHORT)
 		.show();
+		finish();
 	}
 
 	// 判断输入框内容是否为空
@@ -239,6 +240,7 @@ public class LoginActivity extends Activity {
 					Intent intent = new Intent();
 					intent.setClass(LoginActivity.this, ShouYeActivity.class);// 登录成功，跳转到首页
 					startActivity(intent);
+					finish();
 				}
 
 			} catch (JSONException e) {

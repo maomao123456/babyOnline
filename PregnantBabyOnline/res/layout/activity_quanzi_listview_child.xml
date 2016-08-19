@@ -32,7 +32,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="时尚辣妈"
+                    android:text=""
                     android:textColor="@color/fenhongse"
                     android:textSize="18sp" />
 
@@ -124,7 +124,7 @@
                         android:id="@+id/quanzi_child_title"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:text="50岁，离过两次婚，带着三个娃,人生大逆转！"
+                        android:text="等待数据加载"
                         android:textColor="#00000f"
                         android:textSize="18sp" />
 
@@ -132,19 +132,15 @@
                         android:id="@+id/quanzi_child_tupian"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/datouxiang1" />
+                        />
 
                     <TextView
                         android:id="@+id/quanzi_child_neirong"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
+                        android:padding="10dp"
                         android:layout_marginTop="5dp"
-                        android:text="		一个女人，50多岁。先后经历了两次失败的婚姻，带着三个孩子。这么看上去，是乎有点凄凉。
-            		然而这位母亲现在已是时尚辣妈，小编带大家走进这位母亲的故事。
-            		据辣妈介绍她没结婚前就有些偏胖，不巧的是生完第一个小孩后身体越来越胖，一发不可收拾。后来经常遭到丈夫的嫌弃，感情也出现了问题，最终走向了离婚这条路。
-           			 第二段婚姻大致也是应为自己肥胖导致离婚，听到这里小编也是很同情啊。但不得不说现在的这位母亲根本判如两人啊! 原来正因此事这位母亲坚持锻炼，从不懈怠久而久之就造就现在的辣妈。我只想说辣妈好样的，让之前抛弃你的人后悔去吧。
-           			 所以小编提醒大家 努力就有收货，坚持就能成功！"
-                        android:textColor="#848484"
+                        android:textColor="#424242"
                         android:textSize="15sp" />
                 </LinearLayout>
             </LinearLayout>

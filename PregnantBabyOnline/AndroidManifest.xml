@@ -40,6 +40,7 @@
 
 
         <!-- android:theme="@android:style/Theme.Holo.NoActionBar.TranslucentDecor" -->
+        <!-- 短信验证 -->
         <activity
             android:name="cn.smssdk.SMSSDKUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -47,6 +48,7 @@
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".ShouYeActivity"
+            android:icon="@drawable/baby_born"
             android:label="@string/app_name"
             android:launchMode="singleTask" >
             <intent-filter>
@@ -57,7 +59,6 @@
          <activity android:name="com.example.pregnantbabyonline.RegisterActivity" 
             />
          
-        <activity android:name="com.example.pregnantbabyonline.LoginActivity"/>
         <activity android:name="com.example.pregnantbabyonline.MainActivity" 
             android:launchMode="singleTop"/>
         <!-- <activity android:name="com.example.pregnantbabyonline.ShouyeActivity" 
@@ -68,18 +69,22 @@
         <activity android:name="com.example.pregnantbabyonline.PabulumActivity" />
         <activity android:name="com.example.pregnantbabyonline.WebActivity"/>
         <activity android:name="com.example.pregnantbabyonline.QuanZiChildActivity"/>
-        <activity android:name="com.example.pregnantbabyonline.BeiYunRiLiActivity"/>
+
+        <activity android:name="com.example.pregnantbabyonline.BeiYunRiLiActivity"
+            android:launchMode="singleTask"/>
          <activity android:name="com.example.pregnantbabyonline.FeedbackActivity"/>
          <activity android:name="com.example.pregnantbabyonline.SonActivity"/>
          <activity android:name="com.example.pregnantbabyonline.AboutUsAcitivity"/>
         <activity android:name="com.example.pregnantbabyonline.SheZhiActivity"/>
+         <activity android:name="com.example.pregnantbabyonline.WoFragment"/>
          <activity android:name="com.example.pregnantbabyonline.EmperatureActivity"/>
+         <activity android:name="com.example.pregnantbabyonline.ForgetPwdActivity" />
+         <activity android:name="com.example.pregnantbabyonline.ShareActivity" />
         
         <!--
              <activity android:name="com.example.pregnantbabyonline.ShouyeActivity" 
             android:launchMode="singleTop"/>
         -->
-
         <!-- 跳转到微博的页面 -->
         <activity
             android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"

@@ -1,12 +1,26 @@
 package com.example.pregnantbabyonline;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -16,12 +30,10 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
-
-import com.example.lei.MySQLiteOpenHelper;
-import com.example.lei.Utils;
+import cn.smssdk.utils.SMSLog;
 
 @SuppressLint("HandlerLeak")
-public class ForgetPwdActivity extends Activity implements OnClickListener {
+public class ForgetPwdActivity extends Activity {
 
 	String APPKEY = "1612b8e01b6a4";// 注册后你的APPKEY
 	String APPSECRETE = "985806401e3f6b09f2e18c4b9ea95a75";
@@ -29,149 +41,35 @@ public class ForgetPwdActivity extends Activity implements OnClickListener {
 	EditText phoneNum, phoneSMS;// 手机号输入框和验证码输入框
 	Button getSMS, next;// 获取验证码的按钮和下一步的按钮
 	int i = 60;// 获取验证码倒计时60秒
-	MySQLiteOpenHelper mysql;// 数据库类
-	SQLiteDatabase sqliteDatabase;// 数据库sqliteDatabase
-	Cursor cursor;//获得数据库的表中的对象
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_forget_password);
-		initView();
-	}
-	
-	//初始化控件
-	private void initView(){
+
 		returnLogin = (ImageButton) findViewById(R.id.back_login);
 		phoneNum = (EditText) findViewById(R.id.input_phone);
 		phoneSMS = (EditText) findViewById(R.id.input_phone_code);
 		getSMS = (Button) findViewById(R.id.get_phone_code);
 		next = (Button) findViewById(R.id.next_button);
-		getSMS.setOnClickListener(this);
-		next.setOnClickListener(this);
-		
-		//启动短信验证SDK
-		SMSSDK.initSDK(this, APPKEY, APPSECRETE);
-		EventHandler eventHandler = new EventHandler(){
-			public void afterEvent(int event, int result, Object data){
-				Message msg = new Message();
-				msg.arg1 = event;
-				msg.arg2 = result;
-				msg.obj = data;
-				handler.sendMessage(msg);
-			}
-		};
-		//注册回调监听接口
-		SMSSDK.registerEventHandler(eventHandler);
-	}
+		returnLogin.setOnClickListener(clickListener);
+		getSMS.setOnClickListener(clickListener);
+		next.setOnClickListener(clickListener);
 
-	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		String phoneNums = phoneNum.getText().toString();
-		switch(v.getId()){
-		case R.id.input_phone:
-			//通过规则判断手机号码
-			if(!judgePhoneNums(phoneNums)){
-				return;
-			}
-			//通过SDK发送短信验证
-			SMSSDK.getVerificationCode("86", phoneNums);
-			//把按钮变成不可点击,并且显示倒计时(正在获取)
-			getSMS.setClickable(false);
-			getSMS.setText("重新发送(" + i + ")");
-			new Thread(new Runnable(){
-				public void run(){
-					for(; i > 0; ){
-						handler.sendEmptyMessage(-9);
-						if(i <= 0){
-							break;
-						}	
-						try {
-							Thread.sleep(1000);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					}
-					handler.sendEmptyMessage(-8);
-				}
-			}).start();
-			break;
-		case R.id.next_button:
-			//将收到的验证码和手机号提交再次核对
-			SMSSDK.submitVerificationCode("86", phoneNums, phoneNum.getText().toString());
-			
-			break;
-		default:
-			break;
-		}
-	}
-	
-	Handler handler = new Handler(){
-		@SuppressWarnings("unused")
-		public void handlerMessage(Message msg){
-			if(msg.what == -9){
-				getSMS.setText("重新发送(" + i + ")");
-			} else if(msg.what == -8){
-				getSMS.setText("获取验证码");
-				getSMS.setClickable(true);//把获取验证码按钮设置为可点击
-				i = 60;//重新设置获取验证码的时间
-			} else {
-				int event = msg.arg1;
-				int result = msg.arg2;
-				Object data = msg.obj;
-				if(result == SMSSDK.RESULT_COMPLETE){
-					//短信注册成功后，提示验证码提交成功
-					if(event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE){
-						Toast.makeText(getApplicationContext(), "验证码提交成功", Toast.LENGTH_SHORT).show();
-					} else if(event == SMSSDK.EVENT_GET_VERIFICATION_CODE){
-						Toast.makeText(getApplicationContext(), "验证码提交成功", Toast.LENGTH_SHORT).show();	
-					} else {
-						((Throwable) data).printStackTrace();
-					}
-				}
-			}
-		}
-	};
+		SMSSDK.initSDK(this, APPKEY, APPSECRETE, false);
+		EventHandler eh = new EventHandler() {
 
-	//判断手机号码输入是否正确
-	private boolean judgePhoneNums(String phoneNums){
-		boolean result = Utils.isRightPhone(phoneNums);
-		if(result){
-			return true;
-		}else{
-			Toast.makeText(ForgetPwdActivity.this, "请输入正确的手机号码", Toast.LENGTH_SHORT).show();
-		}
-		return false;
-	}
-	
-	//注销
-	protected void onDestroy(){
-		SMSSDK.unregisterAllEventHandler();
-		super.onDestroy();
-	}
-	/*// 初始化控件
-	public void initView() {
-		returnLogin = (ImageButton) findViewById(R.id.back_login);
-		phoneNum = (EditText) findViewById(R.id.input_phone);
-		code = (EditText) findViewById(R.id.input_phone_code);
-		getCode = (Button) findViewById(R.id.get_phone_code);
-		next = (Button) findViewById(R.id.next_button);
-
-		// 启动短信验证SDK
-		SMSSDK.initSDK(ForgetPwdActivity.this, APPKEY, APPSECRETE);
-		EventHandler eventHandler = new EventHandler() {
+			@Override
 			public void afterEvent(int event, int result, Object data) {
 				Message msg = new Message();
 				msg.arg1 = event;
 				msg.arg2 = result;
 				msg.obj = data;
-				handler.sendMessage(msg);
+				mHandler.sendMessage(msg);
 			}
+
 		};
-		// 注册回调监听接口
-		SMSSDK.registerEventHandler(eventHandler);
+		SMSSDK.registerEventHandler(eh);
 	}
 
 	OnClickListener clickListener = new OnClickListener() {
@@ -181,10 +79,13 @@ public class ForgetPwdActivity extends Activity implements OnClickListener {
 			// TODO Auto-generated method stub
 			switch (v.getId()) {
 			case R.id.back_login:
-				backToLogin();
+				back();
+				break;
+			case R.id.get_phone_code:
+				getsms(phoneNum.getText().toString().trim());
 				break;
 			case R.id.next_button:
-				nextToReset();
+				next();
 				break;
 			default:
 				break;
@@ -192,128 +93,154 @@ public class ForgetPwdActivity extends Activity implements OnClickListener {
 		}
 	};
 
-	// 返回登录界面
-	public void backToLogin() {
-		Intent intent = new Intent(ForgetPwdActivity.this, LoginActivity.class);
+	// 下一步页面跳转方法
+	public void next() {
+		phString = phoneNum.getText().toString();
+		Intent intent = new Intent();
+		intent.putExtra("phoneNum", phString);
+		intent.setClass(ForgetPwdActivity.this, ResetPwdActivity.class);
 		startActivity(intent);
+		finish();
 	}
 
-	// 跳转到重新设置密码界面
-	public void nextToReset() {
-		String userAccount = phoneNum.getText().toString();
-		// 将收到的验证码和手机号提交再次核对
-		SMSSDK.submitVerificationCode("86", userAccount, phoneNum.getText()
-				.toString());
+	// 返回方法
+	public void back() {
+		Intent intent = new Intent();
+		intent.setClass(ForgetPwdActivity.this, LoginActivity.class);
+		startActivity(intent);
+		finish();
 	}
 
-	// 获取验证密码
-	public void getCode() {
-		String userAccount = phoneNum.getText().toString();
-		// 通过规则判断受手机号码
-		if (!judgePhoneNums(userAccount)) {
-			return;
-		}
-		// 通过SDK发送短信验证
-		SMSSDK.getVerificationCode("86", userAccount);
-		// 把按钮变成不可点击,并且显示倒计时(正在获取)
-		getCode.setClickable(false);
-		getCode.setText("重新发送(" + i + ")");
-		new Thread(new Runnable() {
+	// 发送短信
+	String phString;
 
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				for (; i > 0; i--) {
-					handler.sendEmptyMessage(-9);
-					if (i < 0) {
-						break;
-					}
-					try {
-						Thread.sleep(1000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
+	public void getsms(String str) {
+		read(phoneNum.getText().toString().trim());
+		SMSSDK.getVerificationCode("86", str);
+		phString = str;
+
+	}
+
+	Handler mHandler = new Handler() {
+		public void handleMessage(Message msg) {
+
+			// TODO Auto-generated method stub
+			super.handleMessage(msg);
+			int event = msg.arg1;
+			int result = msg.arg2;
+			Object data = msg.obj;
+			Log.e("event", "event=" + event);
+			// System.out.println("--------result---0"+event+"--------*"+result+"--------"+data);
+
+			if (result == SMSSDK.RESULT_COMPLETE) {
+				if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
+					Toast.makeText(getApplicationContext(), "发送验证码成功",
+							Toast.LENGTH_SHORT).show();
+				} else if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {// 提交验证码成功
+					next();
 				}
-				handler.sendEmptyMessage(-8);
+			} else {
+				@SuppressWarnings("unused")
+				int status = 0;
+				try {
+					((Throwable) data).printStackTrace();
+					Throwable throwable = (Throwable) data;
+					JSONObject object = new JSONObject(throwable.getMessage());
+					String des = object.optString("detail");
+					status = object.optInt("status");
+					if (!TextUtils.isEmpty(des)) {
+						Toast.makeText(ForgetPwdActivity.this, des,
+								Toast.LENGTH_SHORT).show();
+						return;
+					}
+				} catch (Exception e) {
+					SMSLog.getInstance().w(e);
+				}
 			}
 
+		};
+	};
+
+	protected void onDestroy() {
+		super.onDestroy();
+		SMSSDK.unregisterAllEventHandler();
+	};
+
+	//判断用户是否存在
+	String str1;
+
+	public void read(final String phoneNum) {
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+
+				StringBuilder builder = new StringBuilder();
+				try {
+					String httpHost = "http://192.168.1.145/index.php/Home/api/read";
+					String name = "useraccount=" + phoneNum;
+					String urlName = httpHost + "?" + name;
+					URL url = new URL(urlName);
+					HttpURLConnection connection = (HttpURLConnection) url
+							.openConnection();
+					connection.setConnectTimeout(5000);
+					connection.setRequestProperty("accept", "*/*");// 设置客户端接受那些类型的信息，通配符代表接收所有类型的数据
+					connection.setRequestProperty("connection", "Keep-Alive");// 保持长链接
+					connection
+							.setRequestProperty("user-agent",
+									"Mozilla/4.0(compatible;MSIE 6.0;Windows NT5.1;SV1)");// 设置浏览器代理
+					connection
+							.setRequestProperty("accept-charset", "utf-8;GBK");// 客户端接受的字符集
+					connection.connect();// 建立连接
+					InputStream inputStream = connection.getInputStream();
+					Map<String, List<String>> headers = connection
+							.getHeaderFields();
+					for (String key : headers.keySet()) {
+						System.out.println(key + "----" + headers.get(key));
+
+					}
+					BufferedReader bufferedReader = new BufferedReader(
+							new InputStreamReader(inputStream));
+					String line = bufferedReader.readLine();
+					while (line != null && line.length() > 0) {
+						builder.append(line);
+						line = bufferedReader.readLine();
+					}
+					bufferedReader.close();
+					inputStream.close();
+					Log.i("builder-----", builder.toString());
+					str1 = builder.toString();
+					phoneHandler.sendEmptyMessage(0);
+				} catch (MalformedURLException e) {
+					// TODO 自动生成的 catch 块
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO 自动生成的 catch 块
+					e.printStackTrace();
+				}
+			}
 		}).start();
 	}
 
-	//
-	Handler handler = new Handler() {
-		@SuppressWarnings("unused")
-		public void handlerMessage(Message msg) {
-			if (msg.what == -9) {
-				getCode.setText("重新发送(" + i + ")");
-			} else if (msg.what == -8) {
-				getCode.setText("获取验证码");
-				getCode.setClickable(true);
-				i = 60;
-			} else {
-				int event = msg.arg1;
-				int result = msg.arg2;
-				Object data = msg.obj;
-
-				if (result == SMSSDK.RESULT_COMPLETE) {
-					// 短信注册成功之后，跳转到重置密码界面，然后提示
-					if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
-						// 验证码提交成功
-						Toast.makeText(ForgetPwdActivity.this, "提价验证码成功",
-								Toast.LENGTH_SHORT).show();
-						Intent intent = new Intent(ForgetPwdActivity.this,
-								ResetPwdActivity.class);
-						startActivity(intent);
-					} else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
-						Toast.makeText(ForgetPwdActivity.this, "正在获取验证码",
-								Toast.LENGTH_SHORT).show();
-					} else {
-						((Throwable) data).printStackTrace();
-					}
+	Handler phoneHandler = new Handler() {
+		public void handleMessage(Message msg) {
+			try {
+				JSONObject jsonObject = new JSONObject(str1);
+				int status = jsonObject.getInt("status");
+				String message = jsonObject.getString("message");
+				if (status == 2) {
+					Toast.makeText(ForgetPwdActivity.this, message,
+							Toast.LENGTH_SHORT).show();				
+				} else {
+					Toast.makeText(ForgetPwdActivity.this, message,
+							Toast.LENGTH_SHORT).show();
+					getsms(phoneNum.getText().toString());
 				}
+
+			} catch (JSONException e) {
+				// TODO 自动生成的 catch 块
+				e.printStackTrace();
 			}
+
 		}
 	};
-
-	// 判断手机号的输入是否正确
-	private boolean judgePhoneNums(String phoneNums) {
-		boolean result = Utils.isRightPhone(phoneNums);
-		if (isMatchLength(phoneNums, 11) && result) {
-			return true;
-		}else {
-		Toast.makeText(ForgetPwdActivity.this, "请输入正确的手机号码", Toast.LENGTH_SHORT)
-				.show();
-		}
-		if(cursor.getCount() == 0){
-			Toast.makeText(ForgetPwdActivity.this, "找不到用户，请先注册", Toast.LENGTH_SHORT).show();
-			Intent intent = new Intent(ForgetPwdActivity.this, RegisterActivity.class);
-			startActivity(intent);
-		}
-		return false;
-	}
-	
-	//判断获取到的用户账号是否存在
-	public int checkData2() {// 判断登录的账号是否存在在数据库中
-		mysql = new MySQLiteOpenHelper(
-				ForgetPwdActivity.this, "Users", null, 1);
-		SQLiteDatabase sqliteDatabase = mysql.getWritableDatabase();// 连接到本地的数据库
-		String userName = phoneNum.getText().toString();
-		cursor = sqliteDatabase.query("Users", null, "userName='"
-				+ userName + "'", null, null, null, null);		
-		return cursor.getCount();
-	}
-	
-	// 判断一个字符串的位数
-	public static boolean isMatchLength(String str, int length) {
-		if (str.isEmpty()) {
-			return false;
-		} else {
-			return str.length() == length ? true : false;
-		}
-	}
-
-	protected void onDestroy() {
-		SMSSDK.unregisterAllEventHandler();
-		super.onDestroy();
-	}*/
 }
