@@ -42,7 +42,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".ShouYeActivity"
+            android:name=".LoginActivity"
             android:icon="@drawable/baby_born"
             android:label="@string/app_name"
             android:launchMode="singleTask" >
@@ -55,8 +55,8 @@
         <!-- <activity android:name="com.example.pregnantbabyonline.ShouYeActivity"/> -->
          <activity android:name="com.example.pregnantbabyonline.RegisterActivity" 
             />
-         <activity android:name="com.example.pregnantbabyonline.LoginActivity" 
-            />
+        <activity android:name="com.example.pregnantbabyonline.ShouYeActivity"
+            android:launchMode="singleInstance"/>
         <activity android:name="com.example.pregnantbabyonline.MainActivity" 
             android:launchMode="singleTop"/>
         <activity android:name="com.example.pregnantbabyonline.CangJingGeActivity" />

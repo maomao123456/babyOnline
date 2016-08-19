@@ -93,13 +93,9 @@ public class WoFragment  extends Fragment{
 			
 			break;
 		case R.id.linearLayout6:
-<<<<<<< HEAD
-			startActivity(new Intent(getActivity(),SheZhiActivity.class));
-=======
 			//设置
-			/*intent=new Intent(getActivity(), SheZhiActivity.class);
-			startActivity(intent);*/
->>>>>>> feature/zhangjian
+			intent=new Intent(getActivity(), SheZhiActivity.class);
+			startActivity(intent);
 			break;
 			
 		case R.id.shoucang:

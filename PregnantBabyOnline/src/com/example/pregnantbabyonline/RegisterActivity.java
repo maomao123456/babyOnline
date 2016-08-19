@@ -152,7 +152,7 @@ public class RegisterActivity extends Activity {
 	public void complete() {
 		new Thread(new Runnable() {
 			public void run() {
-				String httpUrl = "http://192.168.1.145/index.php/Home/Api/add";//PHP接口地址
+				String httpUrl = "http://192.168.1.138/index.php/Home/Api/add";//PHP接口地址
 				HttpPost httpRequest = new HttpPost(httpUrl);//http用post方法请求数据
 				List<NameValuePair> params = new ArrayList<NameValuePair>();//建立一个列表用于添加数据
 				params.add(new BasicNameValuePair("useraccount", regAccount

@@ -97,7 +97,7 @@ public class ResetPwdActivity extends Activity {
 			public void run() {
 				StringBuilder builder = new StringBuilder();
 				try {
-					String httpPost = "http://192.168.1.145/index.php/Home/Api/update";
+					String httpPost = "http://192.168.1.138/index.php/Home/Api/update";
 					String name = "useraccount=" + useraccount
 							+ "&userpassword=" + password;
 					String urlName = httpPost + "?" + name;
