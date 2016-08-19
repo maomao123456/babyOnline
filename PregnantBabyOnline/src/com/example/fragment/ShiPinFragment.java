@@ -13,7 +13,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.adapter.ShiPinAdapter;
+import com.example.baseadapter.ShiPinAdapter;
 import com.example.lei.ShiPinListview;
 import com.example.pregnantbabyonline.R;
 

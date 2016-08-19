@@ -16,7 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.adapter.ShouYeAdapter;
+import com.example.baseadapter.ShouYeAdapter;
 import com.example.lei.ShouYeListview;
 
 public class FreeWelfareActivity extends Activity{
