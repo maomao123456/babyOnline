@@ -25,7 +25,6 @@ public class ShareActivity  extends  Activity{
 			button2.setOnClickListener(onClickListener);
 		}
 		
-		
 		OnClickListener onClickListener=new OnClickListener() {
 			
 			@Override
