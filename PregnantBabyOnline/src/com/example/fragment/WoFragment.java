@@ -34,7 +34,9 @@ public class WoFragment  extends Fragment{
 		// TODO Auto-generated method stub
 		view=inflater.inflate(R.layout.activity_mine, null);
 		CircularImage cover_user_photo = (CircularImage)view. findViewById(R.id.cover_user_photo);
-		 cover_user_photo.setImageResource(R.drawable.tp6); 
+		 cover_user_photo.setImageResource(R.drawable.tp6);
+		guanzhu=0;
+		shoucang=0;
 		 getSave();
 		 
 	        linearlayout1=(LinearLayout)view.findViewById(R.id.linearLayout1);
@@ -69,10 +71,9 @@ public class WoFragment  extends Fragment{
 			
 		switch (v.getId()) {
 		case R.id.linearLayout1:
-			Toast.makeText(getActivity(), "1", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getActivity(), "暂无推送消息", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.linearLayout7:
-			Toast.makeText(getActivity(), "2", Toast.LENGTH_SHORT).show();
 			Intent intent1=new Intent(getActivity(), FeedbackActivity.class);
 			startActivity(intent1);
 			break;
@@ -81,28 +82,27 @@ public class WoFragment  extends Fragment{
 			startActivity(intent);
 			break;
 		case R.id.linearLayout4:
-			Toast.makeText(getActivity(), "4", Toast.LENGTH_SHORT).show();
 			Intent intent3=new Intent(getActivity(), EmperatureActivity.class);
 			startActivity(intent3);
 	
 			break;
 		case R.id.linearLayout5:
-			Toast.makeText(getActivity(), "5", Toast.LENGTH_SHORT).show();
 			Intent intent2=new Intent(getActivity(), ShareActivity.class);
 			startActivity(intent2);
+			
 			break;
 		case R.id.linearLayout6:
-			Toast.makeText(getActivity(), "6", Toast.LENGTH_SHORT).show();
+			//设置
+			/*intent=new Intent(getActivity(), SheZhiActivity.class);
+			startActivity(intent);*/
 			break;
 			
 		case R.id.shoucang:
 		
-			Toast.makeText(getActivity(), "6", Toast.LENGTH_SHORT).show();
 			break;
 			
 		case R.id.guanzhu:
 			
-			Toast.makeText(getActivity(), "6", Toast.LENGTH_SHORT).show();
 			break;
 
 		default:
@@ -123,8 +123,8 @@ public class WoFragment  extends Fragment{
 	};
 	
 	public void getSave(){
-		int guanzhu=0;
-		int shoucang=0;
+		guanzhu=0;
+		shoucang=0;
 		
 		SharedPreferences sharedPreferences = getActivity().getSharedPreferences("quanziChild", getActivity().MODE_PRIVATE);
 		for(int numb=1;numb<5;numb++){
@@ -144,14 +144,13 @@ public class WoFragment  extends Fragment{
 		
 	}
 
-	
-	@Override
+	/*@Override
 	public void onResume() {
 		// TODO Auto-generated method stub
 	guanzhu=0;
 	shoucang=0;
 		super.onResume();
-	}
+	}*/
 
 	
 	

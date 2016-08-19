@@ -66,7 +66,7 @@ public class EmperatureActivity  extends Activity{
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			Intent intent=new Intent(EmperatureActivity.this, BeiYunRiLiActivity.class);
+			Intent intent=new Intent(EmperatureActivity.this, ShouYeActivity.class);
 			startActivity(intent);
 			EmperatureActivity.this.finish();
 			
