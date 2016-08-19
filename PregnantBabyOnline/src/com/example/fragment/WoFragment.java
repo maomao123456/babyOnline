@@ -59,8 +59,8 @@ public class WoFragment  extends Fragment{
 	        linearlayout6.setOnClickListener(onClickListener);
 	        
 	        cover_user_photo.setOnClickListener(onClickListener2);
-	        textview2.setText(guanzhu+"");
-	        textview.setText(shoucang+"");
+	        textview.setText(guanzhu+"");
+	        textview2.setText(shoucang+"");
 		return view;
 	}
 	
