@@ -32,7 +32,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="时尚辣妈"
+                    android:text=""
                     android:textColor="@color/fenhongse"
                     android:textSize="18sp" />
 
@@ -124,7 +124,7 @@
                         android:id="@+id/quanzi_child_title"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:text="50岁，离过两次婚，带着三个娃,人生大逆转！"
+                        android:text="等待数据加载"
                         android:textColor="#00000f"
                         android:textSize="18sp" />
 
@@ -132,7 +132,7 @@
                         android:id="@+id/quanzi_child_tupian"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/datouxiang1" />
+                        />
 
                     <TextView
                         android:id="@+id/quanzi_child_neirong"
@@ -140,7 +140,6 @@
                         android:layout_height="wrap_content"
                         android:padding="10dp"
                         android:layout_marginTop="5dp"
-                        android:text="154"
                         android:textColor="#424242"
                         android:textSize="15sp" />
                 </LinearLayout>
