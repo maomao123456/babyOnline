@@ -13,6 +13,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -930,6 +931,7 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 				return true;
 	}
 
+	
 }
 /**
  * 获得某月的天数  自定义类

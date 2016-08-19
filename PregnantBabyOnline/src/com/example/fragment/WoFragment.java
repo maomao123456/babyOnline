@@ -22,9 +22,9 @@ import com.example.pregnantbabyonline.ShareActivity;
 
 
 public class WoFragment  extends Fragment{
-	
 	int guanzhu=0;
 	int shoucang=0;
+	
 	LinearLayout linearlayout1,linearlayout2,linearlayout3,linearlayout4,linearlayout5,linearlayout6;
 	LayoutInflater inflater;
 	View view;
@@ -125,6 +125,8 @@ public class WoFragment  extends Fragment{
 	};
 	
 	public void getSave(){
+		int guanzhu=0;
+		int shoucang=0;
 		
 		SharedPreferences sharedPreferences = getActivity().getSharedPreferences("quanziChild", getActivity().MODE_PRIVATE);
 		for(int numb=1;numb<5;numb++){
@@ -144,12 +146,7 @@ public class WoFragment  extends Fragment{
 		
 	}
 
-	@Override
-	public void onPause() {
-		// TODO Auto-generated method stub
-		getActivity().finish();
-		super.onPause();
-	}
+	
 	@Override
 	public void onResume() {
 		// TODO Auto-generated method stub
