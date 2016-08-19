@@ -130,6 +130,7 @@ public class LoginActivity extends Activity {
 	// 登录验证账号密码方法
 	public void login() {
 		loginType(phoneNum.getText().toString(), password.getText().toString());
+		
 		finish();
 	}
 	
@@ -240,7 +241,7 @@ public class LoginActivity extends Activity {
 					Intent intent = new Intent();
 					intent.setClass(LoginActivity.this, ShouYeActivity.class);// 登录成功，跳转到首页
 					startActivity(intent);
-					finish();
+					LoginActivity.this.finish();
 				}
 
 			} catch (JSONException e) {

@@ -13,6 +13,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,7 +30,7 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 	 float x2 = 0;
 	 float y1 = 0;
 	 float y2 = 0;
-	 
+	LinearLayout backQuyu;
 	ImageView back;
 	ImageView rightData;
 	TextView riqi;
@@ -456,6 +457,7 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 	 * 通过id找到简单的控件
 	 */
 	public void initView() {
+		backQuyu=(LinearLayout)findViewById(R.id.rili_back_quyu);
 		back = (ImageView) findViewById(R.id.rili_back);
 		rightData = (ImageView) findViewById(R.id.rili_data_right);
 		riqi = (TextView) findViewById(R.id.rili_data);
@@ -469,6 +471,7 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 		wendu = (CheckBox) findViewById(R.id.rili_wendu);
 		pailuanshizhi = (CheckBox) findViewById(R.id.rili_pailuanshizhi);
 		baidai = (CheckBox) findViewById(R.id.rili_baidai);
+		backQuyu.setOnClickListener(listener);
 		back.setOnClickListener(listener);
 		leftData.setOnClickListener(listener);
 		riqi.setOnClickListener(listener);
@@ -491,7 +494,7 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 	OnClickListener listener = new OnClickListener() {
 		public void onClick(View v) {
 			switch (v.getId()) {
-			case R.id.rili_back:
+			case R.id.rili_back_quyu:
 				Intent intent = new Intent(BeiYunRiLiActivity.this,
 						ShouYeActivity.class);
 				startActivity(intent);
@@ -905,7 +908,7 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 					} else if (y2 - y1 > 50) {
 						/*Toast.makeText(BeiYunRiLiActivity.this, "向下滑",
 								Toast.LENGTH_SHORT).show();*/
-					} else if (x1 - x2 > 50) {
+					} else if (x1 - x2 > 30) {
 						/*Toast.makeText(BeiYunRiLiActivity.this, "向左滑，跳转到下一个月",
 								Toast.LENGTH_SHORT).show();*/
 						numb++;
@@ -915,7 +918,7 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 						}else{
 							xiugaijingqi.setVisibility(View.GONE);
 						}	
-					} else if (x2 - x1 > 50) {
+					} else if (x2 - x1 > 30) {
 						/*Toast.makeText(BeiYunRiLiActivity.this, "向右滑，跳转到上一个月",
 								Toast.LENGTH_SHORT).show();*/
 						numb--;
@@ -929,6 +932,19 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 				}
 				return true;
 	}
+	/**
+	 * 系统返回键的监听 事件
+	 *//*
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if(keyCode==KeyEvent.KEYCODE_BACK){
+			Intent intent =new Intent(BeiYunRiLiActivity.this,ShouYeActivity.class);
+			startActivity(intent);
+			BeiYunRiLiActivity.this.finish();
+		}
+		return super.onKeyDown(keyCode, event);
+	}*/
 
 }
 /**

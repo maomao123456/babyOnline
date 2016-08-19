@@ -12,12 +12,14 @@ import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lei.CircularImage;
 
 public class QuanZiChildActivity extends Activity {
+	LinearLayout backQuyu;
 	ImageView back;
 	TextView type;
 	CircularImage touxiang;
@@ -259,6 +261,7 @@ public class QuanZiChildActivity extends Activity {
 	 * 通过ID找控件
 	 */
 	public void initView() {
+		backQuyu=(LinearLayout)findViewById(R.id.quanzi_child_back_quyu);
 		back = (ImageView) findViewById(R.id.quanzi_child_back);
 		type = (TextView) findViewById(R.id.quanzi_child_type);
 		touxiang = (CircularImage) findViewById(R.id.quanzi_child_touxiang);
@@ -269,6 +272,7 @@ public class QuanZiChildActivity extends Activity {
 		neirong = (TextView) findViewById(R.id.quanzi_child_neirong);
 		guanzhu=(TextView)findViewById(R.id.quanzi_child_guanzhu);
 		dingyue=(TextView)findViewById(R.id.quanzi_child_dingyue);
+		backQuyu.setOnClickListener(listener);
 		dingyue.setOnClickListener(listener);
 		guanzhu.setOnClickListener(listener);
 		back.setOnClickListener(listener);
@@ -280,7 +284,7 @@ public class QuanZiChildActivity extends Activity {
 	OnClickListener listener = new OnClickListener() {
 		public void onClick(View v) {
 			switch (v.getId()) {
-			case R.id.quanzi_child_back:
+			case R.id.quanzi_child_back_quyu:
 				Intent intent = new Intent(QuanZiChildActivity.this,
 						ShouYeActivity.class);
 				intent.putExtra("numb", 2);
