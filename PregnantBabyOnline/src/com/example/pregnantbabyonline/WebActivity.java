@@ -19,7 +19,7 @@ public class WebActivity extends Activity {
 		webview.setWebViewClient(client);//webview的监听事件
 		// 支持 JavaScript 方法
 		webview.getSettings().setJavaScriptEnabled(true);
-		String url = "https://www.baidu.com";
+		String url = "http://www.51baomu.cn/baomu1-6101-4-0-0-0-0-0-0-1-1-0-0.html";
 		// 1. 访问自带浏览器
 		 webview.loadUrl(url);
 

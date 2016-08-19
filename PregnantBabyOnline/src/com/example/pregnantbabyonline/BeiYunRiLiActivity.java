@@ -458,7 +458,6 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 	 */
 	public void initView() {
 		backQuyu=(LinearLayout)findViewById(R.id.rili_back_quyu);
-		back = (ImageView) findViewById(R.id.rili_back);
 		rightData = (ImageView) findViewById(R.id.rili_data_right);
 		riqi = (TextView) findViewById(R.id.rili_data);
 		leftData = (ImageView) findViewById(R.id.rili_data_left);
@@ -472,7 +471,6 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 		pailuanshizhi = (CheckBox) findViewById(R.id.rili_pailuanshizhi);
 		baidai = (CheckBox) findViewById(R.id.rili_baidai);
 		backQuyu.setOnClickListener(listener);
-		back.setOnClickListener(listener);
 		leftData.setOnClickListener(listener);
 		riqi.setOnClickListener(listener);
 		rightData.setOnClickListener(listener);

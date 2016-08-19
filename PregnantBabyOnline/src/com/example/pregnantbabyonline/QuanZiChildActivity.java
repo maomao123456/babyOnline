@@ -262,7 +262,6 @@ public class QuanZiChildActivity extends Activity {
 	 */
 	public void initView() {
 		backQuyu=(LinearLayout)findViewById(R.id.quanzi_child_back_quyu);
-		back = (ImageView) findViewById(R.id.quanzi_child_back);
 		type = (TextView) findViewById(R.id.quanzi_child_type);
 		touxiang = (CircularImage) findViewById(R.id.quanzi_child_touxiang);
 		nicheng = (TextView) findViewById(R.id.quanzi_child_nicheng);
@@ -275,7 +274,6 @@ public class QuanZiChildActivity extends Activity {
 		backQuyu.setOnClickListener(listener);
 		dingyue.setOnClickListener(listener);
 		guanzhu.setOnClickListener(listener);
-		back.setOnClickListener(listener);
 	}
 
 	/**

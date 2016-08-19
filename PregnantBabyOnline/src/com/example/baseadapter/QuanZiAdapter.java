@@ -90,13 +90,6 @@ public class QuanZiAdapter extends BaseAdapter {
 		TextView tiaozhuan=(TextView)windView.findViewById(R.id.quanzi_popuwindow_goxiangqingye);
 		popWinBg.setOnClickListener(listener);
 		tiaozhuan.setOnClickListener(listener);
-		
-		/*popWinBg.setOnClickListener(new OnClickListener() {
-					public void onClick(View v) {
-						popupWindow.dismiss();
-					}
-				});*/
-		
 	}
 	/**
 	 * popupWindow内部简单控件的点击事件

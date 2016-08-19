@@ -76,7 +76,6 @@ public class QuanZiFragment extends Fragment {
 		bt1 = (RadioButton) headView.findViewById(R.id.quanzi_radioButton1);
 		bt2 = (RadioButton) headView.findViewById(R.id.quanzi_radioButton2);
 		bt3 = (RadioButton) headView.findViewById(R.id.quanzi_radioButton3);
-		
 		rdgroup.setOnCheckedChangeListener(checkedChangeListener);
 		listview.setOnItemClickListener(onItemClickListener);
 	}
@@ -98,8 +97,6 @@ public class QuanZiFragment extends Fragment {
 		                intent.setData(Uri.parse(data));//为Intent设置数据  
 		                startActivity(intent);//将Intent传递给Activity  
 				}else if(viewFlipper.getDisplayedChild()==1){
-					Toast.makeText(getActivity(), "你想了解更多",
-							Toast.LENGTH_SHORT).show();
 					Intent intent=new Intent(Intent.ACTION_VIEW, uri2);
 					startActivity(intent);
 				}else if(viewFlipper.getDisplayedChild()==2){
