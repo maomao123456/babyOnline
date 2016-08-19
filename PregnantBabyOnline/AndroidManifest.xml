@@ -69,6 +69,7 @@
         <activity android:name="com.example.pregnantbabyonline.PabulumActivity" />
         <activity android:name="com.example.pregnantbabyonline.WebActivity"/>
         <activity android:name="com.example.pregnantbabyonline.QuanZiChildActivity"/>
+
         <activity android:name="com.example.pregnantbabyonline.BeiYunRiLiActivity"
             android:launchMode="singleTask"/>
          <activity android:name="com.example.pregnantbabyonline.FeedbackActivity"/>
@@ -81,7 +82,6 @@
              <activity android:name="com.example.pregnantbabyonline.ShouyeActivity" 
             android:launchMode="singleTop"/>
         -->
-
         <!-- 跳转到微博的页面 -->
         <activity
             android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
