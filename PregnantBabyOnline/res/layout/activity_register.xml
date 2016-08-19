@@ -46,6 +46,8 @@
             android:hint="@string/input_phone_number"
             android:inputType="phone"
             android:padding="9dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/word_color"
             android:textSize="12sp" />
     </LinearLayout>
 
@@ -69,6 +71,8 @@
             android:hint="@string/set_password"
             android:inputType="textPassword"
             android:padding="9dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/word_color"
             android:textSize="12sp" />
     </LinearLayout>
 
@@ -92,6 +96,8 @@
             android:hint="@string/confirm_password"
             android:inputType="textPassword"
             android:padding="9dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/word_color"
             android:textSize="12sp" />
     </LinearLayout>
 

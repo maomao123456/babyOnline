@@ -30,6 +30,9 @@ public class MainActivity extends Activity {
 		forPregnancy = (TextView) findViewById(R.id.for_pregnancy);
 		directLogin = (Button) findViewById(R.id.direct_login);
 		directLogin.setOnClickListener(clickListener);
+		bord.setOnClickListener(clickListener);
+		pregnancying.setOnClickListener(clickListener);
+		forPregnancy.setOnClickListener(clickListener);
 	}
 
 	OnClickListener clickListener = new OnClickListener() {

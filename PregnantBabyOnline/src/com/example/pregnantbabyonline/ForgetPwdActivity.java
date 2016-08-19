@@ -16,6 +16,8 @@ import org.json.JSONObject;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -40,7 +42,7 @@ public class ForgetPwdActivity extends Activity {
 	ImageButton returnLogin;// 返回登录界面
 	EditText phoneNum, phoneSMS;// 手机号输入框和验证码输入框
 	Button getSMS, next;// 获取验证码的按钮和下一步的按钮
-	int i = 60;// 获取验证码倒计时60秒
+	boolean check;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -82,10 +84,16 @@ public class ForgetPwdActivity extends Activity {
 				back();
 				break;
 			case R.id.get_phone_code:
-				getsms(phoneNum.getText().toString().trim());
+				read(phoneNum.getText().toString().trim());
 				break;
 			case R.id.next_button:
-				next();
+				if (check) {
+					SMSSDK.submitVerificationCode("86", phString, phoneSMS
+							.getText().toString());
+				} else {
+					Toast.makeText(ForgetPwdActivity.this, "请获取验证码",
+							Toast.LENGTH_SHORT).show();
+				}
 				break;
 			default:
 				break;
@@ -93,11 +101,21 @@ public class ForgetPwdActivity extends Activity {
 		}
 	};
 
+	// 缓存账号
+	String userAccount = phoneNum.getText().toString();
+
+	public void nextToName() {
+		SharedPreferences sp = getSharedPreferences("userAccount", MODE_PRIVATE);
+		Editor editor = sp.edit();
+		editor.putString("useraccount", userAccount);
+		editor.commit();
+	}
+
 	// 下一步页面跳转方法
 	public void next() {
 		phString = phoneNum.getText().toString();
 		Intent intent = new Intent();
-		intent.putExtra("phoneNum", phString);
+		// intent.putExtra("phoneNum", phString);
 		intent.setClass(ForgetPwdActivity.this, ResetPwdActivity.class);
 		startActivity(intent);
 		finish();
@@ -114,8 +132,7 @@ public class ForgetPwdActivity extends Activity {
 	// 发送短信
 	String phString;
 
-	public void getsms(String str) {
-		read(phoneNum.getText().toString().trim());
+	public void getSMS(String str) {
 		SMSSDK.getVerificationCode("86", str);
 		phString = str;
 
@@ -130,7 +147,6 @@ public class ForgetPwdActivity extends Activity {
 			int result = msg.arg2;
 			Object data = msg.obj;
 			Log.e("event", "event=" + event);
-			// System.out.println("--------result---0"+event+"--------*"+result+"--------"+data);
 
 			if (result == SMSSDK.RESULT_COMPLETE) {
 				if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
@@ -166,7 +182,7 @@ public class ForgetPwdActivity extends Activity {
 		SMSSDK.unregisterAllEventHandler();
 	};
 
-	//判断用户是否存在
+	// 判断用户是否存在
 	String str1;
 
 	public void read(final String phoneNum) {
@@ -211,10 +227,8 @@ public class ForgetPwdActivity extends Activity {
 					str1 = builder.toString();
 					phoneHandler.sendEmptyMessage(0);
 				} catch (MalformedURLException e) {
-					// TODO 自动生成的 catch 块
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO 自动生成的 catch 块
 					e.printStackTrace();
 				}
 			}
@@ -227,17 +241,13 @@ public class ForgetPwdActivity extends Activity {
 				JSONObject jsonObject = new JSONObject(str1);
 				int status = jsonObject.getInt("status");
 				String message = jsonObject.getString("message");
-				if (status == 2) {
-					Toast.makeText(ForgetPwdActivity.this, message,
-							Toast.LENGTH_SHORT).show();				
+				if (status == 1) {
+					getSMS(phoneNum.getText().toString());//用户存在时发送验证码给用户
 				} else {
 					Toast.makeText(ForgetPwdActivity.this, message,
-							Toast.LENGTH_SHORT).show();
-					getsms(phoneNum.getText().toString());
+							Toast.LENGTH_SHORT).show();//用户不存在，提示。
 				}
-
 			} catch (JSONException e) {
-				// TODO 自动生成的 catch 块
 				e.printStackTrace();
 			}
 
