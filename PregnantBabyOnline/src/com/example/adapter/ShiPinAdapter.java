@@ -88,6 +88,7 @@ public class ShiPinAdapter extends BaseAdapter{
 					uri=Uri.parse("http://v.youku.com/v_show/id_XMjQ0MzgzMDc2.html?beta&");
 					break;
 				}
+				enterWeb();
 			}
 			
 		});

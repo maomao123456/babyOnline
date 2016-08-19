@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/baby_yimiao2"
         android:textColor="@color/black"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:padding="3dp"
         android:gravity="center"
         android:layout_marginLeft="5dp"

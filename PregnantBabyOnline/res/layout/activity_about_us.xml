@@ -13,6 +13,7 @@
             android:layout_height="match_parent"
             android:id="@+id/imageview_back_about_us"
             android:src="@drawable/back_before"
+            android:onClick="back"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"/>
         <TextView 

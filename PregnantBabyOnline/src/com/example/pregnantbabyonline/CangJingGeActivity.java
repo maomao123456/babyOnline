@@ -36,7 +36,6 @@ public class CangJingGeActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_cangjingge);
 		findId();
 	}
@@ -113,7 +112,7 @@ public class CangJingGeActivity extends Activity{
 				button2.setBackgroundColor(getResources().getColor(R.color.white));
 				button3.setBackgroundColor(getResources().getColor(R.color.yellow));
 				button4.setBackgroundColor(getResources().getColor(R.color.yellow));
-				button1.setText("");
+				button1.setText("婴儿宝典");
 				button2.setText("亲子百科");
 				button3.setText(null);
 				button4.setText(null);

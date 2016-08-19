@@ -222,11 +222,13 @@ public class ShouYeFragment extends Fragment {
 			case R.id.babyhead_pop_second:
 				Toast.makeText(getActivity(), "跳转到网页", Toast.LENGTH_SHORT).show();
 				uri=Uri.parse("https://www.baidu.com");
+				popWindow.dismiss();
 				enterWeb();
 				break;
 			case R.id.baby_yimiao3:
 				uri=Uri.parse("http://wenku.baidu.com/view/2274cb1afad6195f312ba68c.html");
 				enterWeb();
+				popWindow.dismiss();
 				break;
 			}
 		}
@@ -403,7 +405,7 @@ public class ShouYeFragment extends Fragment {
 			two.setText("从出生开始宝宝就必须要打各种各样的预防针，宝妈们一定要注意了！详情请通过下面的网址来查看宝宝各个阶段的疫苗情况：");
 			three.setText("http://wenku.baidu.com/view/2274cb1afad6195f312ba68c.html");
 			three.setOnClickListener(onClickListener);
-			popWindow.showAtLocation(yimiaoPop,Gravity.CENTER,0,200);
+			popWindow.showAtLocation(yimiaoPop,Gravity.CENTER,0,100);
 		}
 	}
 	public void enterWeb(){//进入网页
