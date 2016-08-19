@@ -222,23 +222,13 @@ public class ShouYeFragment extends Fragment {
 			case R.id.babyhead_pop_second:
 				Toast.makeText(getActivity(), "跳转到网页", Toast.LENGTH_SHORT).show();
 				uri=Uri.parse("https://www.baidu.com");
-				enterWeb();
-				break;
-			case R.id.baby_yimiao2:
-				uri=Uri.parse("https://www.baidu.com");
+				popWindow.dismiss();
 				enterWeb();
 				break;
 			case R.id.baby_yimiao3:
-				uri=Uri.parse("https://www.baidu.com");
+				uri=Uri.parse("http://wenku.baidu.com/view/2274cb1afad6195f312ba68c.html");
 				enterWeb();
-				break;
-			case R.id.baby_yimiao4:
-				uri=Uri.parse("https://www.baidu.com");
-				enterWeb();
-				break;
-			case R.id.baby_yimiao5:
-				uri=Uri.parse("https://www.baidu.com");
-				enterWeb();
+				popWindow.dismiss();
 				break;
 			}
 		}
@@ -410,21 +400,12 @@ public class ShouYeFragment extends Fragment {
 					return false;
 				}
 			});
-			TextView one=(TextView)yimiaoPop.findViewById(R.id.baby_yimiao1);
 			TextView two=(TextView)yimiaoPop.findViewById(R.id.baby_yimiao2);
 			TextView three=(TextView)yimiaoPop.findViewById(R.id.baby_yimiao3);
-			TextView four=(TextView)yimiaoPop.findViewById(R.id.baby_yimiao4);
-			TextView five=(TextView)yimiaoPop.findViewById(R.id.baby_yimiao5);
-			one.setText("不同年龄层宝宝\n的疫苗接种");
-			two.setText("未满一周岁的新生儿");
-			three.setText("1~3周岁的宝宝");
-			four.setText("4~6周岁的孩子");
-			five.setText("6周岁以上的孩子");
-			two.setOnClickListener(onClickListener);
+			two.setText("从出生开始宝宝就必须要打各种各样的预防针，宝妈们一定要注意了！详情请通过下面的网址来查看宝宝各个阶段的疫苗情况：");
+			three.setText("http://wenku.baidu.com/view/2274cb1afad6195f312ba68c.html");
 			three.setOnClickListener(onClickListener);
-			four.setOnClickListener(onClickListener);
-			five.setOnClickListener(onClickListener);
-			popWindow.showAtLocation(yimiaoPop,Gravity.RIGHT,0,200);
+			popWindow.showAtLocation(yimiaoPop,Gravity.CENTER,0,100);
 		}
 	}
 	public void enterWeb(){//进入网页

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/white">
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/pink">
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/imageview_back_about_us"
+            android:src="@drawable/back_before"
+            android:onClick="back"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"/>
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textview_shezhi"
+            android:text="关于我们"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+	<ImageView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:src="@drawable/baby_born2"
+	    android:layout_gravity="center_horizontal"
+	    android:layout_marginTop="40dp"/>
+	<TextView 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:textColor="@color/black"
+	    android:text="母 婴 在 线"
+	    android:layout_marginTop="20dp"
+	    android:textSize="18sp"
+	    android:gravity="center_horizontal"/>
+	<View 
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp"
+	    android:layout_weight="1"
+	    android:background="@color/white"/>
+	<TextView 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="版本号：\n 1.0.0"
+	    android:textColor="@color/blacka"
+	    android:layout_marginLeft="20dp"/>
+	<TextView 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="10dp"
+	    android:text="官方网站：\n https://www.Mother and child online.com"
+	    android:textColor="@color/blacka"
+	    android:layout_marginLeft="20dp"/>
+	<TextView 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="10dp"
+	    android:text="官方合作网站：\n https://www.baidu.com"
+	    android:textColor="@color/blacka"
+	    android:layout_marginLeft="20dp"/>
+	<TextView 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="10dp"
+	    android:text="详情请关注微信公众号：\n DeveloperHelper"
+	    android:textColor="@color/blacka"
+	    android:layout_marginLeft="20dp"
+	    android:layout_marginBottom="40dp"/>
+</LinearLayout>

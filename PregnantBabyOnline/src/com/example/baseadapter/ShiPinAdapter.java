@@ -3,6 +3,8 @@ package com.example.baseadapter;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,6 +24,7 @@ public class ShiPinAdapter extends BaseAdapter{
 	List<ShiPinListview> list;
 	int item;
 	int[] id;
+	Uri uri;
 	
 	public ShiPinAdapter() {
 	}
@@ -74,16 +77,25 @@ public class ShiPinAdapter extends BaseAdapter{
 				switch(position){
 				case 0:
 					Toast.makeText(context, "进入到宝宝健康知识视频", Toast.LENGTH_SHORT).show();
+					uri=Uri.parse("http://v.ku6.com/show/INx5eiWPMb4TaOwQIbJPrA...html");
 					break;
 				case 1:
 					Toast.makeText(context, "进入到宝宝换尿布视频", Toast.LENGTH_SHORT).show();
+					uri=Uri.parse("http://my.tv.sohu.com/us/63258879/57645231.shtml");
 					break;
 				case 2:
 					Toast.makeText(context, "进入到交朋友视频", Toast.LENGTH_SHORT).show();
+					uri=Uri.parse("http://v.youku.com/v_show/id_XMjQ0MzgzMDc2.html?beta&");
 					break;
 				}
+				enterWeb();
 			}
+			
 		});
 		return convertView;
+	}
+	public void enterWeb(){//进入网页
+		Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+		context.startActivity(intent);
 	}
 }

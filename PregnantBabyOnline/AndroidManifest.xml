@@ -51,9 +51,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-         <activity android:name="com.example.pregnantbabyonline.RegisterActivity" />
          
         <!-- <activity android:name="com.example.pregnantbabyonline.ShouYeActivity"/> -->
+         <activity android:name="com.example.pregnantbabyonline.RegisterActivity" 
+            />
+         <activity android:name="com.example.pregnantbabyonline.LoginActivity" 
+            />
         <activity android:name="com.example.pregnantbabyonline.MainActivity" 
             android:launchMode="singleTop"/>
         <activity android:name="com.example.pregnantbabyonline.CangJingGeActivity" />
@@ -67,6 +70,8 @@
             android:launchMode="singleTask"/>
          <activity android:name="com.example.pregnantbabyonline.FeedbackActivity"/>
          <activity android:name="com.example.pregnantbabyonline.SonActivity"/>
+         <activity android:name="com.example.pregnantbabyonline.AboutUsAcitivity"/>
+        <activity android:name="com.example.pregnantbabyonline.SheZhiActivity"/>
          <activity android:name="com.example.pregnantbabyonline.WoFragment"/>
          <activity android:name="com.example.pregnantbabyonline.EmperatureActivity"/>
          <activity android:name="com.example.pregnantbabyonline.ForgetPwdActivity" />

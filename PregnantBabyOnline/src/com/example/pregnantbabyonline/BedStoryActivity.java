@@ -101,7 +101,7 @@ public class BedStoryActivity extends Activity{
 				Toast.makeText(BedStoryActivity.this, "进入第十则故事", Toast.LENGTH_SHORT).show();
 				break;
 			}
-			uri=Uri.parse("https://www.baidu.com");
+			uri=Uri.parse("http://baike.so.com/doc/5367643-5603408.html");
 			enterWeb();
 		}
 	};

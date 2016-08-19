@@ -18,6 +18,7 @@ import com.example.pregnantbabyonline.EmperatureActivity;
 import com.example.pregnantbabyonline.FeedbackActivity;
 import com.example.pregnantbabyonline.R;
 import com.example.pregnantbabyonline.ShareActivity;
+import com.example.pregnantbabyonline.SheZhiActivity;
 
 
 public class WoFragment  extends Fragment{
@@ -92,7 +93,7 @@ public class WoFragment  extends Fragment{
 			startActivity(intent2);
 			break;
 		case R.id.linearLayout6:
-			Toast.makeText(getActivity(), "6", Toast.LENGTH_SHORT).show();
+			startActivity(new Intent(getActivity(),SheZhiActivity.class));
 			break;
 			
 		case R.id.shoucang:
