@@ -113,8 +113,8 @@ public class CangJingGeActivity extends Activity{
 				button2.setBackgroundColor(getResources().getColor(R.color.white));
 				button3.setBackgroundColor(getResources().getColor(R.color.yellow));
 				button4.setBackgroundColor(getResources().getColor(R.color.yellow));
-				button1.setText("育婴宝典");
-				button2.setText("婴儿常识");
+				button1.setText("");
+				button2.setText("亲子百科");
 				button3.setText(null);
 				button4.setText(null);
 				break;
@@ -127,54 +127,45 @@ public class CangJingGeActivity extends Activity{
 			if(numb==1){
 				switch(view.getId()){
 				case R.id.button1_cangjingge:
-					Toast.makeText(CangJingGeActivity.this, "跳转到备孕常识页面", Toast.LENGTH_SHORT).show();
-					uri=Uri.parse("https://www.baidu.com");
+					uri=Uri.parse("http://www.ci123.com/article.php/62325?via=onebox");
 					enterWeb();
 					break;
 				case R.id.button2_cangjingge:
-					Toast.makeText(CangJingGeActivity.this, "跳转到饮食调理页面", Toast.LENGTH_SHORT).show();
-					uri=Uri.parse("https://www.baidu.com");
+					uri=Uri.parse("http://zu.ci123.com/special/sa982.html?via=onebox");
 					enterWeb();
 					break;
 				case R.id.button3_cangjingge:
-					Toast.makeText(CangJingGeActivity.this, "跳转到受孕技巧页面", Toast.LENGTH_SHORT).show();
-					uri=Uri.parse("https://www.baidu.com");
+					uri=Uri.parse("http://jingyan.baidu.com/article/2c8c281deb7ced0008252af6.html");
 					enterWeb();
 					break;
 				case R.id.button4_cangjingge:
-					Toast.makeText(CangJingGeActivity.this, "跳转到孕前检查页面", Toast.LENGTH_SHORT).show();
-					uri=Uri.parse("https://www.baidu.com");
+					uri=Uri.parse("http://zu.ci123.com/special/sa1212.html?via=onebox");
 					enterWeb();
 					break;
 				}
 			}else if(numb==2){
 				switch(view.getId()){
 				case R.id.button1_cangjingge:
-					Toast.makeText(CangJingGeActivity.this, "跳转到孕期注意页面", Toast.LENGTH_SHORT).show();
-					uri=Uri.parse("https://www.baidu.com");
+					uri=Uri.parse("http://www.zhihu.com/question/23881588");
 					enterWeb();
 					break;
 				case R.id.button2_cangjingge:
-					Toast.makeText(CangJingGeActivity.this, "跳转到孕期饮食页面", Toast.LENGTH_SHORT).show();
-					uri=Uri.parse("https://www.baidu.com");
+					uri=Uri.parse("http://baike.so.com/doc/5394381-5631489.html");
 					enterWeb();
 					break;
 				case R.id.button3_cangjingge:
-					Toast.makeText(CangJingGeActivity.this, "跳转到孕期检查页面", Toast.LENGTH_SHORT).show();
-					uri=Uri.parse("https://www.baidu.com");
+					uri=Uri.parse("http://baike.so.com/doc/5345007-5580452.html");
 					enterWeb();
 					break;
 				}
 			}else if(numb==3){
 				switch(view.getId()){
 				case R.id.button1_cangjingge:
-					Toast.makeText(CangJingGeActivity.this, "跳转到育婴宝典页面", Toast.LENGTH_SHORT).show();
-					uri=Uri.parse("https://www.baidu.com");
+					uri=Uri.parse("http://www.docin.com/p-259903374.html");
 					enterWeb();
 					break;
 				case R.id.button2_cangjingge:
-					Toast.makeText(CangJingGeActivity.this, "跳转到婴儿常识页面", Toast.LENGTH_SHORT).show();
-					uri=Uri.parse("https://www.baidu.com");
+					uri=Uri.parse("http://qinzi.baike.com/");
 					enterWeb();
 					break;
 				}

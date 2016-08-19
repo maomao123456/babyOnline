@@ -8,58 +8,24 @@
     <TextView 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/baby_yimiao1"
-        android:textColor="@color/rose"
-        android:textSize="12sp"
-        android:padding="3dp"
-        android:layout_marginLeft="10dp"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="@color/blacka"/>
-    <TextView 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/baby_yimiao2"
         android:textColor="@color/black"
         android:textSize="10sp"
         android:padding="3dp"
         android:gravity="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
         android:background="@drawable/baby_background_center"/>
     <TextView 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/baby_yimiao3"
-        android:textColor="@color/black"
+        android:textColor="@color/green"
         android:textSize="10sp"
         android:gravity="center"
         android:padding="3dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/baby_background_center"/>
-    <TextView 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/baby_yimiao4"
-        android:textColor="@color/black"
-        android:textSize="10sp"
-        android:gravity="center"
-        android:padding="3dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/baby_background_center"/>
-    <TextView 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/baby_yimiao5"
-        android:textColor="@color/black"
-        android:textSize="10sp"
-        android:gravity="center"
-        android:padding="3dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/baby_background_center"/>
-
+        android:layout_margin="5dp"
+        android:text="111111"
+        android:background="@null"/>
 </LinearLayout>

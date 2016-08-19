@@ -50,7 +50,7 @@ public class FreeWelfareActivity extends Activity{
 			shouye=new ShouYeListview();
 			shouye.setTupian(R.drawable.fuli_baby);
 			shouye.setTitle("母婴健康体检");
-			shouye.setName("重庆济仁医院");
+			shouye.setName("重庆大坪医院");
 			shouye.setNeirong(getString(R.string.free_welfare));
 			list.add(shouye);
 		}
@@ -107,7 +107,7 @@ public class FreeWelfareActivity extends Activity{
 				Toast.makeText(FreeWelfareActivity.this, "进入第十项福利", Toast.LENGTH_SHORT).show();
 				break;
 			}
-			uri=Uri.parse("https://www.baidu.com");
+			uri=Uri.parse("http://baike.so.com/doc/5639741-5852371.html");
 			enterWeb();
 		}
 	};
