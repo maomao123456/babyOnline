@@ -88,7 +88,6 @@ public class WoFragment  extends Fragment{
 			Toast.makeText(getActivity(), "5", Toast.LENGTH_SHORT).show();
 			Intent intent2=new Intent(getActivity(), ShareActivity.class);
 			startActivity(intent2);
-			getActivity().finish();
 			break;
 		case R.id.linearLayout6:
 			Toast.makeText(getActivity(), "6", Toast.LENGTH_SHORT).show();
