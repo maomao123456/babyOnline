@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +23,7 @@ public class CangJingGeActivity extends Activity{
 	TextView beiyun;
 	TextView yunqi;
 	TextView yinger;
-	ImageView back;
+	LinearLayout back;
 	View beiyunV;
 	View yunqiV;
 	View yingerV;
@@ -46,7 +47,7 @@ public class CangJingGeActivity extends Activity{
 		beiyunV=(View)findViewById(R.id.view_beiyun);
 		yunqiV=(View)findViewById(R.id.view_yunqi);
 		yingerV=(View)findViewById(R.id.view_yinger);
-		back=(ImageView)findViewById(R.id.imageview_back);
+		back=(LinearLayout)findViewById(R.id.imageview_back);
 		button1=(Button)findViewById(R.id.button1_cangjingge);
 		button2=(Button)findViewById(R.id.button2_cangjingge);
 		button3=(Button)findViewById(R.id.button3_cangjingge);
@@ -171,8 +172,9 @@ public class CangJingGeActivity extends Activity{
 			}
 		}
 	};
-	public void enterWeb(){//进入网页
-		Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+	public void enterWeb(){//进入webView
+		Intent intent=new Intent(CangJingGeActivity.this,MyWebActivity.class);
+		intent.putExtra("uri", uri);
 		startActivity(intent);
 	}
 }

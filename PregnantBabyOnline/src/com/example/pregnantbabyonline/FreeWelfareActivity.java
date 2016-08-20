@@ -111,8 +111,9 @@ public class FreeWelfareActivity extends Activity{
 			enterWeb();
 		}
 	};
-	public void enterWeb(){//进入网页
-		Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+	public void enterWeb(){//进入webView
+		Intent intent=new Intent(FreeWelfareActivity.this,MyWebActivity.class);
+		intent.putExtra("uri", uri);
 		startActivity(intent);
 	}
 }

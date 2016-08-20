@@ -8,13 +8,18 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/pink">
-        <ImageView 
-            android:layout_width="wrap_content"
+        <LinearLayout 
+            android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:id="@+id/imageview_back_shezhi"
-            android:src="@drawable/back_before"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"/>
+            android:orientation="vertical"
+            android:id="@+id/imageview_back_shezhi">
+            <ImageView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:src="@drawable/back_before"
+	            android:layout_centerVertical="true"
+	            android:layout_marginLeft="20dp"/>
+        </LinearLayout>
         <TextView 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

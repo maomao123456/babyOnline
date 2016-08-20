@@ -37,6 +37,7 @@ import com.example.lei.ShouYeListview;
 import com.example.pregnantbabyonline.BedStoryActivity;
 import com.example.pregnantbabyonline.CangJingGeActivity;
 import com.example.pregnantbabyonline.FreeWelfareActivity;
+import com.example.pregnantbabyonline.MyWebActivity;
 import com.example.pregnantbabyonline.PabulumActivity;
 import com.example.pregnantbabyonline.R;
 
@@ -408,8 +409,9 @@ public class ShouYeFragment extends Fragment {
 			popWindow.showAtLocation(yimiaoPop,Gravity.CENTER,0,100);
 		}
 	}
-	public void enterWeb(){//进入网页
-		Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+	public void enterWeb(){//进入webView
+		Intent intent=new Intent(getActivity(),MyWebActivity.class);
+		intent.putExtra("uri", uri);
 		startActivity(intent);
 	}
 	public void getNumb(String birthday) throws ParseException{

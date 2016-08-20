@@ -16,6 +16,7 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.lei.ShiPinListview;
+import com.example.pregnantbabyonline.MyWebActivity;
 import com.example.pregnantbabyonline.R;
 
 public class ShiPinAdapter extends BaseAdapter{
@@ -94,8 +95,9 @@ public class ShiPinAdapter extends BaseAdapter{
 		});
 		return convertView;
 	}
-	public void enterWeb(){//进入网页
-		Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+	public void enterWeb(){//进入webView
+		Intent intent=new Intent(context,MyWebActivity.class);
+		intent.putExtra("uri", uri);
 		context.startActivity(intent);
 	}
 }

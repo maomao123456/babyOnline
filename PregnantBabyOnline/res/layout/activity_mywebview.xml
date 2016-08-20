@@ -12,7 +12,8 @@
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:id="@+id/imageview_back_bedstory">
+            android:onClick="onClick"
+            android:id="@+id/imageview_back_mywebview">
             <ImageView 
 	            android:layout_width="wrap_content"
 	            android:layout_height="match_parent"
@@ -23,17 +24,14 @@
         <TextView 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textview_bedstory"
-            android:text="睡前故事"
+            android:id="@+id/textview_webview"
+            android:text="母婴在线"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:layout_centerInParent="true"/>
     </RelativeLayout>
-	<ListView 
-	    android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/listview_bedstory"
-        android:dividerHeight="3dp">
-	    
-	</ListView>
+	<WebView 
+	    android:id="@+id/mywebview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"/>
 </LinearLayout>

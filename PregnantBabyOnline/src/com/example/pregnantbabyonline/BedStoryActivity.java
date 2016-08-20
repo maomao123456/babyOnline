@@ -15,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -23,7 +24,7 @@ public class BedStoryActivity extends Activity{
 	ShouYeAdapter adapter;
 	ShouYeListview shouye;
 	List<ShouYeListview> list;
-	ImageView back;
+	LinearLayout back;
 	Uri uri;
 	int[] id={R.id.listview_image_education_baby,R.id.listview_title_baby,
 			R.id.listview_bigtitle_baby,R.id.listview_neirong_baby};
@@ -34,7 +35,7 @@ public class BedStoryActivity extends Activity{
 		setContentView(R.layout.activity_bedstory);
 		getList();
 		listview=(ListView)findViewById(R.id.listview_bedstory);
-		back=(ImageView)findViewById(R.id.imageview_back_bedstory);
+		back=(LinearLayout)findViewById(R.id.imageview_back_bedstory);
 		adapter=new ShouYeAdapter(BedStoryActivity.this, list,R.layout.listview_item_baby,id);
 		listview.setAdapter(adapter);
 		back.setOnClickListener(clickListener);
@@ -105,8 +106,9 @@ public class BedStoryActivity extends Activity{
 			enterWeb();
 		}
 	};
-	public void enterWeb(){//进入网页
-		Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+	public void enterWeb(){//进入webView
+		Intent intent=new Intent(BedStoryActivity.this,MyWebActivity.class);
+		intent.putExtra("uri", uri);
 		startActivity(intent);
 	}
 }

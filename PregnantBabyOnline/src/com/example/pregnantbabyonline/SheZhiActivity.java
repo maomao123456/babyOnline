@@ -9,13 +9,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 
 public class SheZhiActivity extends Activity{
-	ImageView back;
+	LinearLayout back;
 	RadioGroup radiogroup;
 	RadioButton beiyun_radiobutton;
 	RadioButton huaiyun_radiobutton;
@@ -61,7 +62,7 @@ public class SheZhiActivity extends Activity{
 		}
 	}
 	public void initView(){//找id
-		back=(ImageView)findViewById(R.id.imageview_back_shezhi);
+		back=(LinearLayout)findViewById(R.id.imageview_back_shezhi);
 		radiogroup=(RadioGroup)findViewById(R.id.radiogroup_shezhi);
 		beiyun_radiobutton=(RadioButton)findViewById(R.id.radiobutton_beiyun);
 		huaiyun_radiobutton=(RadioButton)findViewById(R.id.radiobutton_huaiyun);
