@@ -25,18 +25,23 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class ResetPwdActivity extends Activity {
 
 	EditText newPassword, confirmNewPassword;
 	Button confirmBtn;
 	ImageButton back;
+	String phoneNum;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_reset_password);
+		
+		Bundle bundle = this.getIntent().getExtras();
+		phoneNum = bundle.getString("phoneNum");
 		initView();
 	}
 
@@ -57,7 +62,7 @@ public class ResetPwdActivity extends Activity {
 				Intent intent = new Intent();
 				intent.setClass(ResetPwdActivity.this, ForgetPwdActivity.class);
 				startActivity(intent);
-				finish();
+				
 				break;
 
 			default:
@@ -69,8 +74,16 @@ public class ResetPwdActivity extends Activity {
 	public void complete(String str) {
 		if (judgePassword(str)) {
 			if (str.equals(confirmNewPassword.getText().toString().trim())) {
-
+				resetPassword(phoneNum, str);
+				Toast.makeText(ResetPwdActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
+				Intent intent = new Intent();
+				intent.setClass(ResetPwdActivity.this, LoginActivity.class);
+				startActivity(intent);
+			}else {
+				Toast.makeText(ResetPwdActivity.this, "密码输入不一致，请重新输入", Toast.LENGTH_SHORT).show();
 			}
+		}else {
+			Toast.makeText(ResetPwdActivity.this, "请输入6-16位的字符", Toast.LENGTH_SHORT).show();
 		}
 	}
 
