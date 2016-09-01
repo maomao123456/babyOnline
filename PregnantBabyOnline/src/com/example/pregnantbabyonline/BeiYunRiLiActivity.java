@@ -906,7 +906,7 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 					} else if (y2 - y1 > 50) {
 						/*Toast.makeText(BeiYunRiLiActivity.this, "向下滑",
 								Toast.LENGTH_SHORT).show();*/
-					} else if (x1 - x2 > 30) {
+					} else if (x1 - x2 > 20) {
 						/*Toast.makeText(BeiYunRiLiActivity.this, "向左滑，跳转到下一个月",
 								Toast.LENGTH_SHORT).show();*/
 						numb++;
@@ -916,7 +916,7 @@ public class BeiYunRiLiActivity extends Activity implements OnTouchListener{
 						}else{
 							xiugaijingqi.setVisibility(View.GONE);
 						}	
-					} else if (x2 - x1 > 30) {
+					} else if (x2 - x1 > 20) {
 						/*Toast.makeText(BeiYunRiLiActivity.this, "向右滑，跳转到上一个月",
 								Toast.LENGTH_SHORT).show();*/
 						numb--;

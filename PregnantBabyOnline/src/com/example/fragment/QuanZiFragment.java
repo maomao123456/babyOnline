@@ -12,6 +12,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewParent;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -30,6 +31,10 @@ import com.example.pregnantbabyonline.R;
 import com.example.pregnantbabyonline.WebActivity;
 
 public class QuanZiFragment extends Fragment {
+	float x1 = 0;
+	float x2 = 0;
+	float y1 = 0;
+	float y2 = 0;
 	View view;
 	View headView;
 	View listChlid;
@@ -80,32 +85,87 @@ public class QuanZiFragment extends Fragment {
 		listview.setOnItemClickListener(onItemClickListener);
 	}
 	/**
-	 * 全局点击事件
+	 * ViewFlipper点击事件及手势监听
 	 */
 	OnTouchListener touchListener=new OnTouchListener() {
 		public boolean onTouch(View v, MotionEvent event) {
 			Uri uri2=Uri.parse("https://www.baidu.com");
 			Uri uri3=Uri.parse("http://www.51baomu.cn/baomu1-6101-4-0-0-0-0-0-0-1-1-0-0.html");
-			if(event.getAction()==MotionEvent.ACTION_UP){//单独使用时需要返回true才能监听到UP事件
-				if(viewFlipper.getDisplayedChild()==0){
-					Toast.makeText(getActivity(), "万家育婴师欢迎你！",
-							Toast.LENGTH_SHORT).show();
-					 Intent intent=new Intent();//创建Intent对象  
-		                intent.setAction(Intent.ACTION_VIEW);//为Intent设置动作  
-		                //获取编辑框里面的文本内容  
-		                String data="http://tv.sogou.com/v?query=%CD%F2%BC%D2%D3%FD%D3%A4%CA%A6&p=40230600&tn=0&st=255";
-		                intent.setData(Uri.parse(data));//为Intent设置数据  
-		                startActivity(intent);//将Intent传递给Activity  
-				}else if(viewFlipper.getDisplayedChild()==1){
-					Intent intent=new Intent(Intent.ACTION_VIEW, uri2);
-					startActivity(intent);
-				}else if(viewFlipper.getDisplayedChild()==2){
-					Intent intent=new Intent(Intent.ACTION_VIEW, uri3);
-					//调用webview跳转到webviewActivity 地址详见webViewActivity  
-					Intent intent2=new Intent(getActivity(), WebActivity.class);
-					startActivity(intent2);
-				}
-			}
+			 switch (event.getAction()) {  
+			 case MotionEvent.ACTION_DOWN:
+				 ((ViewParent) v.getParent()).requestDisallowInterceptTouchEvent(true);
+				// 当手指按下的时候
+					x1 = event.getX();
+					y1 = event.getY();
+			    case MotionEvent.ACTION_MOVE:   
+			        break;
+			    case MotionEvent.ACTION_UP: 
+			    	 // 当手指离开的时候
+					x2 = event.getX();
+					y2 = event.getY();
+					if (y1 - y2 > 50) {// 向上滑
+					} else if (y2 - y1 > 50) {// 向下滑
+					} else if (x1 - x2 > 20) {// 向左滑 下一页
+						if (viewFlipper.getDisplayedChild() == 0) {
+							viewFlipper.stopFlipping();
+							viewFlipper.setDisplayedChild(1);
+							bt2.setChecked(true);
+							viewFlipper.startFlipping();
+						} else if (viewFlipper.getDisplayedChild() == 1) {
+							viewFlipper.stopFlipping();
+							viewFlipper.setDisplayedChild(2);
+							bt3.setChecked(true);
+							viewFlipper.startFlipping();
+						} else if (viewFlipper.getDisplayedChild() == 2) {
+							viewFlipper.stopFlipping();
+							viewFlipper.setDisplayedChild(0);
+							bt1.setChecked(true);
+							viewFlipper.startFlipping();
+						}
+					} else if (x2 - x1 > 20) {// 向右滑 上一页
+						if (viewFlipper.getDisplayedChild() == 1) {
+							viewFlipper.stopFlipping();
+							viewFlipper.setDisplayedChild(0);
+							bt1.setChecked(true);
+							viewFlipper.startFlipping();
+						} else if (viewFlipper.getDisplayedChild() == 2) {
+							viewFlipper.stopFlipping();
+							viewFlipper.setDisplayedChild(1);
+							bt2.setChecked(true);
+							viewFlipper.startFlipping();
+						} else if (viewFlipper.getDisplayedChild() == 0) {
+							viewFlipper.stopFlipping();
+							viewFlipper.setDisplayedChild(2);
+							bt3.setChecked(true);
+							viewFlipper.startFlipping();
+						} 
+					}
+					if(x2 - x1 ==0){
+						if(viewFlipper.getDisplayedChild()==0){
+							Toast.makeText(getActivity(), "万家育婴师欢迎你！",
+									Toast.LENGTH_SHORT).show();
+							 Intent intent=new Intent();//创建Intent对象  
+				                intent.setAction(Intent.ACTION_VIEW);//为Intent设置动作  
+				                //获取编辑框里面的文本内容  
+				                String data="http://tv.sogou.com/v?query=%CD%F2%BC%D2%D3%FD%D3%A4%CA%A6&p=40230600&tn=0&st=255";
+				                intent.setData(Uri.parse(data));//为Intent设置数据  
+				                startActivity(intent);//将Intent传递给Activity  
+						}else if(viewFlipper.getDisplayedChild()==1){
+							Intent intent=new Intent(Intent.ACTION_VIEW, uri2);
+							startActivity(intent);
+						}else if(viewFlipper.getDisplayedChild()==2){
+							Intent intent=new Intent(Intent.ACTION_VIEW, uri3);
+							//调用webview跳转到webviewActivity 地址详见webViewActivity  
+							Intent intent2=new Intent(getActivity(), WebActivity.class);
+							startActivity(intent2);
+						}
+					}
+					break;
+			   /* case MotionEvent.ACTION_CANCEL:  
+			        ((ViewParent) v.getParent()).requestDisallowInterceptTouchEvent(false);  
+			        break;*/  
+			    }  
+			
 			return true;
 		}
 	};
